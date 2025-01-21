@@ -16,7 +16,8 @@ function App() {
                     <img src={reactLogo} className="logo react" alt="React logo" />
                 </a>
             </div>
-            <h1>4조 민철 연습</h1>
+            <h1>4조 병합 연습 </h1>
+            <h1> ~ git branch 연습 중 ~ </h1>
         </>
     )
 }
