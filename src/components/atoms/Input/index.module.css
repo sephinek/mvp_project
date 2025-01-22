@@ -1,0 +1,23 @@
+.wrap {
+  background-color: #fff;
+  color: #222;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  height: 40px;
+  width: 200px;
+  display: block;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 6px 28px;
+  transition: 250ms ease;
+}
+
+.wrap:active {
+  transform: scale(98%);
+}
+
+.wrap::placeholder {
+  color: inherit;
+}
