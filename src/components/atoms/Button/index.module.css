@@ -1,0 +1,17 @@
+.button {
+    height: 50px;
+    background-color: darkblue;
+    color: white;
+    cursor: pointer;
+    border: 1px solid darkblue;
+    border-radius: 8px;
+    padding: 10px 40px;
+    font-size: 16px;
+}
+.button:hover{
+    background-color: rgb(3, 3, 85);
+}
+
+.button:disabled{
+    background-color: gray;
+}
