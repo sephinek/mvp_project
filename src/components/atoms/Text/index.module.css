@@ -1,0 +1,11 @@
+.wrap {
+    color :rgb(95, 135, 205);
+    background-color: #bbe5f4;
+    letter-spacing: 4px;
+    word-spacing: 4px;
+    text-shadow: 2px 1px #ffffff;
+    font-weight: 500;
+    font-variant: normal;
+    word-wrap: break-word;
+    line-height: 1.5;
+}
