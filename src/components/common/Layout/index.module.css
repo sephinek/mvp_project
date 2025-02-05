@@ -1,0 +1,13 @@
+.wrap {
+    height: 40px;
+    background-color: #13c4e8;
+
+    color: #fff;
+    border-radius: 5px;
+    padding: 30px;
+
+    border: 5px, solid, #1e8296;
+    text-align: center;
+    font-size: large;
+    font-family: 'Lato', sans-serif;
+}
