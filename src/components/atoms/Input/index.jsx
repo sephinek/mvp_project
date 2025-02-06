@@ -1,7 +1,7 @@
-import styles from './index.module.css';
+import styles from './index.module.css'
 
-const Input = ({ ...rest }) => {
-  return <input {...rest} className={styles.wrap} />;
-};
+const Input = ({ inputRef, ...rest }) => {
+    return <input ref={inputRef} {...rest} className={styles.wrap} />
+}
 
-export default Input;
+export default Input
