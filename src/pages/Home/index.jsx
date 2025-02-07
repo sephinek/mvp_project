@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import Title from '../../components/atoms/Title';
+import useNavigationPage from '../../hooks/useNavigationPage';
 
 const Home = () => {
-  const location = useLocation();
+  const { state } = useNavigationPage();
+
   return (
     <>
-      <Title>나의 비전은 {location.state.item}</Title>
+      <Title>나의 비전은 {state}</Title>
     </>
   );
 };
