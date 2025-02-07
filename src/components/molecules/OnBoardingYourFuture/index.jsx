@@ -2,13 +2,16 @@ import { useRef } from 'react'
 import Input from '../../atoms/Input'
 import Title from '../../atoms/Title'
 import Button from '../../atoms/Button'
+import { useNavigate } from 'react-router-dom'
 
 const OnBoardingYourFuture = ({ nextStep }) => {
     const ref = useRef(null)
+    const navigation = useNavigate()
 
     const handleNextStep = () => {
         const item = ref.current.value
         nextStep(item)
+        navigation('/home', { state: { item: item } })
     }
 
     return (

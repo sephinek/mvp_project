@@ -1,41 +1,14 @@
 import { useState } from 'react'
-
-import OnBoardingStart from '../../components/molecules/OnBoardingStart'
-import OnBoardingYourFuture from '../../components/molecules/OnBoardingYourFuture'
+import { useLocation } from 'react-router-dom'
+import Title from '../../components/atoms/Title'
 
 const Home = () => {
-    const [step, setStep] = useState(0)
-    const [onBoardingArr, setOnBoardingArr] = useState([])
-
-    const nextStep = () => {
-        setStep(step + 1)
-    }
-
-    const beforeStep = () => {
-        setStep(step - 1)
-    }
-
-    const handleOnBoarding = item => {
-        const result = [...onBoardingArr]
-        result[step] = item
-        setOnBoardingArr(result)
-        nextStep()
-    }
-
-    switch (step) {
-        case 0:
-            return <OnBoardingStart nextStep={handleOnBoarding} />
-        case 1:
-            if (onBoardingArr[0] === 'yes') {
-                return <OnBoardingYourFuture nextStep={handleOnBoarding} />
-            } else {
-                return <div>아니요 선택함</div>
-            }
-        case 2:
-            return <div>{onBoardingArr[1]}</div>
-        default:
-            break
-    }
+    const location = useLocation()
+    return (
+        <>
+            <Title>나의 비전은 {location.state.item}</Title>
+        </>
+    )
 }
 
 export default Home
