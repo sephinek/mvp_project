@@ -1,9 +1,11 @@
+import SectionTitle from '../../atoms/SectionTitle';
 import styles from './index.module.css';
 
 export default function Goals() {
   return (
     <section className={styles.goalsContainer}>
-      {/* Section Title Here */}
+      <SectionTitle titleEn='Goals' titleKr='목표' />
+
       <ul className={styles.goalsList}>
         <li className={styles.goalBox}>
           <div className={styles.titleBox}>
