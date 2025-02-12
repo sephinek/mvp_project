@@ -6,8 +6,8 @@ import styles from './index.module.css';
 export default function Main() {
   return (
     <div>
-      <Goals />
       <Vision />
+      <Goals />
       <Plans />
     </div>
   );
