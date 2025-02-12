@@ -1,4 +1,29 @@
 .wrap {
+<<<<<<< HEAD
+    width: 500px;
+    height: auto;
+    background-color: #f8f8f8;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #555;
+}
+
+.input_wrap {
+    margin-bottom: 20px;
+}
+
+.flexbox {
+    display: flex;
+    justify-content: flex-start;
+=======
   background-color: beige;
   padding: 20px;
   border-radius: 5px;
@@ -19,4 +44,5 @@
 
 .input_wrap {
   margin-bottom: 10px;
+>>>>>>> 8bc137926d5027b0ba3642d3ad1965e6848b3edd
 }
