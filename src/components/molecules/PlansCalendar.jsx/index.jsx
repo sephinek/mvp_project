@@ -3,6 +3,7 @@ import { addDays, getDate, getDay, getMonth, getYear, subDays } from 'date-fns';
 import styles from './index.module.css';
 import chevronLeftIcon from '../../../assets/icons/humble/chevron_left.svg';
 import chevronRightIcon from '../../../assets/icons/humble/chevron_right.svg';
+import IconButton from '../../atoms/IconButton';
 
 const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
 
@@ -45,24 +46,22 @@ export default function PlansCalender() {
     <>
       {/* Year and Month Bar */}
       <div className={styles.yearAndMonthBar}>
-        <button className={styles.chevronBtn} onClick={prevWeekHandler}>
-          <img
-            src={chevronLeftIcon}
-            alt='previous week'
-            className={styles.chevronIcon}
-          />
-        </button>
+        <IconButton
+          icon={chevronLeftIcon}
+          alt='previous week'
+          onClick={prevWeekHandler}
+        />
+
         <div className={styles.yearnAndMonthBox}>
           <span>{getYear(current)}년</span>
           <span>{getMonth(current) + 1}월</span>
         </div>
-        <button className={styles.chevronBtn} onClick={nextWeekHandler}>
-          <img
-            src={chevronRightIcon}
-            alt='next week'
-            className={styles.chevronIcon}
-          />
-        </button>
+
+        <IconButton
+          icon={chevronRightIcon}
+          alt='next week'
+          onClick={nextWeekHandler}
+        />
       </div>
 
       {/* Dates */}
