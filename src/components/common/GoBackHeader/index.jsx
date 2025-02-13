@@ -1,5 +1,5 @@
 import styles from './index.module.css';
-import chevronLeftIcon from '../../../assets/icons/humble/chevron_left.svg';
+import chevronLeftIcon from '../../../assets/icons/humble/chevron-left.svg';
 
 export default function GoBackHeader({ handler }) {
   return (

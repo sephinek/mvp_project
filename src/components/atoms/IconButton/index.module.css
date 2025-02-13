@@ -1,8 +1,15 @@
 .iconBtn {
-  margin: var(--spacing-m) 0;
+  /* margin: var(--spacing-m) 0; */
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon {
   filter: invert(50%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%)
     contrast(100%);
+  width: 20px;
+  height: 20px;
 }
