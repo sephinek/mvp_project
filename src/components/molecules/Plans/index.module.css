@@ -1,0 +1,5 @@
+.planContainer {
+  margin: var(--spacing-m) 0;
+  display: flex;
+  flex-direction: column;
+}
