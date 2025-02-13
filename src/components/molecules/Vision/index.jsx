@@ -1,11 +1,11 @@
 import styles from './index.module.css';
 
-export default function Vision() {
+export default function Vision({ myVision }) {
   return (
     <section className={styles.visionContainer}>
       <div className={styles.logo}>Lucid</div>
       <div className={styles.visionHeading}>나의 비전은</div>
-      <div className={styles.visionText}>"마음이 풍족한 사람이 되자"</div>
+      <div className={styles.visionText}>"{myVision}"</div>
     </section>
   );
 }

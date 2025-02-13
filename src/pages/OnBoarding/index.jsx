@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import OnBoardingStep00 from '../../components/molecules/OnBoardingStep00';
 import OnBoardingStep01 from '../../components/molecules/OnBoardingStep01';
 import OnBoardingStep02 from '../../components/molecules/OnBoardingStep02';
+import useNavigationPage from '../../hooks/useNavigationPage';
 
 const Home = () => {
   const [step, setStep] = useState(0);
   const [onBoardingArr, setOnBoardingArr] = useState([]);
+  const { routePage } = useNavigationPage();
 
   // 다음 단계로 보내주는 함수
   const nextStep = () => {
@@ -25,6 +27,22 @@ const Home = () => {
     nextStep();
   };
 
+  const handlePage = (item) => {
+    localStorage.setItem(
+      'onboardingData',
+      JSON.stringify([...onBoardingArr, item])
+    );
+    routePage('/main', [...onBoardingArr, item]);
+  };
+
+  // 아래 주석 건드리지 마세요!!!
+  // useEffect(() => {
+  //   const data = localStorage.getItem('onboardingData');
+  //   if (JSON.parse(data)) {
+  //     routePage('/main', [...onBoardingArr, JSON.parse(data)]);
+  //   }
+  // });
+
   // 현재 step을 기준으로 화면에 랜더링될 컴포넌트를 return 해주세요
   // 분기가 나뉘게 되면 이전 step의 값을 참조하여 if문을 이용해 분기를 나눠주세요
   // 각 컴포넌트에는 handleOnBoarding 함수를 넘겨줘 확인 버튼을 누를 때 함께 실행되게 해주세요
@@ -40,7 +58,7 @@ const Home = () => {
     case 2:
       return (
         <OnBoardingStep02
-          nextStep={handleOnBoarding}
+          nextStep={handlePage}
           beforeStep={beforeStep}
           type={onBoardingArr[1]}
         />
