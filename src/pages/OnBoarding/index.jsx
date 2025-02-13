@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import OnBoardingStart from '../../components/molecules/OnBoardingStart';
-import OnBoardingYourFuture from '../../components/molecules/OnBoardingYourFuture';
+import OnBoardingStep00 from '../../components/molecules/OnBoardingStep00';
+import OnBoardingStep01 from '../../components/molecules/OnBoardingStep01';
+import OnBoardingStep02 from '../../components/molecules/OnBoardingStep02';
 
 const Home = () => {
   const [step, setStep] = useState(0);
@@ -29,15 +30,21 @@ const Home = () => {
   // 각 컴포넌트에는 handleOnBoarding 함수를 넘겨줘 확인 버튼을 누를 때 함께 실행되게 해주세요
   switch (step) {
     case 0:
-      return <OnBoardingStart nextStep={handleOnBoarding} />;
+      return (
+        <OnBoardingStep00 nextStep={handleOnBoarding} beforeStep={beforeStep} />
+      );
     case 1:
-      if (onBoardingArr[0] === 'yes') {
-        return <OnBoardingYourFuture nextStep={handleOnBoarding} />;
-      } else {
-        return <div>아니요 선택함</div>;
-      }
+      return (
+        <OnBoardingStep01 nextStep={handleOnBoarding} beforeStep={beforeStep} />
+      );
     case 2:
-      return <div>{onBoardingArr[1]}</div>;
+      return (
+        <OnBoardingStep02
+          nextStep={handleOnBoarding}
+          beforeStep={beforeStep}
+          type={onBoardingArr[1]}
+        />
+      );
     default:
       return <p>오류가 있습니다 새로고침 해주세요</p>;
   }
