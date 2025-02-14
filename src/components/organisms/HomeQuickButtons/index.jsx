@@ -1,6 +1,6 @@
 import styles from './index.module.css'
 import seedling from '../../../assets/icons/toss/seedling.svg';
-import tree from '../../../assets/icons/toss/🪴 tree.svg';
+import tree from '../../../assets/icons/toss/tree.svg';
 import { Link } from 'react-router-dom';
 
 
