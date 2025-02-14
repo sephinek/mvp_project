@@ -9,11 +9,13 @@ export default function Reflection() {
 
   return (
     <>
-      <div className={styles.reflectionPage}>
+      <section className={styles.reflectionPage}>
         <ReflectionTopBar>점검데이</ReflectionTopBar>
         <ReflectionTab></ReflectionTab>
-        <Outlet />
-      </div>
+        <div className={styles.reflectionContents}>
+          <Outlet />
+        </div>
+      </section>
     </>
   );
 }
