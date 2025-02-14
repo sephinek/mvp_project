@@ -4,6 +4,7 @@ import ChevronLeftButton from '../../components/common/Icons/ChevronLeftButton';
 import styles from './index.module.css';
 import PlansList from '../../components/molecules/PlansList';
 import EditButton from '../../components/common/Icons/EditButton';
+import SectionTitle from '../../components/atoms/SectionTitle';
 
 export default function GoalDetails() {
   const { state: goal } = useLocation();
@@ -20,7 +21,7 @@ export default function GoalDetails() {
   };
 
   return (
-    <section>
+    <div className={styles.goalDetailContainer}>
       <TopBar
         LeftIcon={ChevronLeftButton}
         RightIcon={EditButton}
@@ -36,27 +37,44 @@ export default function GoalDetails() {
         </div>
 
         <div className={styles.goalInfoContainer}>
-          <div className={styles.icon}></div>
-          <div className={styles.infoBox}>
-            <span className={styles.infoText}>
-              {goal.startDate.toLocaleDateString()}
-            </span>
-            <span className={styles.infoText}>~</span>
-            <span className={styles.infoText}>
-              {goal.endDate.toLocaleDateString()}
-            </span>
-          </div>
-        </div>
+          <ul>
+            <li>
+              <div className={styles.icon}></div>
+              <div className={styles.infoBox}>
+                <span className={styles.infoText}>
+                  {goal.startDate.toLocaleDateString()}
+                </span>
+                <span className={styles.infoDash}>~</span>
+                <span className={styles.infoText}>
+                  {goal.endDate.toLocaleDateString()}
+                </span>
+              </div> 
+            </li>
+            <li>
+              <div className={styles.icon}></div>
+              <div className={styles.infoBox}>
+                <span className={styles.infoText}>D-90</span>
+                <span className={styles.infoText}>지금까지 10% 달성했어요</span>
+              </div>
+            </li>
+          </ul>
 
+        </div>
+{/* 
         <div className={styles.goalInfoContainer}>
           <div className={styles.icon}></div>
           <div className={styles.infoBox}>
             <span className={styles.infoText}>D-90</span>
             <span className={styles.infoText}>지금까지 10% 달성했어요</span>
           </div>
+        </div> */}
+      </section>
+      <section className={styles.planInfo}>
+        <SectionTitle titleEn='Plans' titleKr='계획' />
+        <div className={styles.plansWrap}>
+          <PlansList plans={goal?.plans} />
         </div>
       </section>
-      <PlansList plans={goal?.plans} />
-    </section>
+    </div>
   );
 }
