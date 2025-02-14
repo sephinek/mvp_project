@@ -1,0 +1,39 @@
+.wrap {
+  display: flex;
+  gap: 8px;
+}
+
+.card {
+  flex:1;
+  padding: 10px 20px;
+
+  border-radius: 16px;
+  background: #FFF;
+}
+
+.title {
+  color: var(--gray-900, #0D0D0D);
+
+  /* Heading/xs/bold */
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px; /* 140% */
+}
+
+.description {
+  margin-top:2px;
+
+  color: var(--gray-600, #666);
+
+  /* Body/xs/regular */
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 16px; /* 160% */
+
+  white-space: break-spaces;
+}
+
+.icon-wrap {
+  text-align: right;
+  margin-top:6px;
+}
