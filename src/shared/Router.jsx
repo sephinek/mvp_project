@@ -9,6 +9,7 @@ import Review from '../pages/Review';
 import Guide from '../pages/Guide';
 import PlansReview from '../pages/PlansReview';
 import PublishedButton from '../pages/published/button/index';
+import GoalDetails from '../pages/GoalDetails';
 
 const Router = () => {
   return (
@@ -18,6 +19,7 @@ const Router = () => {
           <Route path='/' element={<OnBoarding />} />
           <Route path='/home' element={<Home />} />
           <Route path='/main' element={<Main />} />
+          <Route path='/goal-details' element={<GoalDetails />} />
           <Route path='/reflection' element={<Reflection />}>
             <Route path='vision-board' element={<VisionBoard />} />
             <Route path='review' element={<Review />} />
