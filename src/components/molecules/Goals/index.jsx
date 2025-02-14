@@ -3,7 +3,6 @@ import GoalItem from '../GoalItem';
 import styles from './index.module.css';
 
 export default function Goals({ goals }) {
-  console.log('goals', goals);
   return (
     <section className={styles.goalsContainer}>
       <SectionTitle titleEn='Goals' titleKr='목표' />
