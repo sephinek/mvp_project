@@ -12,12 +12,13 @@ import PlansReview from '../pages/PlansReview';
 
 import Statistics from '../pages/Statistics';
 import GoalDetails from '../pages/GoalDetails';
+import EditGoal from '../pages/EditGoal';
 
 import PublishedButton from '../pages/published/button';
 import PublishedRadio from '../pages/published/radio';
-import PublishedOnboardingCheck from '../pages/published/onboarding-check';
-import PublishedHomeQuickButtons from '../pages/published/home-quick-buttons';
-import EditGoal from '../pages/EditGoal';
+import PublishedOnboardingCheck from "../pages/published/onboarding-check"
+import PublishedHomeQuickButtons from "../pages/published/home-quick-buttons"
+import PublishedHomePlanBottomSheet from "../pages/published/home-plan-bottom-sheet"
 
 const Router = () => {
   return (
@@ -40,7 +41,7 @@ const Router = () => {
           <Route path='/statistics' element={<Statistics />} />
 
           <Route path='/published/button' element={<PublishedButton />} />
-          <Route path='/published/radio' element={<PublishedRadio />} />
+          <Route path="/published/radio" element={<PublishedRadio/>} />
           <Route
             path='/published/onboarding-check'
             element={<PublishedOnboardingCheck />}
@@ -48,6 +49,10 @@ const Router = () => {
           <Route
             path='/published/home-quick-buttons'
             element={<PublishedHomeQuickButtons />}
+          />
+          <Route 
+            path="/published/home-plan-bottom-sheet" 
+            element={<PublishedHomePlanBottomSheet/>} 
           />
         </Route>
       </Routes>
