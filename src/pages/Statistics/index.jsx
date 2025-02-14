@@ -1,8 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import useNavigationPage from '../../hooks/useNavigationPage';
-import StatisticsProfile from '../../components/atoms/StatisticsProfile'
+import StatisticsProfile from '../../components/atoms/StatisticsProfile';
 import styles from './index.module.css';
 import StatisticsStatusCard from '../../components/atoms/StatisticsStatusCard';
+import StatisticsPeriodTabs from '../../components/atoms/StatisticsPeriodTabs';
 
 export default function Reflection() {
   const { state, routePage } = useNavigationPage();
@@ -13,6 +14,10 @@ export default function Reflection() {
         <StatisticsProfile></StatisticsProfile>
         <div className={styles.statisticsWrap}>
           <StatisticsStatusCard></StatisticsStatusCard>
+          <div className={styles.contentBox}>
+            <StatisticsPeriodTabs></StatisticsPeriodTabs>
+            <span></span>
+          </div>
 
         </div>
       </section>
