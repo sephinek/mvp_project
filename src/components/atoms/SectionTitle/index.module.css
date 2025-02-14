@@ -1,6 +1,7 @@
 .titleContainer {
   display: flex;
   gap: var(--spacing-3xs);
+  padding: 16px;
 }
 
 .titleEn {

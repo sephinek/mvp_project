@@ -35,8 +35,10 @@ export default function Plans({ goals }) {
   return (
     <section className={styles.planContainer}>
       <SectionTitle titleEn='Plans' titleKr='계획' />
-      <PlansCalender current={currentDate} setCurrent={handleCurrentDate} />
-      <PlansList plans={plans} />
+      <div className={styles.planWrap}>
+        <PlansCalender current={currentDate} setCurrent={handleCurrentDate} />
+        <PlansList plans={plans} />
+      </div>
     </section>
   );
 }

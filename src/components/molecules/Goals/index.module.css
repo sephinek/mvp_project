@@ -1,12 +1,15 @@
 .goalsContainer {
   background-color: var(--color-white);
-  padding: 16px;
+  padding-bottom: 8px;
+}
+.goalWrap {
+  padding: 0 16px;
 }
 .goalsList {
   width: 100%;
   display: flex;
-  gap: 16px;
-  padding: 16px 0;
+  gap: 12px;
+  padding-bottom: 16px;
   overflow-x: scroll;
   scrollbar-width: thin;
   scrollbar-color: #999 white;
