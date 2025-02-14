@@ -36,6 +36,13 @@
   --color-other-2: #bbe7ab;
   --color-paused: #b8ace9;
 
+  /* sub-color*/
+  --color-orange: #ffbc88;
+  --color-lemon: #fff7a4;
+  --color-green-apple: #bbe7ab;
+  --color-blueberry: #9cd4f7;
+  --color-grape: #c4b9f6;
+
   /*** Typography ***/
   /* Font Family */
   --font-family-primary: 'Pretendard Variable', Pretendard, -apple-system,
