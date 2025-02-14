@@ -12,8 +12,10 @@ import PlansReview from '../pages/PlansReview';
 
 import Statistics from '../pages/Statistics';
 import GoalDetails from '../pages/GoalDetails';
+
 import PublishedButton from "../pages/published/button"
 import PublishedRadio from "../pages/published/radio"
+import PublishedOnboardingCheck from "../pages/published/onboarding-check"
 
 const Router = () => {
   return (
@@ -32,8 +34,11 @@ const Router = () => {
             <Route path='plans-review' element={<PlansReview />} />
           </Route>
           <Route path='/statistics' element={<Statistics />} />
+
           <Route path='/published/button' element={<PublishedButton />} />
           <Route path="/published/radio" element={<PublishedRadio/>} />
+          <Route path="/published/onboarding-check" element={<PublishedOnboardingCheck/>} />
+
         </Route>
       </Routes>
     </BrowserRouter>
