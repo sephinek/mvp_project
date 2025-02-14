@@ -3,6 +3,7 @@ import Home from '../pages/Home';
 import Layout from '../components/common/Layout';
 import OnBoarding from '../pages/OnBoarding';
 import Main from '../pages/Main';
+import Reflection from '../pages/Reflection'
 import PublishedButton from "../pages/published/button/index"
 
 const Router = () => {
@@ -13,6 +14,7 @@ const Router = () => {
           <Route path='/' element={<OnBoarding />} />
           <Route path='/home' element={<Home />} />
           <Route path='/main' element={<Main />} />
+          <Route path='/reflection' element={<Reflection />} />
           <Route path="/published/button" element={<PublishedButton/>} />
         </Route>
       </Routes>
