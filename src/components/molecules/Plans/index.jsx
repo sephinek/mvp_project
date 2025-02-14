@@ -13,7 +13,7 @@ export default function Plans({ goals }) {
 
   const handleCurrentDate = (date) => {
     // setCurrentDate(format(date, 'yyyy-MM-dd HH:mm:ss.SSS'));
-    setCurrentDate(date);
+    setCurrentDate(new Date(date));
   };
 
   useEffect(() => {
@@ -21,9 +21,18 @@ export default function Plans({ goals }) {
       const result = [];
       goals?.map((goal) => {
         goal?.plans?.map((plan) => {
-          // if (plan.endDate >= currentDate && plan.startDate <= currentDate) {
-          // }
-          result.push(plan);
+          console.log(
+            'currentDate',
+            currentDate,
+            '***',
+            typeof plan.startDate,
+            '***',
+            plan.endDate,
+            '***'
+          );
+          if (plan.endDate >= currentDate && plan.startDate <= currentDate) {
+            result.push(plan);
+          }
         });
       });
 
