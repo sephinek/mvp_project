@@ -6,6 +6,8 @@ import styles from './index.module.css';
 import useCallModal from '../../hooks/useCallModal';
 import useNavigationPage from '../../hooks/useNavigationPage';
 import { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { myPlanState } from '../../shared/recoil/myPlanState';
 import { v4 as uuid } from 'uuid';
 
 export default function Main() {
@@ -66,6 +68,7 @@ export default function Main() {
       },
     ],
   });
+
   const { callModal } = useCallModal();
   const handleCallModal = () => {
     callModal('타이틀', '서브타이틀', '취소 버튼', '확인 버튼', () => {
