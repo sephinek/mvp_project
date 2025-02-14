@@ -1,5 +1,4 @@
-import ReflectionEmptyState from '../../components/atoms/ReflectionEmptyState';
-import ReflectionPlusButton from '../../components/atoms/ReflectionPlusButton';
+import { Outlet } from 'react-router-dom';
 import ReflectionTab from '../../components/atoms/ReflectionTab';
 import ReflectionTopBar from '../../components/atoms/ReflectionTopBar';
 import useNavigationPage from '../../hooks/useNavigationPage';
@@ -13,8 +12,7 @@ export default function Reflection() {
       <div className={styles.reflectionPage}>
         <ReflectionTopBar>점검데이</ReflectionTopBar>
         <ReflectionTab></ReflectionTab>
-        <ReflectionEmptyState></ReflectionEmptyState>
-        <ReflectionPlusButton></ReflectionPlusButton>
+        <Outlet />
       </div>
     </>
   );
