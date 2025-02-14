@@ -1,7 +1,9 @@
 .planContainer {
   background-color: var(--color-white);
-  padding: 16px;
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+.planWrap {
+  padding: 16px;
 }
