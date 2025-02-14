@@ -5,11 +5,11 @@
     padding: 4px;
     margin-bottom: 16px;
 }
-.timePeriodTabs ul {
+.timePeriodTabs > ul {
     display: flex;
     
 }
-.timePeriodTabs ul li {
+.timePeriodTabs > ul > li {
     flex: 50%;
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);

@@ -18,7 +18,7 @@
   border-radius: 8px;
   padding: 16px;
 }
-span {
+.contentBox > span {
   display: block;
   width: 100%;
   height: 1px;
