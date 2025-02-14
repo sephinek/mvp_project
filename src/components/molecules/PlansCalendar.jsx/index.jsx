@@ -6,9 +6,7 @@ import ChevronRightButton from '../../common/Icons/ChevronRightButton';
 
 const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
 
-export default function PlansCalender() {
-  const [current, setCurrent] = useState(new Date());
-
+export default function PlansCalender({ current, setCurrent }) {
   const generateWeek = (centerDate) => {
     return Array.from({ length: 7 }, (_, i) => {
       const date = subDays(centerDate, 3 - i);
