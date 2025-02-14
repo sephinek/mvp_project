@@ -1,3 +1,7 @@
+.goalsContainer {
+  background-color: var(--color-white);
+  padding: 16px;
+}
 .goalsList {
   width: 100%;
   display: flex;

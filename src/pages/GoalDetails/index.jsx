@@ -1,19 +1,32 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import TopBar from '../../components/atoms/TopBar';
 import ChevronLeftButton from '../../components/common/Icons/ChevronLeftButton';
-import ChevronRightButton from '../../components/common/Icons/ChevronRightButton';
 import styles from './index.module.css';
 import PlansList from '../../components/molecules/PlansList';
+import EditButton from '../../components/common/Icons/EditButton';
 
 export default function GoalDetails() {
   const { state: goal } = useLocation();
+  const navigate = useNavigate();
+
+  const goToBackHandler = () => {
+    navigate(-1);
+  };
+
+  const clickEditHandler = () => {
+    navigate(`/goal/edit/${goal.id}`, {
+      state: goal,
+    });
+  };
 
   return (
     <section>
       <TopBar
         LeftIcon={ChevronLeftButton}
-        RightIcon={ChevronRightButton}
+        RightIcon={EditButton}
         title='Goal(목표) 상세'
+        onClickLeft={goToBackHandler}
+        onClickRight={clickEditHandler}
       ></TopBar>
 
       <section className={styles.goalInfo}>

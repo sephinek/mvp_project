@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function GoalItem({ goal, title, percentage, dueDate }) {
   return (
-    <Link to={{ pathname: `/goal-details/${goal.id}` }} state={goal}>
+    <Link to={{ pathname: `/goal/${goal.id}` }} state={goal}>
       <li className={styles.goalBox}>
         <div className={styles.titleBox}>
           <span className={styles.title}>{title}</span>
