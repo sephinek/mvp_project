@@ -11,8 +11,8 @@ import Guide from '../pages/Guide';
 import PlansReview from '../pages/PlansReview';
 import GoalDetails from '../pages/GoalDetails';
 
-import PublishedButton from "../pages/published/button"
-import PublishedRadio from "../pages/published/radio"
+import PublishedButton from '../pages/published/button';
+import PublishedRadio from '../pages/published/radio';
 
 const Router = () => {
   return (
@@ -22,8 +22,8 @@ const Router = () => {
           <Route path='/' element={<OnBoarding />} />
           <Route path='/home' element={<Home />} />
           <Route path='/main' element={<Main />} />
+          <Route path='/goal-details/:goalId' element={<GoalDetails />} />
 
-          <Route path='/goal-details' element={<GoalDetails />} />
           <Route path='/reflection' element={<Reflection />}>
             <Route path='vision-board' element={<VisionBoard />} />
             <Route path='review' element={<Review />} />
@@ -31,8 +31,8 @@ const Router = () => {
             <Route path='plans-review' element={<PlansReview />} />
           </Route>
 
-          <Route path="/published/button" element={<PublishedButton/>} />
-          <Route path="/published/radio" element={<PublishedRadio/>} />
+          <Route path='/published/button' element={<PublishedButton />} />
+          <Route path='/published/radio' element={<PublishedRadio />} />
         </Route>
       </Routes>
     </BrowserRouter>

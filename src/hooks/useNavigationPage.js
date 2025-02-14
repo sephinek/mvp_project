@@ -9,7 +9,6 @@ const useNavigationPage = () => {
   const navigation = useNavigate();
   const location = useLocation();
   const { state } = location;
-
   const routePage = (path, state) => {
     if (state) {
       navigation(path, { state: state });

@@ -8,12 +8,13 @@ export default function Goals({ goals }) {
       <SectionTitle titleEn='Goals' titleKr='목표' />
 
       <ul className={styles.goalsList}>
-        {goals.map((el) => (
+        {goals.map((goal) => (
           <GoalItem
-            key={el.title}
-            title={el.title}
-            percentage={el.plans.length}
-            dueDate={el.endDate}
+            key={goal.id}
+            goal={goal}
+            title={goal.title}
+            percentage={goal.plans.length}
+            dueDate={goal.endDate}
           />
         ))}
       </ul>

@@ -1,6 +1,6 @@
 import styles from './index.module.css';
 
-export default function PlansItem({ plan }) {
+export default function PlanItem({ plan }) {
   const {
     title,
     startDate,
