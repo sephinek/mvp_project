@@ -9,7 +9,6 @@ import GoBackHeader from '../../common/GoBackHeader';
 
 const OnBoardingStep02 = ({ nextStep, beforeStep, type }) => {
   const ref = useRef(null);
-  const { routePage } = useNavigationPage();
   const [isConfirm, setIsConfirm] = useState(true);
 
   const handleChange = (e) => {
@@ -22,7 +21,6 @@ const OnBoardingStep02 = ({ nextStep, beforeStep, type }) => {
   const handleNextStep = () => {
     const item = ref.current.value;
     nextStep(item);
-    routePage('/home', item);
   };
   if (type === 'yes') {
     return (
