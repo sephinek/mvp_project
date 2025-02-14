@@ -1,8 +1,12 @@
-import Modal from "react-modal";
-import { useRecoilState } from "recoil";
-import { confirmModalState } from "../../../../shared/recoil/confirmModalState";
+
+import Modal from 'react-modal';
+
+import { useRecoilState } from 'recoil';
+import { confirmModalState } from '../../../../shared/recoil/confirmModalState';
+
 import styles from './index.module.css';
 import Button from "../../../atoms/Button";
+
 
 const ConfirmModal = () => {
     const [modalState, setModalState] = useRecoilState(confirmModalState);
@@ -39,4 +43,5 @@ return (
     </Modal>
   );
 };
+
 export default ConfirmModal;
