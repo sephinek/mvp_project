@@ -17,6 +17,7 @@ export default function Reflection() {
           <div className={styles.contentBox}>
             <StatisticsPeriodTabs></StatisticsPeriodTabs>
             <span></span>
+            <PlansCalender />
           </div>
 
         </div>
