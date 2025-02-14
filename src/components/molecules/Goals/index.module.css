@@ -1,11 +1,11 @@
 .goalsList {
-    width: 100%;
-    display: flex;
-    gap: 16px;
-    padding: 16px 0;
-    overflow-x: scroll;
-    scrollbar-width: thin;
-    scrollbar-color: #999 white;
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  overflow-x: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #999 white;
 }
 /*
 .goalsList::-webkit-scrollbar {
@@ -24,86 +24,87 @@
 }
     */
 .goalBox {
-    width: 164px;
-    height: 104px;
-    border: 1px solid  var( --color-grey-200);
-    border-radius: 8px;
-    padding: 8px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  width: 164px;
+  height: 104px;
+  border: 1px solid var(--color-grey-200);
+  border-radius: 8px;
+  padding: 8px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .titleBox {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .title {
-    width: 108px;
-    white-space: normal;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    color: var(--color-grey-900);
-    font-size: var(--font-size-lg);
-    line-height: 24px;
+  width: 103px;
+  white-space: normal;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--color-grey-900);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: 24px;
+  word-break: keep-all;
 }
 .icon {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 
-    background-image: url(../../../assets/icons/humble/chevron_right.svg);
+  background-image: url(../../../assets/icons/humble/chevron_right.svg);
 
-    background-size: 24px 24px;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: transparent;
-    border: none;
+  background-size: 24px 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: transparent;
+  border: none;
 }
 img {
-    outline: none;
-    border: none;  
+  outline: none;
+  border: none;
 }
 
 .percentageAndDueDate {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .percentage {
-    color: var( --color-grey-500);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-light);
+  color: var(--color-grey-500);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-light);
 }
 .dueDate {
-    color: var( --color-grey-500);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-light);
+  color: var(--color-grey-500);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-light);
 }
 
 .bar {
-    padding: 4px 0;
+  padding: 4px 0;
 }
 .full {
-    width: 100%;
-    height: 8px;
-    background-color: var( --color-grey-50);
-    border-radius: 10px;
-    overflow: hidden;
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-grey-50);
+  border-radius: 10px;
+  overflow: hidden;
 }
 .filled {
-    width: 30%;
-    height: 8px;
-    background-color: var(--color-other-1);
-    border-radius: 20px;
+  width: 30%;
+  height: 8px;
+  background-color: var(--color-other-1);
+  border-radius: 20px;
 }
-
 
 /* bar graph 색상 변경*/
 .goalsList > li:nth-child(2) .filled {
-    background-color: var(--color-other-2);
+  background-color: var(--color-other-2);
 }
 .goalsList > li:nth-child(3) .filled {
-    background-color: var(  --color-paused);
+  background-color: var(--color-paused);
 }
