@@ -11,6 +11,7 @@ export default function Plans({ goals }) {
   );
   const [plans, setPlans] = useState([]);
 
+
   const handleCurrentDate = (date) => {
     // setCurrentDate(format(date, 'yyyy-MM-dd HH:mm:ss.SSS'));
     setCurrentDate(date);
