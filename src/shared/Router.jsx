@@ -8,6 +8,7 @@ import VisionBoard from '../pages/VisionBoard';
 import Review from '../pages/Review';
 import Guide from '../pages/Guide';
 import PlansReview from '../pages/PlansReview';
+import Statistics from '../pages/Statistics';
 import PublishedButton from '../pages/published/button/index';
 
 const Router = () => {
@@ -24,6 +25,7 @@ const Router = () => {
             <Route path='guide' element={<Guide />} />
             <Route path='plans-review' element={<PlansReview />} />
           </Route>
+          <Route path='/statistics' element={<Statistics />} />
           <Route path='/published/button' element={<PublishedButton />} />
         </Route>
       </Routes>
