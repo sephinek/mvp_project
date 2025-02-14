@@ -11,30 +11,20 @@ export default function Plans({ goals }) {
   );
   const [plans, setPlans] = useState([]);
 
-  const getPlans = () => {
-    const result = [];
 
-    goals?.map((goal) => {
-      goal?.plans.map((plan) => {
-        if (plan.endDate >= currentDate && plan.startDate <= currentDate) {
-          result.push(plan);
-        }
-      });
-    });
-    setPlans(result);
-  }
   const handleCurrentDate = (date) => {
-    setCurrentDate(format(date, 'yyyy-MM-dd HH:mm:ss.SSS'));
+    // setCurrentDate(format(date, 'yyyy-MM-dd HH:mm:ss.SSS'));
+    setCurrentDate(date);
   };
 
   useEffect(() => {
     const getPlans = () => {
       const result = [];
-      goals.map((el) => {
-        el.plans.map((plan) => {
-          if (plan.endDate >= currentDate && plan.startDate <= currentDate) {
-            result.push(plan);
-          }
+      goals?.map((goal) => {
+        goal?.plans?.map((plan) => {
+          // if (plan.endDate >= currentDate && plan.startDate <= currentDate) {
+          // }
+          result.push(plan);
         });
       });
 
@@ -43,6 +33,8 @@ export default function Plans({ goals }) {
 
     getPlans();
   }, [currentDate]);
+
+  console.log(goals, plans);
 
   return (
     <section className={styles.planContainer}>
