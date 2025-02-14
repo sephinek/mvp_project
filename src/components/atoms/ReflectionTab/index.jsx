@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import styles from './index.module.css';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const ReflectionTab = ({ children, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0); // 활성화된 탭 상태
-  const location = useLocation();
 
   // 탭 이름 배열
   // const tabNames = ['비전보드', '회고', '가이드', '계획정리'];
@@ -14,8 +13,6 @@ const ReflectionTab = ({ children, ...rest }) => {
     { title: '가이드', to: '/reflection/guide' },
     { title: '계획정리', to: '/reflection/plans-review' },
   ];
-
-  console.log(location);
 
   // 탭 클릭 시 활성화된 탭 변경
   const handleTabClick = (index) => {
@@ -36,7 +33,9 @@ const ReflectionTab = ({ children, ...rest }) => {
                 activeTab === index ? styles.activeTab : ''
               }`}
             >
-              <Link to={tab.to}>{tab.title}</Link>
+              <Link className={styles.tabName} to={tab.to}>
+                {tab.title}
+              </Link>
             </div>
             <span
               className={activeTab === index ? styles.activeSpan : ''}
