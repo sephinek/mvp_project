@@ -22,7 +22,7 @@ export default function Plans({ goals }) {
       });
     });
     setPlans(result);
-
+  }
   const handleCurrentDate = (date) => {
     setCurrentDate(format(date, 'yyyy-MM-dd HH:mm:ss.SSS'));
   };
