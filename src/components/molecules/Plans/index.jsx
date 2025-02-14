@@ -5,9 +5,7 @@ import PlansList from '../PlansList/index.jsx';
 import { useEffect, useState } from 'react';
 
 export default function Plans({ goals }) {
-  const [currentDate, setCurrentDate] = useState(
-    new Date()
-  );
+  const [currentDate, setCurrentDate] = useState(new Date());
   const [plans, setPlans] = useState([]);
 
   const handleCurrentDate = (date) => {

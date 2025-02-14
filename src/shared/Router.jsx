@@ -15,8 +15,9 @@ import GoalDetails from '../pages/GoalDetails';
 
 import PublishedButton from '../pages/published/button';
 import PublishedRadio from '../pages/published/radio';
-import PublishedOnboardingCheck from "../pages/published/onboarding-check"
-import PublishedHomeQuickButtons from "../pages/published/home-quick-buttons"
+import PublishedOnboardingCheck from '../pages/published/onboarding-check';
+import PublishedHomeQuickButtons from '../pages/published/home-quick-buttons';
+import EditGoal from '../pages/EditGoal';
 
 const Router = () => {
   return (
@@ -26,7 +27,9 @@ const Router = () => {
           <Route path='/' element={<OnBoarding />} />
           <Route path='/home' element={<Home />} />
           <Route path='/main' element={<Main />} />
-          <Route path='/goal-details/:goalId' element={<GoalDetails />} />
+          <Route path='/goal/:goalId' element={<GoalDetails />} />
+
+          <Route path='/goal/edit/:goalId' element={<EditGoal />} />
 
           <Route path='/reflection' element={<Reflection />}>
             <Route path='vision-board' element={<VisionBoard />} />
@@ -37,10 +40,15 @@ const Router = () => {
           <Route path='/statistics' element={<Statistics />} />
 
           <Route path='/published/button' element={<PublishedButton />} />
-          <Route path="/published/radio" element={<PublishedRadio/>} />
-          <Route path="/published/onboarding-check" element={<PublishedOnboardingCheck/>} />
-          <Route path="/published/home-quick-buttons" element={<PublishedHomeQuickButtons/>} />
-
+          <Route path='/published/radio' element={<PublishedRadio />} />
+          <Route
+            path='/published/onboarding-check'
+            element={<PublishedOnboardingCheck />}
+          />
+          <Route
+            path='/published/home-quick-buttons'
+            element={<PublishedHomeQuickButtons />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>

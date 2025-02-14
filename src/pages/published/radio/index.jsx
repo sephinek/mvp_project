@@ -1,8 +1,7 @@
 import Radio from '../../../components/atoms/Radio';
 
 const PublihsedRadio = () => {
-  const colors = 
-  ['orange', 'lemon', 'green-apple', 'blueberry', 'grape'];
+  const colors = ['orange', 'lemon', 'green-apple', 'blueberry', 'grape'];
 
   return (
     <div
@@ -13,11 +12,16 @@ const PublihsedRadio = () => {
         marginTop: '30px',
       }}
     >
-      {colors.map((color) => 
-        <Radio key={color} color={color} name='publish' id={`publish-${color}`}/>
-      )}
+      {colors.map((color) => (
+        <Radio
+          key={color}
+          color={color}
+          name='publish'
+          id={`publish-${color}`}
+        />
+      ))}
     </div>
   );
-}
+};
 
 export default PublihsedRadio;
