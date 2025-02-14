@@ -30,7 +30,7 @@ export default function EditGoal() {
       ></TopBar>
 
       <section className={styles.sectionContainer}>
-        <div className={styles.inputBox}>
+        <div className={styles.inpuㅡtBox}>
           <Textfield_default label='제목' placeholder={goal.title} />
         </div>
 

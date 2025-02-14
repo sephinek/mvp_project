@@ -66,6 +66,26 @@ export default function Main() {
           },
         ],
       },
+      {
+        id: uuid(),
+        title: '외주받기',
+        color: 'green',
+        startDate: new Date(),
+        endDate: new Date(),
+        plans: [
+          {
+            id: uuid(),
+            title: 'Goal2의 플랜1',
+            startDate: new Date(),
+            endDate: new Date('2025-02-20T03:24:00'),
+            completedDates: [],
+            pausedDates: [],
+            repetition: [], // 월 화 수 목 금 토 일 최대 7개까지
+            plansCount: 12, // repetition가 수정될 때 현재 시간을 기준으로 필요한 count 개수를 계산하고 completedDates.length를 더한다.
+            isPaused: false,
+          },
+        ],
+      },
     ],
   });
 
