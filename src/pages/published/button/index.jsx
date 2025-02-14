@@ -1,6 +1,6 @@
 import Button from '../../../components/atoms/Button';
 
-const OnBoardingStart = () => {
+const PublihsedButton = () => {
   return (
     <div>
       <Button>Primary Default Large</Button>
@@ -52,4 +52,4 @@ const OnBoardingStart = () => {
   );
 };
 
-export default OnBoardingStart;
+export default PublihsedButton;
