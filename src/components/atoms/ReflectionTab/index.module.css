@@ -1,0 +1,42 @@
+.tabContainer {
+  width: 100%;
+  height: 50px;
+  padding: 2px 16px;
+}
+.tab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tab > li {
+  width: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tabName {
+  padding: 10px 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: 20px;
+  color: var(--color-grey-500);
+  transition: color 0.3s ease-in;
+}
+.tab > li > span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.3s ease-in;
+}
+
+/* active 상태 */
+.activeTabName {
+  color: var(--color-grey-900); /* 활성화된 탭 색상 */
+}
+.activeSpan {
+  background-color: var(--color-grey-900) !important;
+}
+.activeTab {
+  font-weight: lighter;
+}

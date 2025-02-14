@@ -106,6 +106,7 @@ p,
 blockquote,
 pre,
 a,
+a:active,
 abbr,
 acronym,
 address,
@@ -176,6 +177,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  text-decoration: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -199,7 +201,6 @@ body {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-m);
   font-weight: var(--font-weight-regular);
-  margin: 0 var(--spacing-m);
 }
 ol,
 ul {
@@ -220,7 +221,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-button {
+button,
+button:active {
   border: none;
   outline: none;
   background-color: transparent;

@@ -1,0 +1,29 @@
+.topBar {
+    width: 100%;
+    height: 52px;
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    border-bottom: 1px solid var(--color-grey-10);
+}
+.topBar > div {
+    width: 24px;
+    height: 24px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /*삭제하고 아이콘이 보여야함*/
+    background-color: gray;
+}
+.iconLeft {
+    background-image: url(../../../assets/icons/humble/BottomNav-icon01.svg);
+}
+.iconRight {}
+.title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    line-height: 20px;
+}
