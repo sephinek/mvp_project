@@ -1,5 +1,4 @@
 import styles from './index.module.css'; // CSS 모듈로 임포트
-import cn from 'classnames';
 
 const Radio = ({
   id,
