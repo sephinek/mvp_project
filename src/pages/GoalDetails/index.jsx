@@ -7,7 +7,6 @@ import PlansList from '../../components/molecules/PlansList';
 
 export default function GoalDetails() {
   const { state: goal } = useLocation();
-  console.log(goal.plans);
 
   return (
     <section>
