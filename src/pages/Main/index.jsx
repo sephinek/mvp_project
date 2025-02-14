@@ -79,7 +79,7 @@ export default function Main() {
   return (
     <>
       {myPlan && (
-        <div>
+        <div className={styles.mainWrap}>
           <Vision myVision={myPlan.vision} />
           <Goals goals={myPlan.goals} />
           <Plans goals={myPlan.goals} />

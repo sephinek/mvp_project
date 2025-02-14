@@ -1,3 +1,7 @@
+.visionContainer {
+  background-color: var(--color-white);
+  padding: 20px 24px;
+}
 .logo {
   font-size: 30px;
   font-weight: bold;
