@@ -1,4 +1,5 @@
 import styles from './index.module.css';
+import ArrowRightButton from '../../common/Icons/ArrowRightButton';
 import { getDay, getMonth, getYear } from 'date-fns';
 
 export default function GoalItem({ title, percentage, dueDate }) {
@@ -6,7 +7,7 @@ export default function GoalItem({ title, percentage, dueDate }) {
     <li className={styles.goalBox}>
       <div className={styles.titleBox}>
         <span className={styles.title}>{title}</span>
-        <img className={styles.icon} />
+        <ArrowRightButton alt='next week' onClick={() => {}} />
       </div>
       <div>
         <div className={styles.percentageAndDueDate}>
