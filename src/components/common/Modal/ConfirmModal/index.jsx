@@ -1,25 +1,45 @@
+
 import Modal from 'react-modal';
 
 import { useRecoilState } from 'recoil';
 import { confirmModalState } from '../../../../shared/recoil/confirmModalState';
 
+import styles from './index.module.css';
+import Button from "../../../atoms/Button";
+
+
 const ConfirmModal = () => {
-  const [modalOpen, setModalOpen] = useRecoilState(confirmModalState);
+    const [modalState, setModalState] = useRecoilState(confirmModalState);
+    const {
+        isOpen,
+        title,
+        subTitle,
+        callback,
+        confirmButtonName,
+        cancleButtonName,
+    } = modalState;
+    const handleClose = () => {
+        setModalState({ isOpen: false });
+};
 
-  const handleClose = () => {
-    setModalOpen({ isOpen: false });
-  };
-
-  return (
+return (
     <Modal
-      isOpen={modalOpen.isOpen}
-      onRequestClose={handleClose}
-      ariaHideApp={false}
-      contentLabel='Pop up Message'
-      shouldCloseOnOverlayClick={false}
+        isOpen={isOpen}
+        onRequestClose={handleClose}
+        ariaHideApp={false}
+        contentLabel="Pop up Message"
+        shouldCloseOnOverlayClick={true}
+        className={styles.modalContainer}
     >
-      <div>준비중입니다.</div>
-      <button onClick={handleClose}>확인</button>
+        <div className={styles.modal}>
+            <div className={styles.title}>{title}</div>
+            <div className={styles.subTitle}>{subTitle}</div>
+      
+            <div className={styles.buttonContainer}>
+                <Button onClick={handleClose} theme='tertiary' size="medium">{cancleButtonName}</Button>
+                <Button onClick={callback} size="medium">{confirmButtonName}</Button>
+            </div>
+        </div>
     </Modal>
   );
 };
