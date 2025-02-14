@@ -13,8 +13,8 @@ import PlansReview from '../pages/PlansReview';
 import Statistics from '../pages/Statistics';
 import GoalDetails from '../pages/GoalDetails';
 
-import PublishedButton from "../pages/published/button"
-import PublishedRadio from "../pages/published/radio"
+import PublishedButton from '../pages/published/button';
+import PublishedRadio from '../pages/published/radio';
 import PublishedOnboardingCheck from "../pages/published/onboarding-check"
 
 const Router = () => {
@@ -25,8 +25,8 @@ const Router = () => {
           <Route path='/' element={<OnBoarding />} />
           <Route path='/home' element={<Home />} />
           <Route path='/main' element={<Main />} />
+          <Route path='/goal-details/:goalId' element={<GoalDetails />} />
 
-          <Route path='/goal-details' element={<GoalDetails />} />
           <Route path='/reflection' element={<Reflection />}>
             <Route path='vision-board' element={<VisionBoard />} />
             <Route path='review' element={<Review />} />

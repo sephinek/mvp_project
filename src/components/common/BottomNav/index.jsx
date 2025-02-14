@@ -33,7 +33,6 @@ export default function BottomNav() {
     setCurrentMenu(menu);
   };
 
-  console.log(currentMenu);
   return (
     <nav className={styles.bottomNavContainer}>
       <ul className={styles.bottomNavBox}>

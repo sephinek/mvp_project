@@ -9,7 +9,19 @@ export default function Plans({ goals }) {
   const [currentDate, setCurrentDate] = useState(
     format(new Date(), 'yyyy-MM-dd HH:mm:ss.SSS')
   );
-  const [plans, setPlans] = useState();
+  const [plans, setPlans] = useState([]);
+
+  const getPlans = () => {
+    const result = [];
+
+    goals?.map((goal) => {
+      goal?.plans.map((plan) => {
+        if (plan.endDate >= currentDate && plan.startDate <= currentDate) {
+          result.push(plan);
+        }
+      });
+    });
+    setPlans(result);
 
   const handleCurrentDate = (date) => {
     setCurrentDate(format(date, 'yyyy-MM-dd HH:mm:ss.SSS'));
@@ -34,7 +46,7 @@ export default function Plans({ goals }) {
 
   return (
     <section className={styles.planContainer}>
-      <SectionTitle />
+      <SectionTitle titleEn='Plans' titleKr='계획' />
       <PlansCalender current={currentDate} setCurrent={handleCurrentDate} />
       <PlansList plans={plans} />
     </section>

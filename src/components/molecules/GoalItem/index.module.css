@@ -9,20 +9,20 @@
 }
 /*
 .goalsList::-webkit-scrollbar {
-    height: 8px;
-}
-.goalsList::-webkit-scrollbar-thumb:hover {
+  height: 8px;
+  }
+  .goalsList::-webkit-scrollbar-thumb:hover {
     background-color: red;
-}
-.goalsList::-webkit-scrollbar-thumb {
-    height: 8px;
-    background-color: rgb(167, 167, 167);
-    border-radius: 10px;
-}
-.goalsList::-webkit-scrollbar-track {
-    width: 8px;
-}
-    */
+    }
+    .goalsList::-webkit-scrollbar-thumb {
+      height: 8px;
+      background-color: rgb(167, 167, 167);
+      border-radius: 10px;
+      }
+      .goalsList::-webkit-scrollbar-track {
+        width: 8px;
+        }
+        */
 .goalBox {
   width: 164px;
   height: 104px;
