@@ -4,14 +4,16 @@ import cn from 'classnames';
 const Radio = ({
   id,
   name,
+  value,
   color = 'orange',
 }) => {
   return (
-    <>
+    <div>
       <input
         type="radio"
         name={name}
         id={id}
+        value={value}
         className={styles.input} // 실제 radio input은 숨김
       />
       <label className={styles.label} 
@@ -24,7 +26,7 @@ const Radio = ({
           })}
         ></span>
       </label>
-    </>
+    </div>
   );
 }
 
