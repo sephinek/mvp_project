@@ -3,10 +3,13 @@ import OnBoardingStep00 from '../../components/molecules/OnBoardingStep00';
 import OnBoardingStep01 from '../../components/molecules/OnBoardingStep01';
 import OnBoardingStep02 from '../../components/molecules/OnBoardingStep02';
 import useNavigationPage from '../../hooks/useNavigationPage';
+import { useSetRecoilState } from 'recoil';
+import { myPlanState } from '../../shared/recoil/myPlanState';
 
 const Home = () => {
   const [step, setStep] = useState(0);
   const [onBoardingArr, setOnBoardingArr] = useState([]);
+  const setMyPlan = useSetRecoilState(myPlanState);
   const { routePage } = useNavigationPage();
 
   // 다음 단계로 보내주는 함수
@@ -28,10 +31,9 @@ const Home = () => {
   };
 
   const handlePage = (item) => {
-    localStorage.setItem(
-      'onboardingData',
-      JSON.stringify([...onBoardingArr, item])
-    );
+    setMyPlan((prev) => {
+      return { ...prev, vision: item };
+    });
     routePage('/main', [...onBoardingArr, item]);
   };
 
