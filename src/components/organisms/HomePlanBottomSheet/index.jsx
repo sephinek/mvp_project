@@ -53,7 +53,7 @@ const HomePlanBottomSheet = ({
             <Link to='/'>
               <div className={styles.button}>
                 <div className={styles.left}>
-                  <img src={editIcon} />
+                  <img src={editIcon} width={20} height={20}/>
                   수정하기
                 </div>
                 <span>
