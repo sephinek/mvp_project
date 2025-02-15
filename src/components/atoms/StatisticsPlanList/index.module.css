@@ -1,46 +1,32 @@
-.statusCardList {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 8px;
-    width: 100%;
-}
-.statusCard {
-    width: 100%;
-    height: 104px;
-    background-color: var(--color-white);
-    border-radius: 8px;
+.statisticsPlanList {
     display: flex;
     flex-direction: column;
-    gap:2px;
+    gap: 16px;
+}
+.statisticsPlan {
+    display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
-.statusIcon {
-    width: 32px;
-    height: 32px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100% auto;
+.statisticsName {
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-grey-600);
+    line-height: 20px;
 }
-/* image */
-.statusCardList > li:nth-child(1) .statusIcon {
-    background-image: url(../../../assets/icons/solar/solar-folder-files.svg);
+.statisticsStatus {
+    display: flex;
+    gap: 3px;
 }
-.statusCardList > li:nth-child(2) .statusIcon {
-    background-image: url(../../../assets/icons/solar/solar-checklist.svg);
-}
-.statusCardList > li:nth-child(3) .statusIcon {
-    background-image: url(../../../assets/icons/solar/solar-vacation.svg);
-}
-.stausTitle {
-    color: var(--color-grey-400);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    line-height: 14px;
-}
-.statusCount {
+.statisticsStatus > p {
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-regular);
     color: var(--color-grey-900);
+    line-height: 20px;
+}
+.statisticsStatus > span {
     font-size: var(--font-size-m);
     font-weight: var(--font-weight-bold);
-    line-height: 24px;
+    color: var(--color-primary-500);
+    line-height: 20px;
 }
