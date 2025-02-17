@@ -4,90 +4,11 @@ import Vision from '../../components/molecules/Vision';
 import BottomNav from '../../components/common/BottomNav';
 import styles from './index.module.css';
 import useCallModal from '../../hooks/useCallModal';
-import useNavigationPage from '../../hooks/useNavigationPage';
-import { useEffect, useState } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
-import { v4 as uuid } from 'uuid';
 
 export default function Main() {
-  const { state, routePage } = useNavigationPage();
-  const [myPlan, setMyPlan] = useState({
-    vision: state[2],
-    goals: [
-      {
-        id: uuid(),
-        title: 'Figma 정복하기',
-        color: 'green',
-        startDate: new Date(),
-        endDate: new Date(),
-        plans: [
-          {
-            id: uuid(),
-            title: 'Goal1의 플랜1',
-            startDate: new Date(),
-            endDate: new Date('2025-02-20T03:24:00'),
-            completedDates: [],
-            pausedDates: [],
-            repetition: [], // 월 화 수 목 금 토 일 최대 7개까지
-            plansCount: 12, // repetition가 수정될 때 현재 시간을 기준으로 필요한 count 개수를 계산하고 completedDates.length를 더한다.
-            isPaused: false,
-          },
-          {
-            id: uuid(),
-            title: 'Goal1의 플랜2',
-            startDate: new Date(),
-            endDate: new Date('2025-02-20T03:24:00'),
-            completedDates: [],
-            pausedDates: [],
-            repetition: [], // 월 화 수 목 금 토 일 최대 7개까지
-            plansCount: 12, // repetition가 수정될 때 현재 시간을 기준으로 필요한 count 개수를 계산하고 completedDates.length를 더한다.
-            isPaused: false,
-          },
-        ],
-      },
-      {
-        id: uuid(),
-        title: '외주받기',
-        color: 'green',
-        startDate: new Date(),
-        endDate: new Date(),
-        plans: [
-          {
-            id: uuid(),
-            title: 'Goal2의 플랜1',
-            startDate: new Date(),
-            endDate: new Date('2025-02-20T03:24:00'),
-            completedDates: [],
-            pausedDates: [],
-            repetition: [], // 월 화 수 목 금 토 일 최대 7개까지
-            plansCount: 12, // repetition가 수정될 때 현재 시간을 기준으로 필요한 count 개수를 계산하고 completedDates.length를 더한다.
-            isPaused: false,
-          },
-        ],
-      },
-      {
-        id: uuid(),
-        title: '외주받기',
-        color: 'green',
-        startDate: new Date(),
-        endDate: new Date(),
-        plans: [
-          {
-            id: uuid(),
-            title: 'Goal2의 플랜1',
-            startDate: new Date(),
-            endDate: new Date('2025-02-20T03:24:00'),
-            completedDates: [],
-            pausedDates: [],
-            repetition: [], // 월 화 수 목 금 토 일 최대 7개까지
-            plansCount: 12, // repetition가 수정될 때 현재 시간을 기준으로 필요한 count 개수를 계산하고 completedDates.length를 더한다.
-            isPaused: false,
-          },
-        ],
-      },
-    ],
-  });
+  const myPlan = useRecoilValue(myPlanState);
 
   const { callModal } = useCallModal();
   const handleCallModal = () => {

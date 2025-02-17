@@ -10,11 +10,11 @@ export default function Goals({ goals }) {
         <ul className={styles.goalsList}>
           {goals.map((goal) => (
             <GoalItem
-            key={goal.id}
-            goal={goal}
-            title={goal.title}
-            percentage={goal.plans.length}
-            dueDate={goal.endDate}
+              key={goal.id}
+              goal={goal}
+              title={goal.title}
+              percentage={goal.plans.length}
+              dueDate={goal.endDate}
             />
           ))}
         </ul>

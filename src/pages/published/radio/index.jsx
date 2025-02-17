@@ -1,6 +1,6 @@
 import Radio from '../../../components/atoms/Radio';
 
-const PublihsedRadio = () => {
+const PublihsedRadio = ({ onClick }) => {
   const colors = ['orange', 'lemon', 'green-apple', 'blueberry', 'grape'];
 
   return (
@@ -14,6 +14,7 @@ const PublihsedRadio = () => {
     >
       {colors.map((color) => (
         <Radio
+          onClick={() => onClick(color)}
           key={color}
           color={color}
           name='publish'
