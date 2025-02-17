@@ -1,23 +1,31 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import TopBar from '../../components/atoms/TopBar';
 import ChevronLeftButton from '../../components/common/Icons/ChevronLeftButton';
 import styles from './index.module.css';
 import PlansList from '../../components/molecules/PlansList';
 import EditButton from '../../components/common/Icons/EditButton';
 import SectionTitle from '../../components/atoms/SectionTitle';
+import { useRecoilValue } from 'recoil';
+import { myPlanState } from '../../shared/recoil/myPlanState';
 
 export default function GoalDetails() {
-  const { state: goal } = useLocation();
+  // const { state: goal } = useLocation();
   const navigate = useNavigate();
+  const prams = useParams();
+  const goalArr = useRecoilValue(myPlanState);
+  const goal = goalArr.goals.find((el) => {
+    if (el.id === prams.goalId) {
+      return true;
+    }
+    return false;
+  });
 
   const goToBackHandler = () => {
     navigate(-1);
   };
 
   const clickEditHandler = () => {
-    navigate(`/goal/edit/${goal.id}`, {
-      state: goal,
-    });
+    navigate(`/goal/edit/${goal.id}`);
   };
 
   return (
@@ -48,7 +56,7 @@ export default function GoalDetails() {
                 <span className={styles.infoText}>
                   {goal.endDate.toLocaleDateString()}
                 </span>
-              </div> 
+              </div>
             </li>
             <li>
               <div className={styles.icon}></div>
@@ -58,9 +66,8 @@ export default function GoalDetails() {
               </div>
             </li>
           </ul>
-
         </div>
-{/* 
+        {/* 
         <div className={styles.goalInfoContainer}>
           <div className={styles.icon}></div>
           <div className={styles.infoBox}>

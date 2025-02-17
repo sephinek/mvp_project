@@ -4,14 +4,10 @@ import Vision from '../../components/molecules/Vision';
 import BottomNav from '../../components/common/BottomNav';
 import styles from './index.module.css';
 import useCallModal from '../../hooks/useCallModal';
-import useNavigationPage from '../../hooks/useNavigationPage';
-import { useEffect, useState } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
-import { v4 as uuid } from 'uuid';
 
 export default function Main() {
-  const { state, routePage } = useNavigationPage();
   const myPlan = useRecoilValue(myPlanState);
 
   const { callModal } = useCallModal();

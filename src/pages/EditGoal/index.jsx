@@ -2,22 +2,42 @@ import TopBar from '../../components/atoms/TopBar';
 import ChevronLeftButton from '../../components/common/Icons/ChevronLeftButton';
 import styles from './index.module.css';
 import PlansList from '../../components/molecules/PlansList';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import PublihsedRadio from '../published/radio';
 import Textfield_default from '../../components/atoms/Textfield_defalt';
 import DeleteButton from '../../components/common/Icons/DeleteButton';
-import Plans from '../../components/molecules/Plans';
 import SectionTitle from '../../components/atoms/SectionTitle';
+import { useRecoilState } from 'recoil';
+import { myPlanState } from '../../shared/recoil/myPlanState';
 
 export default function EditGoal() {
   const navigate = useNavigate();
-  const { state: goal } = useLocation();
+  const prams = useParams();
+  const [planState, setPlanState] = useRecoilState(myPlanState);
+  const goal = planState.goals.find((el) => {
+    if (el.id === prams.goalId) {
+      return true;
+    }
+    return false;
+  });
 
   const goToBackHandler = () => {
     navigate(-1);
   };
 
-  const clickDeleteHandler = () => {};
+  const clickDeleteHandler = () => {
+    setPlanState({
+      ...planState,
+      goals: planState.goals.filter((el) => {
+        if (el.id === prams.goalId) {
+          return false;
+        } else {
+          return true;
+        }
+      }),
+    });
+    navigate('/main');
+  };
 
   return (
     <section>
@@ -37,7 +57,7 @@ export default function EditGoal() {
         <div className={styles.inputBox}>
           <div className={styles.periodBox}>
             <Textfield_default label='기간' placeholder={goal.startDate} />
-            <Textfield_default label='기간' placeholder={goal.startDate} />
+            <Textfield_default label='기간' placeholder={goal.endDate} />
             <span>-</span>
           </div>
         </div>
