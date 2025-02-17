@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import OnBoardingStep00 from '../../components/molecules/OnBoardingStep00';
 import OnBoardingStep01 from '../../components/molecules/OnBoardingStep01';
 import OnBoardingStep02 from '../../components/molecules/OnBoardingStep02';
