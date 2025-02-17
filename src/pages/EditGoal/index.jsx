@@ -11,6 +11,7 @@ import { useRecoilState } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
 import Button from '../../components/atoms/Button';
 import { useRef, useState } from 'react';
+import DateController from '../../components/molecules/Date_Picker';
 
 export default function EditGoal() {
   const navigate = useNavigate();
@@ -24,9 +25,10 @@ export default function EditGoal() {
   });
 
   const titleRef = useRef(null);
-  const startDateRef = useRef(null);
-  const endDateRef = useRef(null);
+
   const [color, setColor] = useState(goal.color);
+  const [startDate, setStartDate] = useState(goal.startDate);
+  const [endDate, setEndDate] = useState(goal.endDate);
 
   const goToBackHandler = () => {
     navigate(-1);
@@ -55,18 +57,12 @@ export default function EditGoal() {
             ? titleRef.current.value
             : el.title;
           const newColor = color;
-          const newStartDate = startDateRef.current.value
-            ? startDateRef.current.value
-            : el.startDate;
-          const newEndDate = endDateRef.current.value
-            ? endDateRef.current.value
-            : el.endDate;
           return {
             ...el,
             title: newTitle,
             color: newColor,
-            startDate: newStartDate,
-            endDate: newEndDate,
+            startDate: startDate,
+            endDate: endDate,
           };
         } else {
           return el;
@@ -97,16 +93,8 @@ export default function EditGoal() {
 
         <div className={styles.inputBox}>
           <div className={styles.periodBox}>
-            <Textfield_default
-              inputRef={startDateRef}
-              label='기간'
-              placeholder={goal.startDate}
-            />
-            <Textfield_default
-              inputRef={endDateRef}
-              label='기간'
-              placeholder={goal.endDate}
-            />
+            <DateController date={startDate} setDate={setStartDate} />
+            <DateController date={endDate} setDate={setEndDate} />
             <span>-</span>
           </div>
         </div>

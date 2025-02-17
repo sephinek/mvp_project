@@ -3,11 +3,7 @@ import SectionTitle from '../../atoms/SectionTitle/index.jsx';
 import PlansCalender from '../PlansCalendar.jsx/index.jsx';
 import PlansList from '../PlansList/index.jsx';
 import { useEffect, useState } from 'react';
-import { format } from 'date-fns';
-
-const getDate = (date) => {
-  return format(date, 'yyyy-MM-dd HH:mm:ss');
-};
+import { getDate } from '../../../utils/date.js';
 
 export default function Plans({ goals }) {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -36,8 +32,6 @@ export default function Plans({ goals }) {
 
     getPlans();
   }, [currentDate, goals]);
-
-  console.log(goals, plans);
 
   return (
     <section className={styles.planContainer}>

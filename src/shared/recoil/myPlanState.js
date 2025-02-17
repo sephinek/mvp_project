@@ -1,5 +1,4 @@
 import { atom } from 'recoil';
-import { format } from 'date-fns';
 import { v4 as uuid } from 'uuid';
 
 export const localStorageEffect =
@@ -14,8 +13,6 @@ export const localStorageEffect =
       localStorage.setItem(key, JSON.stringify(newValue));
     });
   };
-
-format(new Date(), 'yyyy-MM-dd HH:mm:ss.SSS');
 
 export const myPlanState = atom({
   key: 'myPlanState', // unique ID (with respect to other atoms/selectors)
