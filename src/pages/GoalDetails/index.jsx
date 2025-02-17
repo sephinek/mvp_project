@@ -7,6 +7,11 @@ import EditButton from '../../components/common/Icons/EditButton';
 import SectionTitle from '../../components/atoms/SectionTitle';
 import { useRecoilValue } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
+import { format } from 'date-fns';
+
+const getLocaleDate = (date) => {
+  return format(date, 'yyyy-MM-dd');
+};
 
 export default function GoalDetails() {
   // const { state: goal } = useLocation();
@@ -50,11 +55,11 @@ export default function GoalDetails() {
               <div className={styles.icon}></div>
               <div className={styles.infoBox}>
                 <span className={styles.infoText}>
-                  {goal.startDate.toLocaleDateString()}
+                  {getLocaleDate(goal.startDate)}
                 </span>
                 <span className={styles.infoDash}>~</span>
                 <span className={styles.infoText}>
-                  {goal.endDate.toLocaleDateString()}
+                  {getLocaleDate(goal.endDate)}
                 </span>
               </div>
             </li>
