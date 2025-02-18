@@ -11,13 +11,13 @@ import { useRecoilState } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
 import Button from '../../components/atoms/Button';
 import { useRef, useState } from 'react';
-import DateController from '../../components/molecules/Date_Picker';
+import Datefield_default from '../../components/molecules/Datefield_default';
+import { v4 as uuid } from 'uuid';
 
 export default function AddGoal() {
   const navigate = useNavigate();
   const prams = useParams();
   const [planState, setPlanState] = useRecoilState(myPlanState);
-  console.log('planState', planState);
 
   const titleRef = useRef(null);
 
@@ -46,23 +46,17 @@ export default function AddGoal() {
   const clickSubmitHandler = () => {
     setPlanState({
       ...planState,
-      goals: planState.goals.map((el) => {
-        if (el.id === prams.goalId) {
-          const newTitle = titleRef.current.value
-            ? titleRef.current.value
-            : el.title;
-          const newColor = color;
-          return {
-            ...el,
-            title: newTitle,
-            color: newColor,
-            startDate: startDate,
-            endDate: endDate,
-          };
-        } else {
-          return el;
-        }
-      }),
+      goals: [
+        ...planState.goals,
+        {
+          id: uuid(),
+          title: titleRef.current.value,
+          color: color,
+          startDate: startDate,
+          endDate: endDate,
+          plans: [],
+        },
+      ],
     });
     navigate(-1);
   };
@@ -72,7 +66,7 @@ export default function AddGoal() {
       <TopBar
         LeftIcon={ChevronLeftButton}
         RightIcon={DeleteButton}
-        title='Goal(목표) 수정'
+        title='Goal(목표) 추가'
         onClickLeft={goToBackHandler}
         onClickRight={clickDeleteHandler}
       ></TopBar>
@@ -87,15 +81,17 @@ export default function AddGoal() {
         </div>
 
         <div className={styles.inputBox}>
-          <div className={styles.periodBox}>
-            <DateController date={startDate} setDate={setStartDate} />
-            <DateController date={endDate} setDate={setEndDate} />
-            <span>-</span>
-          </div>
+          <Datefield_default
+            label='기간'
+            startDate={startDate}
+            endDate={endDate}
+            onStartDateChange={setStartDate}
+            onEndDateChange={setEndDate}
+            isDateRange
+          />
         </div>
 
         <div className={styles.inputBox}>
-          <Textfield_default label='목표 색상' />
           <PublihsedRadio onClick={setColor} />
         </div>
       </section>
@@ -104,7 +100,7 @@ export default function AddGoal() {
         <SectionTitle titleEn='Plans' titleKr='계획' />
         <PlansList plans={[]} />
       </section>
-      <Button onClick={clickSubmitHandler}>수정하기</Button>
+      <Button onClick={clickSubmitHandler}>추가하기</Button>
     </section>
   );
 }

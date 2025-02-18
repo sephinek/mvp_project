@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import styles from './index.module.css';
 
 const Datefield_default = ({
@@ -74,16 +74,27 @@ const Datefield_default = ({
 
       {/* 📌 도움말 메시지 */}
       {helpText && (
-        <p className={`${styles.helpText} ${state === 'error' ? styles.errorText : ''}`}>
+        <p
+          className={`${styles.helpText} ${
+            state === 'error' ? styles.errorText : ''
+          }`}
+        >
           {helpText}
         </p>
       )}
 
       {/* 📌 바텀 시트 및 캘린더 */}
-      <div className={`${styles.overlay} ${(isStartCalendarOpen || isEndCalendarOpen) ? styles.visible : ''}`} onClick={handleCloseCalendar} />
+      <div
+        className={`${styles.overlay} ${
+          isStartCalendarOpen || isEndCalendarOpen ? styles.visible : ''
+        }`}
+        onClick={handleCloseCalendar}
+      />
       {(isStartCalendarOpen || isEndCalendarOpen) && (
         <div className={`${styles.bottomSheet} ${styles.open}`}>
-          <button className={styles.closeButton} onClick={handleCloseCalendar}>×</button>
+          <button className={styles.closeButton} onClick={handleCloseCalendar}>
+            ×
+          </button>
           <div className={styles.calendarWrapper}>
             {/* 📌 시작 날짜 캘린더 */}
             {isStartCalendarOpen && (
