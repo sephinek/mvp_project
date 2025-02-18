@@ -2,23 +2,25 @@ import Modal from 'react-modal';
 import { addGoalModalState } from '../../../../shared/recoil/addGoalModalState';
 import { addPlanModalState } from '../../../../shared/recoil/addPlanModalState';
 import styles from './index.module.css';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 export default function AddModals() {
+  const [goalState, setGoalState] = useRecoilState(addGoalModalState);
+  const [planState, setPlanState] = useRecoilState(addPlanModalState);
   const {
     isOpen: goalIsOpen,
     title: goalTitle,
     subTitle: goalSubTitle,
     icon: goalIcon,
     callback: goalCallback,
-  } = useRecoilState(addGoalModalState);
+  } = goalState;
   const {
     isOpen: planIsOpen,
     title: planTitle,
     subTitle: planSubTitle,
     icon: planIcon,
     callback: planCallback,
-  } = useRecoilState(addPlanModalState);
+  } = planState;
 
   return (
     <section>

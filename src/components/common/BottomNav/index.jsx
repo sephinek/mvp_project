@@ -7,6 +7,8 @@ import StatisticsIcon from '../../../assets/icons/solar/BottomNav-icon04.svg';
 import MyPageIcon from '../../../assets/icons/solar/BottomNav-icon05.svg';
 import styles from './index.module.css';
 import { Link } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
+import { addGoalModalState } from '../../../shared/recoil/addGoalModalState.js';
 
 const MENUS = [
   { title: '홈', alt: 'Home menu', icon: HomeIcon, to: '/' },
@@ -28,6 +30,7 @@ const MENUS = [
 
 export default function BottomNav() {
   const [currentMenu, setCurrentMenu] = useState(MENUS[0]);
+  const handleModal = useSetRecoilState(addGoalModalState);
 
   const clickHandler = (menu) => {
     setCurrentMenu(menu);
@@ -39,7 +42,11 @@ export default function BottomNav() {
         {MENUS.map((menu) => {
           if (menu.title !== '추가') {
             return (
-              <Link key={menu.title} className={`${styles.menuBox}`}>
+              <Link
+                to={menu.to}
+                key={menu.title}
+                className={`${styles.menuBox}`}
+              >
                 <IconButton
                   icon={menu.icon}
                   alt={menu.alt}
@@ -60,7 +67,13 @@ export default function BottomNav() {
           } else {
             return (
               <li key={menu.title} className={styles.menuBox}>
-                <div>
+                <div
+                  onClick={() => {
+                    handleModal((prev) => {
+                      return { ...prev, isOpen: true };
+                    });
+                  }}
+                >
                   <IconButton
                     icon={AddIcon}
                     alt={menu.alt}
