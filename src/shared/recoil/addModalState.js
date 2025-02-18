@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
-export const addGoalModalState = atom({
-  key: 'goalAddModalState', // unique ID (with respect to other atoms/selectors)
+export const addModalState = atom({
+  key: 'addModalState', // unique ID (with respect to other atoms/selectors)
   default: {
     isOpen: false,
     title: '목표 추가',

@@ -17,18 +17,13 @@ export default function AddGoal() {
   const navigate = useNavigate();
   const prams = useParams();
   const [planState, setPlanState] = useRecoilState(myPlanState);
-  const goal = planState.goals.find((el) => {
-    if (el.id === prams.goalId) {
-      return true;
-    }
-    return false;
-  });
+  console.log('planState', planState);
 
   const titleRef = useRef(null);
 
-  const [color, setColor] = useState(goal.color);
-  const [startDate, setStartDate] = useState(goal.startDate);
-  const [endDate, setEndDate] = useState(goal.endDate);
+  const [color, setColor] = useState();
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
 
   const goToBackHandler = () => {
     navigate(-1);
@@ -87,7 +82,7 @@ export default function AddGoal() {
           <Textfield_default
             inputRef={titleRef}
             label='제목'
-            placeholder={goal.title}
+            placeholder={'123'}
           />
         </div>
 
@@ -107,7 +102,7 @@ export default function AddGoal() {
 
       <section className={styles.sectionContainer}>
         <SectionTitle titleEn='Plans' titleKr='계획' />
-        <PlansList plans={goal.plans} />
+        <PlansList plans={[]} />
       </section>
       <Button onClick={clickSubmitHandler}>수정하기</Button>
     </section>

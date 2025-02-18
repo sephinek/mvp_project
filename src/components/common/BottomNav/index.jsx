@@ -8,7 +8,7 @@ import MyPageIcon from '../../../assets/icons/solar/BottomNav-icon05.svg';
 import styles from './index.module.css';
 import { Link } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
-import { addGoalModalState } from '../../../shared/recoil/addGoalModalState.js';
+import { addModalState } from '../../../shared/recoil/addModalState.js';
 
 const MENUS = [
   { title: '홈', alt: 'Home menu', icon: HomeIcon, to: '/' },
@@ -30,7 +30,13 @@ const MENUS = [
 
 export default function BottomNav() {
   const [currentMenu, setCurrentMenu] = useState(MENUS[0]);
-  const handleModal = useSetRecoilState(addGoalModalState);
+  const setModalState = useSetRecoilState(addModalState);
+
+  const handleModal = () => {
+    setModalState((prev) => {
+      return { ...prev, isOpen: true };
+    });
+  };
 
   const clickHandler = (menu) => {
     setCurrentMenu(menu);
@@ -67,13 +73,7 @@ export default function BottomNav() {
           } else {
             return (
               <li key={menu.title} className={styles.menuBox}>
-                <div
-                  onClick={() => {
-                    handleModal((prev) => {
-                      return { ...prev, isOpen: true };
-                    });
-                  }}
-                >
+                <div onClick={handleModal}>
                   <IconButton
                     icon={AddIcon}
                     alt={menu.alt}

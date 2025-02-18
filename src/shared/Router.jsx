@@ -16,9 +16,10 @@ import EditGoal from '../pages/EditGoal';
 
 import PublishedButton from '../pages/published/button';
 import PublishedRadio from '../pages/published/radio';
-import PublishedOnboardingCheck from "../pages/published/onboarding-check"
-import PublishedHomeQuickButtons from "../pages/published/home-quick-buttons"
-import PublishedHomePlanBottomSheet from "../pages/published/home-plan-bottom-sheet"
+import PublishedOnboardingCheck from '../pages/published/onboarding-check';
+import PublishedHomeQuickButtons from '../pages/published/home-quick-buttons';
+import PublishedHomePlanBottomSheet from '../pages/published/home-plan-bottom-sheet';
+import AddGoal from '../pages/AddGoal';
 
 const Router = () => {
   return (
@@ -29,7 +30,7 @@ const Router = () => {
           <Route path='/home' element={<Home />} />
           <Route path='/main' element={<Main />} />
           <Route path='/goal/:goalId' element={<GoalDetails />} />
-
+          <Route path='/goal/add' element={<AddGoal />} />
           <Route path='/goal/edit/:goalId' element={<EditGoal />} />
 
           <Route path='/reflection' element={<Reflection />}>
@@ -41,7 +42,7 @@ const Router = () => {
           <Route path='/statistics' element={<Statistics />} />
 
           <Route path='/published/button' element={<PublishedButton />} />
-          <Route path="/published/radio" element={<PublishedRadio/>} />
+          <Route path='/published/radio' element={<PublishedRadio />} />
           <Route
             path='/published/onboarding-check'
             element={<PublishedOnboardingCheck />}
@@ -50,9 +51,9 @@ const Router = () => {
             path='/published/home-quick-buttons'
             element={<PublishedHomeQuickButtons />}
           />
-          <Route 
-            path="/published/home-plan-bottom-sheet" 
-            element={<PublishedHomePlanBottomSheet/>} 
+          <Route
+            path='/published/home-plan-bottom-sheet'
+            element={<PublishedHomePlanBottomSheet />}
           />
         </Route>
       </Routes>
