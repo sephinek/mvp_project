@@ -7,10 +7,10 @@ const ReflectionGuide = ({ children, ...rest }) => {
                 <li className={styles.guideContent}>
                     <div className={styles.guideContentLeft}>
                         <div>
-                            <h2>미래를 보는 힘: 장기적인 목표 설정이 삶을 어떻게 변화 시키는가에 대해서 알아볼건데 니가 몰알아</h2>
+                            <h2>미래를 보는 힘: 장기적인 목표 설정이 삶을 어떻게 변화 시키는가</h2>
                             <ol>
                                 <li>
-                                    <div className={styles.guideCalendar}></div>
+                                    <div className={styles.calendar}></div>
                                     <span>2024년 03월 11일</span>
                                 </li>
                                 <li>
@@ -31,7 +31,7 @@ const ReflectionGuide = ({ children, ...rest }) => {
                             <h2>장기적인 목표에 실패하는 5가지 이유와 해결책</h2>
                             <ol>
                                 <li>
-                                    <div className={styles.guideCalendar}></div>
+                                    <div className={styles.calendar}></div>
                                     <span>2023년 12월 03일</span>
                                 </li>
                                 <li>
@@ -52,7 +52,7 @@ const ReflectionGuide = ({ children, ...rest }) => {
                             <h2>성공한 사람들은 왜 비전보드를 사용할까?</h2>
                             <ol>
                                 <li>
-                                    <div className={styles.guideCalendar}></div>
+                                    <div className={styles.calendar}></div>
                                     <span>2023년 6월 16일</span>
                                 </li>
                                 <li>
@@ -74,7 +74,7 @@ const ReflectionGuide = ({ children, ...rest }) => {
                             <h2>비전이 명확할수록 삶이 단순해지는 이유</h2>
                             <ol>
                                 <li>
-                                    <div className={styles.guideCalendar}></div>
+                                    <div className={styles.calendar}></div>
                                     <span>2023년 5월 28일</span>
                                 </li>
                                 <li>

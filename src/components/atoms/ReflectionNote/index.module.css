@@ -1,0 +1,70 @@
+.wrap {
+    width: 100%;
+}
+.reflectionNote {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 16px;
+}
+.noteContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    border: 1px solid var(--color-grey-50);
+    border-radius: var(--border-radius-default);
+}
+.noteContent:hover {
+    background-color: var(--color-grey-5);
+    cursor: pointer;
+}
+.noteContent > h2 {
+    width: 100%;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-grey-700);
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    word-break: keep-all;
+}
+.noteContent > ol {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 4px 0;
+}
+.noteContent > ol > li {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2px;
+    align-items: center;
+}
+.noteContent > p {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary-300);
+    line-height: 24px;
+    padding: 4px 0;
+}
+.calendar {
+    width: 16px;
+    height: 16px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-image: url(../../../assets/icons/humble/humbleicons_calendar_guide.svg);
+}
+.noteContent > ol > li span {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-grey-300);
+    line-height: 28px;
+}
