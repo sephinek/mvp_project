@@ -14,12 +14,9 @@
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-position: center;
-
-    /*삭제하고 아이콘이 보여야함*/
-    background-color: gray;
 }
 .iconLeft {
-    background-image: url(../../../assets/icons/humble/BottomNav-icon01.svg);
+    background-image: url(../../../assets/icons/solar/solar_home-smile-bold.svg);
 }
 .iconRight {}
 .title {

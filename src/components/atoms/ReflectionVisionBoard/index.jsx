@@ -7,17 +7,8 @@ const ReflectionVisionBoard = ({ children, ...rest }) => {
                 <li className={styles.visionBoardContent}></li>
                 <li className={styles.visionBoardContent}></li>
                 <li className={styles.visionBoardContent}></li>
-                <li className={styles.visionBoardContent}></li>
-                <li className={styles.visionBoardContent}></li>
-                <li className={styles.visionBoardContent}></li>
-                <li className={styles.visionBoardContent}></li>
             </ul>
             <ul className={styles.reflectionVisionBoardd}>
-                <li className={styles.visionBoardContent}></li>
-                <li className={styles.visionBoardContent}></li>
-                <li className={styles.visionBoardContent}></li>
-                <li className={styles.visionBoardContent}></li>
-                <li className={styles.visionBoardContent}></li>
                 <li className={styles.visionBoardContent}></li>
                 <li className={styles.visionBoardContent}></li>
                 <li className={styles.visionBoardContent}></li>
