@@ -3,7 +3,7 @@ import SectionTitle from '../../atoms/SectionTitle/index.jsx';
 import PlansCalender from '../PlansCalendar.jsx/index.jsx';
 import PlansList from '../PlansList/index.jsx';
 import { useEffect, useState } from 'react';
-import { getDate } from '../../../utils/date.js';
+// import { getDate } from '../../../utils/date.js';
 
 export default function Plans({ goals }) {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -18,12 +18,12 @@ export default function Plans({ goals }) {
       const result = [];
       goals?.map((goal) => {
         goal?.plans?.map((plan) => {
-          if (
-            getDate(plan.endDate) >= getDate(currentDate) &&
-            getDate(plan.startDate) <= getDate(currentDate)
-          ) {
-            result.push(plan);
-          }
+          // if (
+          //   getDate(plan.endDate) >= getDate(currentDate) &&
+          //   getDate(plan.startDate) <= getDate(currentDate)
+          // ) {
+          result.push(plan);
+          // }
         });
       });
 
@@ -36,6 +36,7 @@ export default function Plans({ goals }) {
   return (
     <section className={styles.planContainer}>
       <SectionTitle titleEn='Plans' titleKr='계획' />
+
       <div className={styles.planWrap}>
         <PlansCalender current={currentDate} setCurrent={handleCurrentDate} />
         <PlansList plans={plans} />

@@ -91,7 +91,9 @@ const Home = () => {
         />
       );
     case 5:
-      return <OnboardingStepVision />;
+      return (
+        <OnboardingStepVision nextStep={handlePage} type={onBoardingArr[4]} />
+      );
 
     default:
       return <p>오류가 있습니다 새로고침 해주세요</p>;
