@@ -8,12 +8,22 @@ import OnboardingYesIcon from '../../../assets/icons/toss/yes.svg';
 import OnboardingNoIcon from '../../../assets/icons/toss/no.svg';
 import OnboardingQuestionIcon from '../../../assets/icons/toss/question-mark.svg';
 
-const OnboardingStep04 = ({ nextStep, beforeStep, type }) => {
+const OnboardingStep06 = ({ nextStep, beforeStep, type, setOnBoardingArr }) => {
   const [target, setTarget] = useState();
 
   const handleNextStep = () => {
     if (!target) return;
-    nextStep(target);
+
+    if (target !== 'yes') {
+      setOnBoardingArr((prev) => {
+        const result = [...prev];
+        result[4] = target;
+        return result;
+      });
+      beforeStep();
+    } else {
+      nextStep(type);
+    }
   };
 
   return (
@@ -66,4 +76,4 @@ const OnboardingStep04 = ({ nextStep, beforeStep, type }) => {
   );
 };
 
-export default OnboardingStep04;
+export default OnboardingStep06;

@@ -14,8 +14,8 @@ const OnboardingStep03 = ({ nextStep, beforeStep, type }) => {
     value ? setIsConfirmed(true) : setIsConfirmed(false);
   };
 
-  const handleNextStep = (item) => {
-    nextStep(item, ref.current.value);
+  const handleNextStep = () => {
+    nextStep(ref.current.value);
   };
 
   if (type === 'yes') {
@@ -39,7 +39,7 @@ const OnboardingStep03 = ({ nextStep, beforeStep, type }) => {
           <Button
             theme='secondary'
             disabled={!isConfirmed}
-            onClick={() => handleNextStep('yes')}
+            onClick={handleNextStep}
           >
             다음
           </Button>
@@ -68,7 +68,7 @@ const OnboardingStep03 = ({ nextStep, beforeStep, type }) => {
         <Button
           theme='secondary'
           disabled={!isConfirmed}
-          onClick={() => handleNextStep('no')}
+          onClick={handleNextStep}
         >
           다음
         </Button>

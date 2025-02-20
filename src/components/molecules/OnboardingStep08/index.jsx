@@ -8,11 +8,12 @@ import OnboardingYesIcon from '../../../assets/icons/toss/yes.svg';
 import OnboardingNoIcon from '../../../assets/icons/toss/no.svg';
 import OnboardingQuestionIcon from '../../../assets/icons/toss/question-mark.svg';
 
-const OnboardingStep04 = ({ nextStep, beforeStep, type }) => {
+const OnboardingStep08 = ({ nextStep, beforeStep, type }) => {
   const [target, setTarget] = useState();
 
   const handleNextStep = () => {
     if (!target) return;
+    console.log('target', target);
     nextStep(target);
   };
 
@@ -23,10 +24,10 @@ const OnboardingStep04 = ({ nextStep, beforeStep, type }) => {
       </div>
 
       <div className={styles.contentContainer}>
-        <OnBoardingTitle>
-          나의 꿈은 &quot;{type}
+        <OnBoardingTitle secondLine='어렵다면 계획을 추천 받을 수 있어요!'>
+          그 목표를 달성하려면
           <br />
-          사람&quot; 인가요?
+          어떤 계획을 세워야 할까요?
         </OnBoardingTitle>
 
         <div className={styles.button_wrap}>
@@ -36,21 +37,15 @@ const OnboardingStep04 = ({ nextStep, beforeStep, type }) => {
             items={[
               {
                 value: 'yes',
-                children: '맞아요',
+                children: '제가 직접 작성할게요',
                 icon: OnboardingYesIcon,
                 targetFn: () => setTarget('yes'),
               },
               {
                 value: 'no',
-                children: '아니요',
+                children: '추천 받을래요',
                 icon: OnboardingNoIcon,
                 targetFn: () => setTarget('no'),
-              },
-              {
-                value: 'dontKnow',
-                children: '잘 모르겠어요',
-                icon: OnboardingQuestionIcon,
-                targetFn: () => setTarget('dontKnow'),
               },
             ]}
           />
@@ -66,4 +61,4 @@ const OnboardingStep04 = ({ nextStep, beforeStep, type }) => {
   );
 };
 
-export default OnboardingStep04;
+export default OnboardingStep08;
