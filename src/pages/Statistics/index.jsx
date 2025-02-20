@@ -7,6 +7,7 @@ import StatisticsPeriodTabs from '../../components/atoms/StatisticsPeriodTabs';
 import ChevronLeftButton from '../../components/common/Icons/ChevronLeftButton';
 import ChevronRightButton from '../../components/common/Icons/ChevronRightButton';
 import StatisticsPlanList from '../../components/atoms/StatisticsPlanList';
+import StatisticsGraph from '../../components/atoms/StatisticsGraph';
 
 export default function Reflection() {
   const { state, routePage } = useNavigationPage();
@@ -31,7 +32,7 @@ export default function Reflection() {
               <ChevronRightButton></ChevronRightButton>
             </div>
             <span></span>
-            <div className={styles.graph}></div>
+            <StatisticsGraph></StatisticsGraph>
             <span></span>
             <StatisticsPlanList></StatisticsPlanList>
           </div>
