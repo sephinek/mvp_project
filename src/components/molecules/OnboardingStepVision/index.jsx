@@ -4,7 +4,6 @@ import styles from './index.module.css';
 import Button from '../../atoms/Button';
 
 const OnboardingStepVision = ({ nextStep, type }) => {
-  console.log('nextStep', nextStep);
   return (
     <div className={styles.wrap}>
       <div className={styles.space}></div>

@@ -10,13 +10,18 @@ import OnboardingStep04 from '../../components/molecules/OnboardingStep04';
 import OnboardingStepVision from '../../components/molecules/OnboardingStepVision';
 import OnboardingStep05 from '../../components/molecules/OnboardingStep05';
 import OnboardingStep06 from '../../components/molecules/OnboardingStep06';
+import OnBoardingStep07 from '../../components/molecules/OnBoardingStep07';
+import OnboardingStep08 from '../../components/molecules/OnboardingStep08';
+import OnboardingStep09 from '../../components/molecules/OnboardingStep09';
+import { v4 as uuid } from 'uuid';
+import useNavigationPage from '../../hooks/useNavigationPage';
 
 const OnBoarding = () => {
   const [step, setStep] = useState(0);
   const [onBoardingArr, setOnBoardingArr] = useState([]);
   const setMyPlan = useSetRecoilState(myPlanState);
-  // const { routePage } = useNavigationPage();
-  console.log('step', step);
+  const { routePage } = useNavigationPage();
+
   // 다음 단계로 보내주는 함수
   const nextStep = () => {
     setStep(step + 1);
@@ -46,18 +51,41 @@ const OnBoarding = () => {
     // routePage('/main', [...onBoardingArr, item]);
   };
 
-  // 아래 주석 건드리지 마세요!!!
-  // useEffect(() => {
-  //   const data = localStorage.getItem('onboardingData');
-  //   if (JSON.parse(data)) {
-  //     routePage('/main', [...onBoardingArr, JSON.parse(data)]);
-  //   }
-  // });
+  const completeOnboarding = (item) => {
+    setMyPlan((prev) => {
+      return {
+        ...prev,
+        vision: onBoardingArr[6],
+        goals: [
+          {
+            id: uuid(),
+            title: onBoardingArr[8],
+            color: 'green',
+            startDate: new Date(),
+            endDate: new Date(),
+            plans: [
+              {
+                id: uuid(),
+                title: item,
+                startDate: new Date(),
+                endDate: new Date(),
+                completedDates: [],
+                pausedDates: [],
+                repetition: [], // 월 화 수 목 금 토 일 최대 7개까지
+                plansCount: 1, // repetition가 수정될 때 현재 시간을 기준으로 필요한 count 개수를 계산하고 completedDates.length를 더한다.
+                isPaused: false,
+              },
+            ],
+          },
+        ],
+      };
+    });
+    routePage('/main');
+  };
 
   // 현재 step을 기준으로 화면에 랜더링될 컴포넌트를 return 해주세요
   // 분기가 나뉘게 되면 이전 step의 값을 참조하여 if문을 이용해 분기를 나눠주세요
   // 각 컴포넌트에는 handleOnBoarding 함수를 넘겨줘 확인 버튼을 누를 때 함께 실행되게 해주세요
-  console.log('onBoardingArr', onBoardingArr);
 
   switch (step) {
     case 0:
@@ -93,7 +121,6 @@ const OnBoarding = () => {
         />
       );
     case 5:
-      console.log('onBoardingArr[4]', onBoardingArr[4]);
       if (onBoardingArr[4] === 'yes') {
         setOnBoardingArr([
           ...onBoardingArr,
@@ -121,9 +148,32 @@ const OnBoarding = () => {
       );
     case 7:
       return (
-        <OnboardingStepVision nextStep={nextStep} type={onBoardingArr[6]} />
+        <OnboardingStepVision nextStep={handlePage} type={onBoardingArr[6]} />
       );
-
+    case 8:
+      return (
+        <OnBoardingStep07
+          nextStep={handlePage}
+          beforeStep={beforeStep}
+          type={onBoardingArr[7]}
+        />
+      );
+    case 9:
+      return (
+        <OnboardingStep08
+          nextStep={handlePage}
+          beforeStep={beforeStep}
+          type={onBoardingArr[8]}
+        />
+      );
+    case 10:
+      return (
+        <OnboardingStep09
+          nextStep={completeOnboarding}
+          beforeStep={beforeStep}
+          type={onBoardingArr[9]}
+        />
+      );
     default:
       return <p>오류가 있습니다 새로고침 해주세요</p>;
   }
