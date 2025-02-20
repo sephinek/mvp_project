@@ -33,7 +33,7 @@
     line-height: 16px;
 }
 .plans > h1 {
-    max-width: 290px;
+    width: 190px;
     min-width: 150px;
     white-space: nowrap;
     overflow: hidden;
