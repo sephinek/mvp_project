@@ -1,25 +1,38 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Button from '../../atoms/Button';
 import GoBackHeader from '../../common/GoBackHeader';
+import OnBoardingTitle from '../../atoms/OnboardingTitle';
+import styles from './index.module.css';
+import { useRecoilValue } from 'recoil';
+import { myPlanState } from '../../../shared/recoil/myPlanState';
 import OnboardingCheckList from '../OnboardingCheckList';
 import OnboardingYesIcon from '../../../assets/icons/toss/yes.svg';
 import OnboardingNoIcon from '../../../assets/icons/toss/no.svg';
-import OnBoardingTitle from '../../atoms/OnboardingTitle';
-import styles from './index.module.css';
+import OnboardingQuestionIcon from '../../../assets/icons/toss/question-mark.svg';
 
-const OnboardingStep01 = ({ nextStep, beforeStep }) => {
+const OnboardingStep04 = ({ nextStep, beforeStep }) => {
+  const ref = useRef(null);
+  const { vision } = useRecoilValue(myPlanState);
   const [target, setTarget] = useState();
+
+  const handleNextStep = () => {
+    if (!target) return;
+    nextStep(target, ref.current?.value);
+  };
+
+  console.log('localStorage myPlan:', localStorage.getItem('myPlan'));
 
   return (
     <div className={styles.wrap}>
       <div className={styles.goBackBox}>
         <GoBackHeader handler={beforeStep} />
       </div>
+
       <div className={styles.contentContainer}>
         <OnBoardingTitle>
-          지금 꿈꾸고 있는
+          나의 꿈은 &quot;{vision}
           <br />
-          나의 미래의 모습이 있나요?
+          사람&quot; 인가요?
         </OnBoardingTitle>
 
         <div className={styles.button_wrap}>
@@ -29,26 +42,29 @@ const OnboardingStep01 = ({ nextStep, beforeStep }) => {
             items={[
               {
                 value: 'yes',
-                children: '있어요!',
+                children: '맞아요',
                 icon: OnboardingYesIcon,
                 targetFn: () => setTarget('yes'),
               },
               {
                 value: 'no',
-                children: '아직 없어요',
+                children: '아니요',
                 icon: OnboardingNoIcon,
                 targetFn: () => setTarget('no'),
+              },
+              {
+                value: 'undefined',
+                children: '잘 모르겠어요',
+                icon: OnboardingQuestionIcon,
+                targetFn: () => setTarget('undefined'),
               },
             ]}
           />
         </div>
       </div>
+
       <div className={styles.bottomBtn}>
-        <Button
-          theme='secondary'
-          disabled={!target}
-          onClick={() => nextStep(target)}
-        >
+        <Button theme='secondary' disabled={!target} onClick={handleNextStep}>
           다음
         </Button>
       </div>
@@ -56,4 +72,4 @@ const OnboardingStep01 = ({ nextStep, beforeStep }) => {
   );
 };
 
-export default OnboardingStep01;
+export default OnboardingStep04;
