@@ -21,6 +21,7 @@ import PublishedHomeQuickButtons from '../pages/published/home-quick-buttons';
 import PublishedHomePlanBottomSheet from '../pages/published/home-plan-bottom-sheet';
 import AddGoal from '../pages/AddGoal';
 import AddPlan from '../pages/EditGoal';
+import MyPage from '../pages/MyPage';
 
 const Router = () => {
   return (
@@ -57,6 +58,7 @@ const Router = () => {
             path='/published/home-plan-bottom-sheet'
             element={<PublishedHomePlanBottomSheet />}
           />
+          <Route path='/mypage' element={<MyPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { useState } from "react";
+import { useState } from 'react';
 import useNavigationPage from '../../hooks/useNavigationPage';
 import StatisticsProfile from '../../components/atoms/StatisticsProfile';
 import styles from './index.module.css';
@@ -10,10 +10,11 @@ import ChevronRightButton from '../../components/common/Icons/ChevronRightButton
 import StatisticsPlanList from '../../components/atoms/StatisticsPlanList';
 import StatisticsWeeklyGraph from '../../components/atoms/StatisticsWeeklyGraph';
 import StatisticsMonthlyGraph from '../../components/atoms/StatisticsMonthlyGraph';
+import BottomNav from '../../components/common/BottomNav';
 
 export default function Reflection() {
   const { state, routePage } = useNavigationPage();
-  const [selectedTab, setSelectedTab] = useState("weekly");
+  const [selectedTab, setSelectedTab] = useState('weekly');
 
   return (
     <>
@@ -24,32 +25,35 @@ export default function Reflection() {
 
           {/* 여기 자체를 컴포넌트로 만들어도 될 듯*/}
           <div className={styles.contentBox}>
-
-            
             <StatisticsPeriodTabs onSelectTab={setSelectedTab} />
             <span></span>
             <div className={styles.yearAndMonthBar}>
               <ChevronLeftButton></ChevronLeftButton>
-                <div className={styles.yearnAndMonthBox}>
-                  <span>1년</span>
-                  <span>1월</span>
-                </div>
+              <div className={styles.yearnAndMonthBox}>
+                <span>1년</span>
+                <span>1월</span>
+              </div>
               <ChevronRightButton></ChevronRightButton>
             </div>
             <span></span>
             {/* 탭에 따른 화면 제공 */}
             <div className={styles.statBox}>
-                {selectedTab === "weekly" && <StatisticsWeeklyGraph type="weekly" />}
-                {selectedTab === "monthly" && <StatisticsMonthlyGraph type="monthly" />}
+              {selectedTab === 'weekly' && (
+                <StatisticsWeeklyGraph type='weekly' />
+              )}
+              {selectedTab === 'monthly' && (
+                <StatisticsMonthlyGraph type='monthly' />
+              )}
             </div>
           </div>
-          
+
           <div className={styles.contentBox}>
             <div className={styles.goalWrap}>
               <h1>목표 전체 진행 상황</h1>
-              <p>오늘까지 <span>2개</span> 완료</p>
+              <p>
+                오늘까지 <span>2개</span> 완료
+              </p>
               <ul className={styles.goalsList}>
-                
                 {/* 복사해온 코드*/}
                 <li className={styles.goalBox}>
                   <div className={styles.titleBox}>
@@ -104,8 +108,8 @@ export default function Reflection() {
               </ul>
             </div>
           </div>
-
         </div>
+        <BottomNav />
       </section>
     </>
   );
