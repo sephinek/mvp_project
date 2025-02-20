@@ -1,17 +1,21 @@
-import styles from './index.module.css'
+import styles from './index.module.css';
 
-const getClassName = ({theme, type, size}) => {
+const getClassName = ({ theme, type, size }) => {
   return styles[`${theme}-${type}-${size}`];
-}
+};
 
 const Button = ({
   children,
-  theme='primary',
-  type='default',
-  size='large',
+  theme = 'primary',
+  type = 'default',
+  size = 'large',
   ...rest
 }) => {
-  return <button {...rest} className={getClassName({theme, type, size})}>{children}</button>
-}
+  return (
+    <button {...rest} className={getClassName({ theme, type, size })}>
+      {children}
+    </button>
+  );
+};
 
-export default Button
+export default Button;

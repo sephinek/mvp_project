@@ -1,4 +1,5 @@
-.input {
+.input,
+input:checked {
   display: none;
 }
 
@@ -17,7 +18,7 @@
   border: 1px solid transparent;
 }
 
-.input:checked + .label {
+.active + .label {
   color: var(--prime-prime, #ff1b1a);
   border-color: var(--prime-prime, #ff1b1a);
 }
