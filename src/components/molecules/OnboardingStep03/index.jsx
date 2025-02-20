@@ -5,7 +5,7 @@ import GoBackHeader from '../../common/GoBackHeader';
 import OnBoardingTitle from '../../atoms/OnboardingTitle';
 import styles from './index.module.css';
 
-const OnboardingStep02 = ({ nextStep, beforeStep, type }) => {
+const OnboardingStep03 = ({ nextStep, beforeStep, type }) => {
   const ref = useRef(null);
   const [isConfirmed, setIsConfirmed] = useState(false);
 
@@ -14,8 +14,8 @@ const OnboardingStep02 = ({ nextStep, beforeStep, type }) => {
     value ? setIsConfirmed(true) : setIsConfirmed(false);
   };
 
-  const handleNextStep = (type) => {
-    nextStep(type);
+  const handleNextStep = (item) => {
+    nextStep(item, ref.current.value);
   };
 
   if (type === 'yes') {
@@ -26,13 +26,13 @@ const OnboardingStep02 = ({ nextStep, beforeStep, type }) => {
         </div>
 
         <div className={styles.contentContainer}>
-          <OnBoardingTitle secondLine='1줄 이내로 적어주세요.'>
-            꿈꾸는 나의
+          <OnBoardingTitle secondLine='ex) 창작하는 것, 사람들에게 위로를 주는 것, 큰 성취를 이루는 것'>
+            그 꿈의 가치가
             <br />
-            미래의 모습을 적어주세요.
+            무엇이라고 생각하나요?
           </OnBoardingTitle>
 
-          <Input inputRef={ref} onChange={handleChange} />
+          <Input inputRef={ref} type='visible' onChange={handleChange} />
         </div>
 
         <div className={styles.bottomBtn}>
@@ -55,13 +55,13 @@ const OnboardingStep02 = ({ nextStep, beforeStep, type }) => {
       </div>
 
       <div className={styles.contentContainer}>
-        <OnBoardingTitle secondLine='ex) 디자이너, 탐험가, 아티스트'>
-          나의 어릴 적 꿈
+        <OnBoardingTitle secondLine='ex) 자유로운 방식을 추구하는 것, 모험을 즐기는 것, 새로운 경험을 추구하는 것'>
+          그 세 가지 꿈의 공통점이
           <br />
-          3가지를 적어보세요!
+          무엇이라고 생각하나요?
         </OnBoardingTitle>
 
-        <Input inputRef={ref} onChange={handleChange} />
+        <Input inputRef={ref} type='visible' onChange={handleChange} />
       </div>
 
       <div className={styles.bottomBtn}>
@@ -77,4 +77,4 @@ const OnboardingStep02 = ({ nextStep, beforeStep, type }) => {
   );
 };
 
-export default OnboardingStep02;
+export default OnboardingStep03;

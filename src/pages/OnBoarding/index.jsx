@@ -1,16 +1,19 @@
 import { useState } from 'react';
-import OnBoardingStep00 from '../../components/molecules/OnBoardingStep00';
-import OnBoardingStep01 from '../../components/molecules/OnBoardingStep01';
-import OnBoardingStep02 from '../../components/molecules/OnBoardingStep02';
-import useNavigationPage from '../../hooks/useNavigationPage';
+import OnBoardingStep00 from '../../components/molecules/OnboardingStep00';
+import OnBoardingStep01 from '../../components/molecules/OnboardingStep01';
+import OnBoardingStep02 from '../../components/molecules/OnboardingStep02';
+// import useNavigationPage from '../../hooks/useNavigationPage';
 import { useSetRecoilState } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
+import OnboardingStep03 from '../../components/molecules/OnboardingStep03';
+import OnboardingStep04 from '../../components/molecules/OnboardingStep04';
+import OnboardingStepVision from '../../components/molecules/OnboardingStepVision';
 
 const Home = () => {
   const [step, setStep] = useState(0);
   const [onBoardingArr, setOnBoardingArr] = useState([]);
   const setMyPlan = useSetRecoilState(myPlanState);
-  const { routePage } = useNavigationPage();
+  // const { routePage } = useNavigationPage();
 
   // 다음 단계로 보내주는 함수
   const nextStep = () => {
@@ -30,11 +33,17 @@ const Home = () => {
     nextStep();
   };
 
-  const handlePage = (item) => {
+  const handlePage = (item, vision) => {
+    const result = [...onBoardingArr];
+    result[step] = item;
+    setOnBoardingArr(result);
     setMyPlan((prev) => {
-      return { ...prev, vision: item };
+      console.log('이전 상태', prev);
+      console.log('새로운 vision 값', vision);
+      return { ...prev, vision };
     });
-    routePage('/main', [...onBoardingArr, item]);
+    nextStep();
+    // routePage('/main', [...onBoardingArr, item]);
   };
 
   // 아래 주석 건드리지 마세요!!!
@@ -60,11 +69,30 @@ const Home = () => {
     case 2:
       return (
         <OnBoardingStep02
-          nextStep={handlePage}
+          nextStep={handleOnBoarding}
           beforeStep={beforeStep}
           type={onBoardingArr[1]}
         />
       );
+    case 3:
+      return (
+        <OnboardingStep03
+          nextStep={handlePage}
+          beforeStep={beforeStep}
+          type={onBoardingArr[2]}
+        />
+      );
+    case 4:
+      return (
+        <OnboardingStep04
+          nextStep={handlePage}
+          beforeStep={beforeStep}
+          type={onBoardingArr[3]}
+        />
+      );
+    case 5:
+      return <OnboardingStepVision />;
+
     default:
       return <p>오류가 있습니다 새로고침 해주세요</p>;
   }

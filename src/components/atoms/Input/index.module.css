@@ -22,9 +22,22 @@
   color: var(--font-grey-900);
 }
 
+.lineBox {
+  display: flex;
+  gap: 10px;
+}
+
 .line {
   width: 100%;
   border-bottom: 1px solid var(--color-grey-600);
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
 }
 
 .wrap::placeholder {
