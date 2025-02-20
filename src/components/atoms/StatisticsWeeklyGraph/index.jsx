@@ -1,9 +1,10 @@
 import styles from './index.module.css';
 import { useEffect, useState } from "react";
+import StatisticsPlanList from '../../atoms/StatisticsPlanList';
 
 const data = [30, 60, 20, 100, 80, 70, 20]; // 각 요일별 데이터
 
-const StatisticsGraph = () => {
+const StatisticsWeeklyGraph = () => {
     const [heights, setHeights] = useState(Array(data.length).fill(0)); // 초기값 0
 
     useEffect(() => {
@@ -51,8 +52,12 @@ const StatisticsGraph = () => {
                     <li key={index}>{date}</li>
                 ))}
             </ul>
+            <span></span>
+            <StatisticsPlanList></StatisticsPlanList>
+            <button className={styles.weeklyDetailBtn}>자세히 보기
+            </button>
         </div>
     );
 }
 
-export default StatisticsGraph;
+export default StatisticsWeeklyGraph;
