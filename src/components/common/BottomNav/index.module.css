@@ -70,15 +70,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-/* '추가'버튼 ative시 rotate상태 */
-.bottomNavBox > li:nth-child(3):active > div {
+/* '추가' 버튼 active 시 스타일 */
+.bottomNavBox > li:nth-child(3) .addButton.active {
   background-color: var(--color-grey-900);
-  transition: background-color 0.3s ease-in-out;
-}
-.bottomNavBox > li:nth-child(3):active > div {
-  transform: translateX(-50%) rotate(45deg)!important;
-  transition: transform 0.3s ease-in-out !important;
 }
 
+.bottomNavBox > li:nth-child(3) .addButton.active {
+  transform: translateX(-50%) rotate(45deg) !important;
+}
