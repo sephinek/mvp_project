@@ -2,6 +2,7 @@ import styles from './index.module.css'
 
 const StatisticsPlanList = ({ children, ...rest }) => {
     return (
+        <>
         <ul className={styles.statisticsPlanList}>
             <li className={styles.statisticsPlan}>
                 <p className={styles.statisticsName}>창의적 활동 지속하기</p>
@@ -28,6 +29,7 @@ const StatisticsPlanList = ({ children, ...rest }) => {
                 </div>
           </li>
         </ul>
+        </>
     )
 }
 

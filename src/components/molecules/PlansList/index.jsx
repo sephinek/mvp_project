@@ -2,6 +2,7 @@ import PlanItem from '../PlanItem';
 import styles from './index.module.css';
 
 export default function PlansList({ plans }) {
+  console.log('plans', plans);
   return (
     <ul className={styles.plansContainer}>
       {plans

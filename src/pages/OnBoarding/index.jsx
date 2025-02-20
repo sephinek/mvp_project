@@ -2,7 +2,6 @@ import { useState } from 'react';
 import OnBoardingStep00 from '../../components/molecules/OnboardingStep00';
 import OnBoardingStep01 from '../../components/molecules/OnboardingStep01';
 import OnBoardingStep02 from '../../components/molecules/OnboardingStep02';
-// import useNavigationPage from '../../hooks/useNavigationPage';
 import { useSetRecoilState } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
 import OnboardingStep03 from '../../components/molecules/OnboardingStep03';

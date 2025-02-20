@@ -6,6 +6,7 @@ export default function Goals({ goals }) {
   return (
     <section className={styles.goalsContainer}>
       <SectionTitle titleEn='Goals' titleKr='목표' />
+
       <div className={styles.goalWrap}>
         <ul className={styles.goalsList}>
           {goals.map((goal) => (
