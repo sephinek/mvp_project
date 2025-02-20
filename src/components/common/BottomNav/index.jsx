@@ -11,7 +11,7 @@ import { useSetRecoilState } from 'recoil';
 import { addModalState } from '../../../shared/recoil/addModalState.js';
 
 const MENUS = [
-  { title: '홈', alt: 'Home menu', icon: HomeIcon, to: '/' },
+  { title: '홈', alt: 'Home menu', icon: HomeIcon, to: '/main' },
   {
     title: '점검데이',
     alt: 'Reflection Day menu',

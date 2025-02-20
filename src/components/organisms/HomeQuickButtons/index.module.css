@@ -4,15 +4,14 @@
 }
 
 .card {
-  flex:1;
+  flex: 1;
   padding: 10px 20px;
-
   border-radius: 16px;
-  background: #FFF;
+  background: #fff;
 }
 
 .title {
-  color: var(--gray-900, #0D0D0D);
+  color: var(--gray-900, #0d0d0d);
 
   /* Heading/xs/bold */
   font-size: 20px;
@@ -21,7 +20,7 @@
 }
 
 .description {
-  margin-top:2px;
+  margin-top: 2px;
 
   color: var(--gray-600, #666);
 
@@ -35,5 +34,5 @@
 
 .icon-wrap {
   text-align: right;
-  margin-top:6px;
+  margin-top: 6px;
 }

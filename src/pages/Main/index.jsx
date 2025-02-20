@@ -21,7 +21,7 @@ export default function Main() {
     <>
       {myPlan && (
         <div className={styles.mainWrap}>
-          <Vision myVision={myPlan.vision} />
+          <Vision />
           <Goals goals={myPlan.goals} />
           <Plans goals={myPlan.goals} />
           <BottomNav />

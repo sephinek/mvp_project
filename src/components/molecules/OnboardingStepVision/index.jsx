@@ -12,9 +12,7 @@ const OnboardingStepVision = ({ nextStep, type }) => {
         secondLine="루시드는 앞으로 이것을 '비전'이라고 부를거예요.💫"
         thirdLine='비전은 마이페이지에서 변경할 수 있어요.'
       >
-        나의 꿈은 &quot;{type}
-        <br />
-        사람&quot; 이에요!
+        나의 꿈은 &quot;{type}&nbsp;사람&quot; 이에요!
       </OnBoardingTitle>
 
       <Lucid02 />

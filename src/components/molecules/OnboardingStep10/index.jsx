@@ -7,7 +7,7 @@ import Input from '../../atoms/Input';
 import OnboardingYesIcon from '../../../assets/icons/toss/yes.svg';
 import OnboardingCheckList from '../OnboardingCheckList';
 
-const OnboardingStep09 = ({ nextStep, beforeStep, type }) => {
+const OnboardingStep10 = ({ nextStep, beforeStep, type }) => {
   const ref = useRef(null);
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [target, setTarget] = useState(false);
@@ -40,7 +40,7 @@ ex) 매일 30분씩 영어 공부하기'
             그 목표를 달성하려면 어떤 계획을 세워야 할까요?
           </OnBoardingTitle>
 
-          <Input inputRef={ref} onChange={handleChange} />
+          <Input inputRef={ref} type='visible' onChange={handleChange} />
         </div>
 
         <div className={styles.bottomBtn}>
@@ -123,4 +123,4 @@ ex) 매일 30분씩 영어 공부하기'
   );
 };
 
-export default OnboardingStep09;
+export default OnboardingStep10;

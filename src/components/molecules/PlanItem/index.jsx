@@ -2,10 +2,12 @@ import checkIconDisabled from '../../../assets/icons/humble/checkbox-disabled.sv
 import checkIconChecked from '../../../assets/icons/humble/checkbox-checked.svg';
 import checkIconDefault from '../../../assets/icons/humble/checkbox-default.svg';
 import styles from './index.module.css';
+import { myPlanState } from '../../../shared/recoil/myPlanState';
+import { useRecoilState } from 'recoil';
 
-export default function PlanItem({ plan }) {
-  console.log(plan);
+export default function PlanItem({ plan, goalId, goalTitle }) {
   const {
+    id,
     title,
     startDate,
     endDate,
@@ -17,18 +19,42 @@ export default function PlanItem({ plan }) {
     isCompleted,
   } = plan;
 
+  const [myPlan, setMyPlan] = useRecoilState(myPlanState);
+
+  const clickHandler = () => {
+    console.log(isCompleted);
+    setMyPlan((prevPlan) => {
+      const updatedGoals = prevPlan.goals.map((goal) => {
+        if (goal.id === goalId) {
+          return {
+            ...goal,
+            plans: goal.plans.map((p) =>
+              p.id === id ? { ...p, isCompleted: !p.isCompleted } : p
+            ),
+          };
+        }
+        return goal;
+      });
+      const newPlanState = { ...prevPlan, goals: updatedGoals };
+
+      localStorage.setItem('myPlan', JSON.stringify(newPlanState));
+
+      return newPlanState;
+    });
+  };
+
   return (
     <li className={styles.planBox}>
       <div className={styles.colorAndTitlesBox}>
         <div className={styles.colorBar}></div>
         <div className={styles.goalAndPlanTitles}>
-          <span className={styles.goalTitle}>해외 주식</span>
+          <span className={styles.goalTitle}>{goalTitle}</span>
           <span className={styles.planTitle}>{title}</span>
         </div>
       </div>
       <div className={styles.pausedAndCheckboxBox}>
         <span className={styles.paused}>{isPaused ? '휴식중' : ''}</span>
-        <button className={styles.checkbox}>
+        <button className={styles.checkbox} onClick={clickHandler}>
           {isPaused ? (
             <img src={checkIconDisabled} />
           ) : isCompleted ? (
