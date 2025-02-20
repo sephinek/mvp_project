@@ -1,12 +1,13 @@
-import Title from '../../components/atoms/Title';
+import OnBoardingTitle from '../../components/atoms/OnboardingTitle';
 import useNavigationPage from '../../hooks/useNavigationPage';
 
 const Home = () => {
   const { state } = useNavigationPage();
+  console.log(state);
 
   return (
     <>
-      <Title>나의 비전은 {state}</Title>
+      <OnBoardingTitle>나의 꿈은 {state} 사람 이에요!</OnBoardingTitle>
     </>
   );
 };
