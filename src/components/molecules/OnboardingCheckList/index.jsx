@@ -19,7 +19,7 @@ const OnboardingCheckList = ({ name, choice = 'single', items }) => {
   return (
     <div
       style={{
-        padding: '16px 0',
+        margin: '18px 0',
         display: 'flex',
         flexDirection: 'column',
         gap: 8,

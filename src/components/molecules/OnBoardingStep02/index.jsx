@@ -1,18 +1,17 @@
 import { useRef, useState } from 'react';
 import Input from '../../atoms/Input';
-import Title from '../../atoms/Title';
 import Button from '../../atoms/Button';
-import styles from './index.module.css';
-import Text from '../../atoms/Text';
 import GoBackHeader from '../../common/GoBackHeader';
+import OnBoardingTitle from '../../atoms/OnboardingTitle';
+import styles from './index.module.css';
 
 const OnBoardingStep02 = ({ nextStep, beforeStep, type }) => {
   const ref = useRef(null);
-  const [isConfirm, setIsConfirm] = useState(false);
+  const [isConfirmed, setIsConfirmed] = useState(false);
 
   const handleChange = (e) => {
     const { value } = e.target;
-    value ? setIsConfirm(true) : setIsConfirm(false);
+    value ? setIsConfirmed(true) : setIsConfirmed(false);
   };
 
   const handleNextStep = () => {
@@ -23,34 +22,58 @@ const OnBoardingStep02 = ({ nextStep, beforeStep, type }) => {
   if (type === 'yes') {
     return (
       <div className={styles.wrap}>
-        <GoBackHeader handler={beforeStep} />
-        <Title>
-          꿈꾸는 나의
-          <br />
-          미래의 모습을 적어주세요
-        </Title>
-        <Text>1줄 이내로 적어주세요</Text>
-        <Input inputRef={ref} onChange={handleChange} />
-        <Button disabled={!isConfirm} onClick={handleNextStep}>
-          다음
-        </Button>
+        <div className={styles.goBackBox}>
+          <GoBackHeader handler={beforeStep} />
+        </div>
+
+        <div className={styles.contentContainer}>
+          <OnBoardingTitle secondLine='1줄 이내로 적어주세요.'>
+            꿈꾸는 나의
+            <br />
+            미래의 모습을 적어주세요.
+          </OnBoardingTitle>
+
+          <Input inputRef={ref} onChange={handleChange} />
+        </div>
+
+        <div className={styles.bottomBtn}>
+          <Button
+            theme='secondary'
+            disabled={!isConfirmed}
+            onClick={handleNextStep}
+          >
+            다음
+          </Button>
+        </div>
       </div>
     );
   }
 
   return (
     <div className={styles.wrap}>
-      <GoBackHeader handler={beforeStep} />
-      <Title>
-        나의 어릴 적 꿈
-        <br />
-        3가지를 적어보세요!
-      </Title>
-      <Text>ex) 디자이너,탐험가,아티스트</Text>
-      <Input inputRef={ref} onChange={handleChange} />
-      <Button disabled={!isConfirm} onClick={handleNextStep}>
-        다음
-      </Button>
+      <div className={styles.goBackBox}>
+        <GoBackHeader handler={beforeStep} />
+      </div>
+
+      <div className={styles.contentContainer}>
+        <OnBoardingTitle secondLine='ex) 디자이너, 탐험가, 아티스트'>
+          나의 어릴 적 꿈
+          <br />
+          3가지를 적어보세요!
+        </OnBoardingTitle>
+
+        <Input inputRef={ref} onChange={handleChange} />
+      </div>
+
+      <div className={styles.bottomBtn}>
+        <Button
+          theme='secondary'
+          disabled={!isConfirmed}
+          onClick={handleNextStep}
+        >
+          다음
+        </Button>
+      </div>
     </div>
   );
 };

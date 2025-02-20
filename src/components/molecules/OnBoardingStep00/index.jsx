@@ -1,19 +1,22 @@
-import Button from '../../atoms/Button';
-import Title from '../../atoms/Title';
-import Text from '../../atoms/Text';
+import ButtonSet from '../../atoms/ButtonSet';
+import OnBoardingTitle from '../../atoms/OnboardingTitle';
 import styles from './index.module.css';
 
 const OnBoardingStep00 = ({ nextStep }) => {
   return (
     <div className={styles.wrap}>
-      <Title>안녕하세요!</Title>
-      <Text>
-        루시드와 함께 비전을 향한
-        <br />
-        여정을 시작해볼까요?
-      </Text>
-      <Button onClick={() => nextStep('yes')}>좋아요</Button>
-      <Button onClick={() => nextStep('no')}>저는 계정이 있어요</Button>
+      <OnBoardingTitle secondLine='루시드와 함께 비전을 향한 여정을 시작해볼까요?'>
+        안녕하세요!
+      </OnBoardingTitle>
+
+      <ButtonSet
+        firstBtnTheme='secondary'
+        firstBtnText='좋아요'
+        firstOnClick={() => nextStep('yes')}
+        secondBtnTheme='tertiary'
+        secondBtnText='저는 계정이 있어요'
+        secondOnClick={() => nextStep('no')}
+      />
     </div>
   );
 };
