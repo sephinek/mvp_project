@@ -12,11 +12,15 @@
     width: 100%;
     height: 150px;
     display: grid;
-    grid-template-columns: 178px auto;
+    grid-template-columns: auto 150px;
     grid-gap: 4px;
     padding: 16px;
     border: 1px solid var(--color-grey-50);
     border-radius: var(--border-radius-default);
+}
+.guideContent:hover {
+    background-color: var(--color-grey-5);
+    cursor: pointer;
 }
 .guideContentLeft {
     display: flex;
@@ -24,7 +28,7 @@
     justify-content: space-between;
 }
 .guideContentLeft > div > h2 {
-    width: 178px;
+    width: 100%;
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
     color: var(--color-grey-700);
@@ -56,7 +60,7 @@
     background-repeat: no-repeat;
     background-size: 16px 16px;
 }
-.guideContentLeft > div > ol > li > .guideCalendar {
+.guideContentLeft > div > ol > li > .calendar {
     background-image: url(../../../assets/icons/humble/humbleicons_calendar_guide.svg);
 }
 .guideContentLeft > div > ol > li > .guideTime {
