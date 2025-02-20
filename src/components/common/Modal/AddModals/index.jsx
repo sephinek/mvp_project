@@ -1,8 +1,9 @@
 import Modal from 'react-modal';
 import { addModalState } from '../../../../shared/recoil/addModalState';
 import styles from './index.module.css';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import useNavigationPage from '../../../../hooks/useNavigationPage';
+import HomeQuickButtons from '../../../organisms/HomeQuickButtons';
 
 export default function AddModals() {
   const [goalState, setGoalState] = useRecoilState(addModalState);
@@ -11,17 +12,15 @@ export default function AddModals() {
 
   return (
     <section>
-      <div className={styles.overlay}></div>
       <Modal
         isOpen={isOpen}
         ariaHideApp={false}
         contentLabel='Pop up Message'
         shouldCloseOnOverlayClick={true}
         className={styles.modalContainer}
+        overlayClassName={styles.overlay}
       >
-        <div>Modal</div>
-        <button onClick={() => routePage('/goal/add')}>골 수정</button>
-        <button>플랜 수정</button>
+        <HomeQuickButtons />
       </Modal>
     </section>
   );

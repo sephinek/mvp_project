@@ -48,6 +48,7 @@
   overflow: hidden;
   color: var(--color-grey-900);
   font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
   line-height: 24px;
 }
 .icon {

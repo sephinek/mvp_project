@@ -16,13 +16,13 @@ export default function Plans({ goals }) {
   useEffect(() => {
     const getPlans = () => {
       const result = [];
-      goals?.map((goal) => {
-        goal?.plans?.map((plan) => {
+      goals?.forEach((goal) => {
+        goal?.plans?.forEach((plan) => {
           // if (
           //   getDate(plan.endDate) >= getDate(currentDate) &&
           //   getDate(plan.startDate) <= getDate(currentDate)
           // ) {
-          result.push(plan);
+          result.push({ ...plan, goalId: goal.id, goalTitle: goal.title });
           // }
         });
       });

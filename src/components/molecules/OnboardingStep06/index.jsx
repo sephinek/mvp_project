@@ -34,9 +34,7 @@ const OnboardingStep06 = ({ nextStep, beforeStep, type, setOnBoardingArr }) => {
 
       <div className={styles.contentContainer}>
         <OnBoardingTitle>
-          나의 꿈은 &quot;{type}
-          <br />
-          사람&quot; 인가요?
+          나의 꿈은 &quot;{type} 사람&quot; 인가요?
         </OnBoardingTitle>
 
         <div className={styles.button_wrap}>
