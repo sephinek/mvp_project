@@ -7,7 +7,6 @@ import Button from '../../atoms/Button';
 
 const OnboardingStepVision = ({ nextStep }) => {
   const { vision } = useRecoilValue(myPlanState);
-  console.log('OnboardingStepVision에서 vision', vision);
 
   return (
     <div className={styles.wrap}>
