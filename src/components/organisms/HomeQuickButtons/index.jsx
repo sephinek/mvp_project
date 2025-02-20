@@ -1,7 +1,9 @@
 import styles from './index.module.css';
 import seedling from '../../../assets/icons/toss/seedling.svg';
 import tree from '../../../assets/icons/toss/tree.svg';
-import { Link } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
+import { addModalState } from '../../../shared/recoil/addModalState';
+import useNavigationPage from '../../../hooks/useNavigationPage';
 
 const items = [
   {
@@ -20,16 +22,28 @@ const items = [
 // routePage('/goal/add')
 
 const HomeQuickButtons = () => {
+  const setGoalState = useSetRecoilState(addModalState);
+  const { routePage } = useNavigationPage();
+
+  const handleClick = (to) => {
+    setGoalState({ isOpen: false });
+    routePage(to);
+  };
+
   return (
     <div className={styles.wrap}>
       {items.map(({ title, desciption, icon, to }, idx) => (
-        <Link key={idx} className={styles.card} to={to}>
+        <button
+          key={idx}
+          className={styles.card}
+          onClick={() => handleClick(to)}
+        >
           <h3 className={styles.title}>{title}</h3>
           <p className={styles.description}>{desciption}</p>
           <div className={styles['icon-wrap']}>
             <img src={icon} />
           </div>
-        </Link>
+        </button>
       ))}
     </div>
   );

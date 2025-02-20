@@ -5,10 +5,10 @@ import ReflectionDayIcon from '../../../assets/icons/solar/BottomNav-icon02.svg'
 import AddIcon from '../../../assets/icons/solar/BottomNav-icon03.svg';
 import StatisticsIcon from '../../../assets/icons/solar/BottomNav-icon04.svg';
 import MyPageIcon from '../../../assets/icons/solar/BottomNav-icon05.svg';
-import styles from './index.module.css';
 import { Link } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { addModalState } from '../../../shared/recoil/addModalState.js';
+import styles from './index.module.css';
 
 const MENUS = [
   { title: '홈', alt: 'Home menu', icon: HomeIcon, to: '/main' },
@@ -30,12 +30,14 @@ const MENUS = [
 
 export default function BottomNav() {
   const [currentMenu, setCurrentMenu] = useState(MENUS[0]);
+  const [isActive, setIsActive] = useState(false);
   const setModalState = useSetRecoilState(addModalState);
 
   const handleModal = () => {
     setModalState((prev) => {
-      return { ...prev, isOpen: true };
+      return { ...prev, isOpen: !prev.isOpen };
     });
+    setIsActive((prev) => !prev);
   };
 
   const clickHandler = (menu) => {
@@ -73,7 +75,12 @@ export default function BottomNav() {
           } else {
             return (
               <li key={menu.title} className={styles.menuBox}>
-                <div onClick={handleModal}>
+                <div
+                  onClick={handleModal}
+                  className={`${styles.addButton} ${
+                    isActive ? styles.active : ''
+                  }`}
+                >
                   <IconButton
                     icon={AddIcon}
                     alt={menu.alt}
