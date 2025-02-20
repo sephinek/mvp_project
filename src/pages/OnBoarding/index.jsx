@@ -8,13 +8,15 @@ import { myPlanState } from '../../shared/recoil/myPlanState';
 import OnboardingStep03 from '../../components/molecules/OnboardingStep03';
 import OnboardingStep04 from '../../components/molecules/OnboardingStep04';
 import OnboardingStepVision from '../../components/molecules/OnboardingStepVision';
+import OnboardingStep05 from '../../components/molecules/OnboardingStep05';
+import OnboardingStep06 from '../../components/molecules/OnboardingStep06';
 
-const Home = () => {
+const OnBoarding = () => {
   const [step, setStep] = useState(0);
   const [onBoardingArr, setOnBoardingArr] = useState([]);
   const setMyPlan = useSetRecoilState(myPlanState);
   // const { routePage } = useNavigationPage();
-
+  console.log('step', step);
   // 다음 단계로 보내주는 함수
   const nextStep = () => {
     setStep(step + 1);
@@ -38,8 +40,6 @@ const Home = () => {
     result[step] = item;
     setOnBoardingArr(result);
     setMyPlan((prev) => {
-      console.log('이전 상태', prev);
-      console.log('새로운 vision 값', vision);
       return { ...prev, vision };
     });
     nextStep();
@@ -57,6 +57,8 @@ const Home = () => {
   // 현재 step을 기준으로 화면에 랜더링될 컴포넌트를 return 해주세요
   // 분기가 나뉘게 되면 이전 step의 값을 참조하여 if문을 이용해 분기를 나눠주세요
   // 각 컴포넌트에는 handleOnBoarding 함수를 넘겨줘 확인 버튼을 누를 때 함께 실행되게 해주세요
+  console.log('onBoardingArr', onBoardingArr);
+
   switch (step) {
     case 0:
       return (
@@ -91,11 +93,40 @@ const Home = () => {
         />
       );
     case 5:
-      return <OnboardingStepVision />;
+      console.log('onBoardingArr[4]', onBoardingArr[4]);
+      if (onBoardingArr[4] === 'yes') {
+        setOnBoardingArr([
+          ...onBoardingArr,
+          onBoardingArr[3],
+          onBoardingArr[3],
+        ]);
+        setStep(7);
+        return <></>;
+      }
+      return (
+        <OnboardingStep05
+          nextStep={handlePage}
+          beforeStep={beforeStep}
+          type={onBoardingArr[4]}
+        />
+      );
+    case 6:
+      return (
+        <OnboardingStep06
+          nextStep={handlePage}
+          beforeStep={beforeStep}
+          type={onBoardingArr[5]}
+          setOnBoardingArr={setOnBoardingArr}
+        />
+      );
+    case 7:
+      return (
+        <OnboardingStepVision nextStep={nextStep} type={onBoardingArr[6]} />
+      );
 
     default:
       return <p>오류가 있습니다 새로고침 해주세요</p>;
   }
 };
 
-export default Home;
+export default OnBoarding;
