@@ -72,13 +72,13 @@
   align-items: center;
 }
 
-/* '추가'버튼 rotate */
-/* 클릭시 애니메이션 적용하기
-.rotated {
-    transform: translateX(-50%), rotate(45deg);
-    transition: transform 0.3 ease-in-out;
+/* '추가'버튼 ative시 rotate상태 */
+.bottomNavBox > li:nth-child(3):active > div {
+  background-color: var(--color-grey-900);
+  transition: background-color 0.3s ease-in-out;
 }
-.active {
-    background-color: var( --color-grey-900);
+.bottomNavBox > li:nth-child(3):active > div {
+  transform: translateX(-50%) rotate(45deg)!important;
+  transition: transform 0.3s ease-in-out !important;
 }
-    */
+

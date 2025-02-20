@@ -1,0 +1,25 @@
+.planCheckState {
+    width: 100%;
+    /* height: 100%; */
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.planCheckStateImage {
+    width: 100px;
+    height: 100px;
+    background-image: url(../../../assets/characters/reflectionPlanCheckIcon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+.planCheckStateText {
+    font-size: var(--font-size-lg);
+    line-height: 24px;
+    font-weight: var(--font-weight-regular);
+    color: var(--color-grey-400);
+    text-align: center;
+    padding: 16px 16px 100px;
+}

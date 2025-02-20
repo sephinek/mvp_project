@@ -79,7 +79,7 @@ export default function BottomNav() {
                     alt={menu.alt}
                     type='bottomNavAddIcon'
                     active={false}
-                    className={styles.icon}
+                    className={`${styles.icon} ${styles.addIcon}`}
                   />
                 </div>
               </li>
