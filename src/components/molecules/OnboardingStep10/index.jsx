@@ -3,8 +3,12 @@ import Button from '../../atoms/Button';
 import GoBackHeader from '../../common/GoBackHeader';
 import OnBoardingTitle from '../../atoms/OnboardingTitle';
 import styles from './index.module.css';
-import OnboardingYesIcon from '../../../assets/icons/toss/yes.svg';
 import OnboardingCheckList from '../OnboardingCheckList';
+import star from '../../../assets/icons/toss/star.svg';
+import folder from '../../../assets/icons/toss/folder.svg';
+import notes from '../../../assets/icons/toss/notes.svg';
+import ferris from '../../../assets/icons/toss/ferris.svg';
+import graph from '../../../assets/icons/toss/graph.svg';
 
 const OnboardingStep10 = ({ nextStep, beforeStep }) => {
   const [target, setTarget] = useState(false);
@@ -30,31 +34,31 @@ const OnboardingStep10 = ({ nextStep, beforeStep }) => {
               {
                 value: '비전을 되새겨주는 기능',
                 children: '비전을 되새겨주는 기능',
-                icon: OnboardingYesIcon,
+                icon: star,
                 targetFn: () => setTarget('비전을 되새겨주는 기능'),
               },
               {
                 value: '한 눈에 볼 수 있는 달성 리포트',
                 children: '한 눈에 볼 수 있는 달성 리포트',
-                icon: OnboardingYesIcon,
+                icon: graph,
                 targetFn: () => setTarget('한 눈에 볼 수 있는 달성 리포트'),
               },
               {
                 value: '하루 단위의 회고 기능',
                 children: '하루 단위의 회고 기능',
-                icon: OnboardingYesIcon,
+                icon: notes,
                 targetFn: () => setTarget('하루 단위의 회고 기능'),
               },
               {
                 value: '비전을 상상할 수 있는 나만의 공간',
                 children: '비전을 상상할 수 있는 나만의 공간',
-                icon: OnboardingYesIcon,
+                icon: ferris,
                 targetFn: () => setTarget('비전을 상상할 수 있는 나만의 공간'),
               },
               {
                 value: '정보를 나눌 수 있는 커뮤니티',
                 children: '정보를 나눌 수 있는 커뮤니티',
-                icon: OnboardingYesIcon,
+                icon: folder,
                 targetFn: () => setTarget('정보를 나눌 수 있는 커뮤니티'),
               },
             ]}
