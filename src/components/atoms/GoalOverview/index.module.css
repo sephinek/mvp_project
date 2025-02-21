@@ -1,4 +1,11 @@
-/* 상위목표 부분 */
+/* 라벨 */
+.label {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-wegith-semibold);
+  color: var(--color-grey-900);
+  line-height: 14px;
+}
+
 .goalBox {
     padding: 16px;
 }
@@ -8,7 +15,7 @@
     align-items: center;
     gap: 8px;
   }
-  .color {
+  .colorStyle {
     background-color: #bbe7ab;
     width: 20px;
     height: 20px;
@@ -46,9 +53,4 @@
     color: var(--color-grey-600);
     line-height: 16px;
   }
-  .label {
-    font-size: var(--font-size-m);
-    font-weight: var(--font-wegith-semibold);
-    color: var(--color-grey-900);
-    line-height: 14px;
-  }
+
