@@ -14,75 +14,73 @@ import { useRef, useState } from 'react';
 import DateController from '../../components/molecules/Date_Picker';
 
 export default function EditPlan() {
-  // const navigate = useNavigate();
-  // const prams = useParams();
-  // const [planState, setPlanState] = useRecoilState(myPlanState);
-  // const goal = planState.goals.find((el) => {
-  //   if (el.id === prams.goalId) {
-  //     return true;
-  //   }
-  //   return false;
-  // });
+  const navigate = useNavigate();
+  const params = useParams();
+  const [planState, setPlanState] = useRecoilState(myPlanState);
 
-  // const titleRef = useRef(null);
+  const plan = planState.goals
+    .flatMap((goal) => goal.plans)
+    .find((plan) => plan.id === params.planId);
 
-  // const [color, setColor] = useState(goal.color);
-  // const [startDate, setStartDate] = useState(goal.startDate);
-  // const [endDate, setEndDate] = useState(goal.endDate);
+  const goal = planState.goals.find((goal) => goal.plans.includes(plan));
 
-  // const goToBackHandler = () => {
-  //   navigate(-1);
-  // };
+  const [color, setColor] = useState(goal ? goal.color : '');
+  const [startDate, setStartDate] = useState(
+    plan ? plan.startDate : new Date()
+  );
+  const [endDate, setEndDate] = useState(plan ? plan.endDate : new Date());
 
-  // const clickDeleteHandler = () => {
-  //   setPlanState({
-  //     ...planState,
-  //     goals: planState.goals.filter((el) => {
-  //       if (el.id === prams.goalId) {
-  //         return false;
-  //       } else {
-  //         return true;
-  //       }
-  //     }),
-  //   });
-  //   navigate('/main');
-  // };
+  const titleRef = useRef(null);
 
-  // const clickSubmitHandler = () => {
-  //   setPlanState({
-  //     ...planState,
-  //     goals: planState.goals.map((el) => {
-  //       if (el.id === prams.goalId) {
-  //         const newTitle = titleRef.current.value
-  //           ? titleRef.current.value
-  //           : el.title;
-  //         const newColor = color;
-  //         return {
-  //           ...el,
-  //           title: newTitle,
-  //           color: newColor,
-  //           startDate: startDate,
-  //           endDate: endDate,
-  //         };
-  //       } else {
-  //         return el;
-  //       }
-  //     }),
-  //   });
-  //   navigate(-1);
-  // };
+  const goToBackHandler = () => {
+    navigate(-1);
+  };
+
+  const clickDeleteHandler = () => {
+    setPlanState({
+      ...planState,
+      goals: planState.goals.map((goal) => ({
+        ...goal,
+        plans: goal.plans.filter((p) => p.id !== params.planId),
+      })),
+    });
+    navigate('/main');
+  };
+
+  const clickSubmitHandler = () => {
+    setPlanState({
+      ...planState,
+      goals: planState.goals.map((goal) => ({
+        ...goal,
+        plans: goal.plans.map((p) => {
+          if (p.id === params.planId) {
+            const newTitle = titleRef.current.value || p.title;
+            return {
+              ...p,
+              title: newTitle,
+              startDate: startDate,
+              endDate: endDate,
+            };
+          }
+          return p;
+        }),
+      })),
+    });
+    navigate(-1);
+  };
+
+  if (!plan) return <div>Please add a plan first!</div>;
 
   return (
     <section>
       플랜 수정 페이지~.~ 뚝딱뚝딱
-      {/* <TopBar
+      <TopBar
         LeftIcon={ChevronLeftButton}
         RightIcon={DeleteButton}
-        title='Goal(목표) 수정'
+        title='Plan(계획) 수정'
         onClickLeft={goToBackHandler}
         onClickRight={clickDeleteHandler}
       ></TopBar>
-
       <section className={styles.sectionContainer}>
         <div className={styles.inpuㅡtBox}>
           <Textfield_default
@@ -94,7 +92,6 @@ export default function EditPlan() {
 
         <div className={styles.inputBox}>
           <div className={styles.periodBox}>
-            <DateController date={startDate} setDate={setStartDate} />
             <DateController date={endDate} setDate={setEndDate} />
             <span>-</span>
           </div>
@@ -105,12 +102,11 @@ export default function EditPlan() {
           <PublihsedRadio onClick={setColor} />
         </div>
       </section>
-
       <section className={styles.sectionContainer}>
         <SectionTitle titleEn='Plans' titleKr='계획' />
         <PlansList plans={goal.plans} />
       </section>
-      <Button onClick={clickSubmitHandler}>수정하기</Button> */}
+      <Button onClick={clickSubmitHandler}>수정하기</Button>
     </section>
   );
 }
