@@ -1,9 +1,9 @@
 import checkIconDisabled from '../../../assets/icons/humble/checkbox-disabled.svg';
 import checkIconChecked from '../../../assets/icons/humble/checkbox-checked.svg';
 import checkIconDefault from '../../../assets/icons/humble/checkbox-default.svg';
-import styles from './index.module.css';
 import { myPlanState } from '../../../shared/recoil/myPlanState';
 import { useRecoilState } from 'recoil';
+import styles from './index.module.css';
 
 export default function PlanItem({ plan, goalId, goalTitle }) {
   const {
