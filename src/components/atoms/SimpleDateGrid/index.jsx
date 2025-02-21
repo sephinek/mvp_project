@@ -1,24 +1,28 @@
-import styles from './index.module.css'
+import styles from './index.module.css';
 
-const SimpleDateGrid = ({ label }) => {
-    return (
-        <div className={styles.inputContainer}>
-            {/* 📌 레이블 */}
-            {label && <label className={styles.label}> {label}</label>}
+const weeks = ['월', '화', '수', '목', '금', '토', '일'];
 
-            <div className={styles.wrap}>
-                <ul className={styles.simpleDateGrid}>
-                    <li>월</li>
-                    <li>화</li>
-                    <li>수</li>
-                    <li>목</li>
-                    <li>금</li>
-                    <li>토</li>
-                    <li>일</li>
-                </ul>
-            </div>
-        </div>    
-    )
-}
+const SimpleDateGrid = ({ label, selected, setSelected }) => {
+  return (
+    <div className={styles.inputContainer}>
+      {/* 📌 레이블 */}
+      {label && <label className={styles.label}> {label}</label>}
 
-export default SimpleDateGrid
+      <div className={styles.wrap}>
+        <ul className={styles.simpleDateGrid}>
+          {weeks.map((el) => (
+            <li
+              className={selected?.includes(el) && styles.selected}
+              key={el}
+              onClick={() => setSelected(el)}
+            >
+              {el}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default SimpleDateGrid;
