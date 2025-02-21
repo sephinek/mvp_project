@@ -15,7 +15,6 @@ import Datefield_default from '../../components/molecules/Datefield_default';
 import { v4 as uuid } from 'uuid';
 
 export default function AddPlan() {
-  console.log('AddPlan에서!!');
   const navigate = useNavigate();
   const prams = useParams();
   const [planState, setPlanState] = useRecoilState(myPlanState);
