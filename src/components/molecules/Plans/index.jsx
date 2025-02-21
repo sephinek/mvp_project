@@ -3,7 +3,7 @@ import SectionTitle from '../../atoms/SectionTitle/index.jsx';
 import PlansCalender from '../PlansCalendar.jsx/index.jsx';
 import PlansList from '../PlansList/index.jsx';
 import { useEffect, useState } from 'react';
-// import { getDate } from '../../../utils/date.js';
+import { getDate } from '../../../utils/date.js';
 
 export default function Plans({ goals, onPlanClick }) {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -18,12 +18,12 @@ export default function Plans({ goals, onPlanClick }) {
       const result = [];
       goals?.forEach((goal) => {
         goal?.plans?.forEach((plan) => {
-          // if (
-          //   getDate(plan.endDate) >= getDate(currentDate) &&
-          //   getDate(plan.startDate) <= getDate(currentDate)
-          // ) {
-          result.push({ ...plan, goalId: goal.id, goalTitle: goal.title });
-          // }
+          if (
+            getDate(plan.endDate) >= getDate(currentDate) &&
+            getDate(plan.startDate) <= getDate(currentDate)
+          ) {
+            result.push({ ...plan, goalId: goal.id, goalTitle: goal.title });
+          }
         });
       });
 
