@@ -13,6 +13,7 @@ import Button from '../../components/atoms/Button';
 import { useRef, useState } from 'react';
 import Datefield_default from '../../components/molecules/Datefield_default';
 import { v4 as uuid } from 'uuid';
+import useCallModal from '../../hooks/useCallModal';
 import { confirmModalState } from '../../shared/recoil/confirmModalState';
 import useNavigationPage from '../../hooks/useNavigationPage';
 
@@ -26,6 +27,8 @@ export default function AddGoal() {
   const [color, setColor] = useState();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+
+  const { callModal, closeModal } = useCallModal();
 
   const [modalState, setModalState] = useRecoilState(confirmModalState);
 
@@ -63,6 +66,17 @@ export default function AddGoal() {
         },
       ],
     });
+
+    callModal(
+      '목표를 추가했습니다!',
+      '',
+      '홈으로 가기',
+      '계획 추가하기',
+      () => {
+        closeModal();
+        navigate('/plan/add');
+      }
+    );
     setModalState({
       isOpen: true,
       title: '목표를 추가했습니다!',
