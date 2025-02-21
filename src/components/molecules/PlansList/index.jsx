@@ -11,7 +11,7 @@ export default function PlansList({ plans, onPlanClick }) {
               plan={plan}
               goalId={plan.goalId}
               goalTitle={plan.goalTitle}
-              onPlanClick={() => onPlanClick(plan.title)}
+              onPlanClick={() => onPlanClick(plan)}
             />
           ))
         : '아직 계획이 없습니다.'}

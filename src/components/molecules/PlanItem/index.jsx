@@ -22,7 +22,6 @@ export default function PlanItem({ plan, goalId, goalTitle, onPlanClick }) {
   const [myPlan, setMyPlan] = useRecoilState(myPlanState);
 
   const clickHandler = () => {
-    console.log(isCompleted);
     setMyPlan((prevPlan) => {
       const updatedGoals = prevPlan.goals.map((goal) => {
         if (goal.id === goalId) {
@@ -35,6 +34,7 @@ export default function PlanItem({ plan, goalId, goalTitle, onPlanClick }) {
         }
         return goal;
       });
+
       const newPlanState = { ...prevPlan, goals: updatedGoals };
 
       localStorage.setItem('myPlan', JSON.stringify(newPlanState));
