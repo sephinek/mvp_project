@@ -14,7 +14,7 @@ import { useRef, useState } from 'react';
 import DateController from '../../components/molecules/Date_Picker';
 import { isAfter }  from "date-fns";
 
-export default function AddPlan() {
+export default function EditGoal() {
   const navigate = useNavigate();
   const prams = useParams();
   const [planState, setPlanState] = useRecoilState(myPlanState);
