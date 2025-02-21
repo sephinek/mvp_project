@@ -44,8 +44,8 @@ export default function PlanItem({ plan, goalId, goalTitle, onPlanClick }) {
   };
 
   return (
-    <li className={styles.planBox} onClick={onPlanClick}>
-      <div className={styles.colorAndTitlesBox}>
+    <li className={styles.planBox}>
+      <div className={styles.colorAndTitlesBox} onClick={onPlanClick}>
         <div className={styles.colorBar}></div>
         <div className={styles.goalAndPlanTitles}>
           <span className={styles.goalTitle}>{goalTitle}</span>
