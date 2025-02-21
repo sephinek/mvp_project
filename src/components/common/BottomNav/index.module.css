@@ -6,7 +6,7 @@
   height: 82px;
   display: flex;
   align-items: end;
-  z-index: 99999;
+  z-index: 9;
 }
 .bottomNavBox {
   width: 100%;

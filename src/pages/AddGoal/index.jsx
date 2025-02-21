@@ -125,13 +125,40 @@ export default function AddGoal() {
         <div className={styles.inputBox}>
           <PublihsedRadio onClick={handleColorChange} />
         </div>
+        <ul>
+          <li>
+            <Textfield_default
+              inputRef={titleRef}
+              label='제목'
+              placeholder={'123'}
+            />
+          </li>
+          <li>
+            <Datefield_default
+              label='기간'
+              startDate={startDate}
+              endDate={endDate}
+              onStartDateChange={setStartDate}
+              onEndDateChange={setEndDate}
+              isDateRange
+            />
+          </li>
+          <li>
+            <PublihsedRadio 
+              onClick={setColor} 
+              label='목표색상'  
+            />
+          </li>
+        </ul>
       </section>
-
+      
+      <SectionTitle titleEn='Plans' titleKr='계획' />
       <section className={styles.sectionContainer}>
-        <SectionTitle titleEn='Plans' titleKr='계획' />
         <PlansList plans={[]} />
       </section>
-      <Button onClick={clickSubmitHandler}>추가하기</Button>
+      <div className={styles.buttonWrap}>
+        <Button onClick={clickSubmitHandler}>수정하기</Button>
+      </div>
     </section>
   );
 }
