@@ -83,33 +83,37 @@ export default function AddPlan() {
       ></TopBar>
 
       <section className={styles.sectionContainer}>
-        <div className={styles.inpuㅡtBox}>
-          <Textfield_default
-            inputRef={titleRef}
-            label='제목'
-            placeholder={goal.title}
-          />
-        </div>
+        <ul>        
+          <li>
+            <Textfield_default
+              inputRef={titleRef}
+              label='제목'
+              placeholder={goal.title}
+            />
+          </li>
 
-        <div className={styles.inputBox}>
-          <div className={styles.periodBox}>
-            <DateController date={startDate} setDate={setStartDate} />
-            <DateController date={endDate} setDate={setEndDate} />
-            <span>-</span>
-          </div>
-        </div>
+          <li>
+            <div className={styles.periodBox}>
+              <DateController date={startDate} setDate={setStartDate} label="기간"/>
+              <span>-</span>
+              <DateController date={endDate} setDate={setEndDate} label={null}/>
+            </div>
+          </li>
 
-        <div className={styles.inputBox}>
-          <Textfield_default label='목표 색상' />
-          <PublihsedRadio onClick={setColor} />
-        </div>
+          <li>
+            <p className={styles.label}> 라벨</p>
+            <PublihsedRadio onClick={setColor} />
+          </li>
+        </ul>
       </section>
 
-      <section className={styles.sectionContainer}>
-        <SectionTitle titleEn='Plans' titleKr='계획' />
+      <SectionTitle titleEn='Plans' titleKr='계획' />
+      <section className={styles.sectionContainer02}>
         <PlansList plans={goal.plans} />
       </section>
-      <Button onClick={clickSubmitHandler}>수정하기</Button>
+      <div className={styles.buttonWrap}>
+        <Button onClick={clickSubmitHandler}>수정하기</Button>
+      </div>
     </section>
   );
 }
