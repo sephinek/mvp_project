@@ -117,3 +117,7 @@ img {
 .grape {
   background-color: var(--color-grape);
 }
+
+.green-apple {
+  background-color: var(--color-green-apple);
+}

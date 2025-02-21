@@ -1,7 +1,7 @@
-import styles from './index.module.css';
 import ArrowRightButton from '../../common/Icons/ArrowRightButton';
 import { getDay, getMonth, getYear } from 'date-fns';
 import { Link } from 'react-router-dom';
+import styles from './index.module.css';
 
 export default function GoalItem({ goal, title, percentage, dueDate, color }) {
   return (
@@ -14,7 +14,7 @@ export default function GoalItem({ goal, title, percentage, dueDate, color }) {
         <div>
           <div className={styles.percentageAndDueDate}>
             <span className={styles.percentage}>{percentage}%</span>
-            <span className={styles.dueDate}>{`${getDay(dueDate)}/${getMonth(
+            <span className={styles.dueDate}>{`${getMonth(dueDate)}/${getDay(
               dueDate
             )}/${getYear(dueDate)}`}</span>
           </div>
