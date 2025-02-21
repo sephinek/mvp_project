@@ -1,0 +1,16 @@
+.wrap {
+    width: 100%;
+    height: auto;
+}
+.simpleDateGrid {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+.simpleDateGrid > li {
+    width: 14%;
+    padding: 16px 0 ;
+    border: 1px solid #999;
+    border-radius: 8px;
+    text-align: center;
+}
