@@ -6,6 +6,8 @@ import styles from './index.module.css';
 import Input from '../../atoms/Input';
 import OnboardingYesIcon from '../../../assets/icons/toss/yes.svg';
 import OnboardingCheckList from '../OnboardingCheckList';
+import AiIcon from '../../../assets/icons/humble/ai.svg';
+import AiActiveIcon from '../../../assets/icons/humble/ai-active.svg';
 
 const OnboardingStep09 = ({ nextStep, beforeStep, type }) => {
   const ref = useRef(null);
@@ -62,14 +64,10 @@ ex) 매일 30분씩 영어 공부하기'
       </div>
 
       <div className={styles.contentContainer}>
-        <OnBoardingTitle>
-          다른 사람들이
+        <OnBoardingTitle secondLine='어렵다면 계획을 추천 받을 수 있어요!'>
+          그 목표를 달성하려면
           <br />
-          많이 꾸는 꿈들을 모아봤어요.
-          <br />
-          생각했던 꿈이 있으면
-          <br />
-          선택해주세요
+          어떤 계획을 세워야 할까요?
         </OnBoardingTitle>
 
         <div className={styles.button_wrap}>
@@ -80,39 +78,33 @@ ex) 매일 30분씩 영어 공부하기'
               {
                 value: '창의적인 활동을 지속적으로 이어가기',
                 children: '창의적인 활동을 지속적으로 이어가기',
-                icon: OnboardingYesIcon,
                 targetFn: () =>
                   setTarget('창의적인 활동을 지속적으로 이어가기'),
               },
               {
                 value: '매달 새로운 지식이나 기술 배우기',
                 children: '매달 새로운 지식이나 기술 배우기',
-                icon: OnboardingYesIcon,
                 targetFn: () => setTarget('매달 새로운 지식이나 기술 배우기'),
               },
               {
                 value: '건강한 생활 습관을 유지하기',
                 children: '건강한 생활 습관을 유지하기',
-                icon: OnboardingYesIcon,
                 targetFn: () => setTarget('건강한 생활 습관을 유지하기'),
               },
               {
                 value: '재정적인 자유 달성하기',
                 children: '재정적인 자유 달성하기',
-                icon: OnboardingYesIcon,
                 targetFn: () => setTarget('재정적인 자유 달성하기'),
               },
               {
                 value: '사회적인 네트워크 구축하기',
                 children: '사회적인 네트워크 구축하기',
-                icon: OnboardingYesIcon,
                 targetFn: () => setTarget('사회적인 네트워크 구축하기'),
               },
             ]}
           />
         </div>
       </div>
-      <button onClick={beforeStep}>다시 생성하기</button>
 
       <div className={styles.bottomBtn}>
         <Button theme='secondary' disabled={!target} onClick={handleNextStep}>

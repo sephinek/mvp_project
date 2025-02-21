@@ -22,7 +22,7 @@ const OnboardingCheck = ({
         checked={isSelected}
       />
       <label htmlFor={id} className={styles.label}>
-        <OnboardingIcon icon={icon} />
+        {icon && <OnboardingIcon icon={icon} />}
         {children}
       </label>
     </div>

@@ -1,5 +1,5 @@
 import OnBoardingTitle from '../../atoms/OnboardingTitle';
-import Lucid01 from '../../atoms/Lucid01';
+import Lucid03 from '../../atoms/Lucid03';
 import styles from './index.module.css';
 import Button from '../../atoms/Button';
 
@@ -12,7 +12,7 @@ const OnBoardingStep11 = ({ nextStep }) => {
         <br />
         시작해 볼 시간이에요!
       </OnBoardingTitle>
-      <Lucid01 />
+      <Lucid03 />
       <Button onClick={nextStep}>시작할래요!</Button>
     </div>
   );

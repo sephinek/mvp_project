@@ -12,15 +12,14 @@ import Button from '../../components/atoms/Button';
 import { useRef, useState } from 'react';
 import Datefield_default from '../../components/molecules/Datefield_default';
 import { v4 as uuid } from 'uuid';
-import AI_button from '../../components/molecules/Ai_button'
+import AI_button from '../../components/molecules/Ai_button';
 import { useRecoilValue } from 'recoil';
 import { getDate } from '../../utils/date';
 import SimpleDateGrid from '../../components/atoms/SimpleDateGrid';
 
 export default function AddPlan() {
-  
   const navigate = useNavigate();
-  const { goalId } = useParams(); 
+  const { goalId } = useParams();
   const [planState, setPlanState] = useRecoilState(myPlanState);
 
   const titleRef = useRef(null);
@@ -30,7 +29,7 @@ export default function AddPlan() {
   const [endDate, setEndDate] = useState(new Date());
 
   const goalArr = useRecoilValue(myPlanState) || { goals: [] };
-  const goal = goalArr.goals.find(el => el.id === goalId) || {};
+  const goal = goalArr.goals.find((el) => el.id === goalId) || {};
 
   const goToBackHandler = () => {
     navigate(-1);
@@ -69,7 +68,7 @@ export default function AddPlan() {
   };
 
   return (
-    <section >
+    <section>
       <TopBar
         LeftIcon={ChevronLeftButton}
         RightIcon={DeleteButton}
@@ -77,7 +76,7 @@ export default function AddPlan() {
         onClickLeft={goToBackHandler}
         onClickRight={clickDeleteHandler}
       ></TopBar>
-      
+
       <section className={styles.sectionContainer}>
         <ul>
           <li>
@@ -94,7 +93,7 @@ export default function AddPlan() {
                 <div className={styles.infoBox}>
                   <span className={styles.infoText}>2025년 06월 28일</span>
                 </div>
-              </div>  
+              </div>
             </div>
           </li>
           <li>
@@ -127,9 +126,7 @@ export default function AddPlan() {
           <li>
             <SimpleDateGrid></SimpleDateGrid>
           </li>
-          <li>
-
-          </li>
+          <li></li>
         </ul>
       </section>
 
