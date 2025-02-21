@@ -1,12 +1,29 @@
+import { Link } from 'react-router-dom';
 import { Sheet } from 'react-modal-sheet';
-import styles from './index.module.css';
 import chevronRightIcon from '../../../assets/icons/humble/chevron-right.svg';
 import bulbIcon from '../../../assets/icons/humble/bulb.svg';
 import vacationIcon from '../../../assets/icons/solar/solar-vacation--black.svg';
 import editIcon from '../../../assets/icons/humble/edit.svg';
-import { Link } from 'react-router-dom';
+import styles from './index.module.css';
+import useCallModal from '../../../hooks/useCallModal';
 
-const HomePlanBottomSheet = ({ isOpen, onClose, selectedPlanTitle }) => {
+const HomePlanBottomSheet = ({ isOpen, onClose, selectedPlan }) => {
+  const { callModal } = useCallModal();
+
+  const restClickHandler = () => {
+    onClose();
+
+    callModal(
+      '휴식 가지기',
+      '지금까지의 데이터는 보관되며, 이후 반복은 중지됩니다.',
+      '괜찮아요',
+      '휴식 가질래요',
+      () => {
+        console.log('휴식 가질래요 버튼 클릭됨');
+      }
+    );
+  };
+
   return (
     <Sheet isOpen={isOpen} onClose={onClose} detent='content-height'>
       <Sheet.Container>
@@ -16,10 +33,10 @@ const HomePlanBottomSheet = ({ isOpen, onClose, selectedPlanTitle }) => {
             padding: '0 16px 24px',
           }}
         >
-          <h2 className={styles.title}>{selectedPlanTitle}</h2>
+          <h2 className={styles.title}>{selectedPlan.title}</h2>
 
           <div className={styles.buttons}>
-            <Link to='/'>
+            <Link to='/reflection/review'>
               <div className={styles.button}>
                 <div className={styles.left}>
                   <img src={bulbIcon} />
@@ -31,8 +48,8 @@ const HomePlanBottomSheet = ({ isOpen, onClose, selectedPlanTitle }) => {
               </div>
             </Link>
 
-            <Link to='/'>
-              <div className={styles.button}>
+            <Link to='/main'>
+              <div className={styles.button} onClick={restClickHandler}>
                 <div className={styles.left}>
                   <img src={vacationIcon} />
                   휴식 가지기
@@ -43,7 +60,7 @@ const HomePlanBottomSheet = ({ isOpen, onClose, selectedPlanTitle }) => {
               </div>
             </Link>
 
-            <Link to='/'>
+            <Link to={`/plan/edit/${selectedPlan.id}`}>
               <div className={styles.button}>
                 <div className={styles.left}>
                   <img src={editIcon} width={20} height={20} />

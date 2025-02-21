@@ -12,18 +12,11 @@ import HomePlanBottomSheet from '../../components/organisms/HomePlanBottomSheet'
 export default function Main() {
   const myPlan = useRecoilValue(myPlanState);
 
-  const { callModal } = useCallModal();
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
-  const [selectedPlanTitle, setSelectedPlanTitle] = useState('');
+  const [selectedPlan, setSelectedPlan] = useState('');
 
-  const handleCallModal = () => {
-    callModal('타이틀', '서브타이틀', '취소 버튼', '확인 버튼', () => {
-      console.log('확인 버튼 눌렸습니다.');
-    });
-  };
-
-  const planClickHandler = (planTitle) => {
-    setSelectedPlanTitle(planTitle);
+  const planClickHandler = (plan) => {
+    setSelectedPlan(plan);
     setIsBottomSheetOpen(true);
   };
 
@@ -42,7 +35,7 @@ export default function Main() {
       <HomePlanBottomSheet
         isOpen={isBottomSheetOpen}
         onClose={closeBottomSheetHandler}
-        selectedPlanTitle={selectedPlanTitle}
+        selectedPlan={selectedPlan}
       />
     </>
   );

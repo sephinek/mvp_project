@@ -14,67 +14,68 @@ import { useRef, useState } from 'react';
 import DateController from '../../components/molecules/Date_Picker';
 
 export default function EditPlan() {
-  const navigate = useNavigate();
-  const prams = useParams();
-  const [planState, setPlanState] = useRecoilState(myPlanState);
-  const goal = planState.goals.find((el) => {
-    if (el.id === prams.goalId) {
-      return true;
-    }
-    return false;
-  });
+  // const navigate = useNavigate();
+  // const prams = useParams();
+  // const [planState, setPlanState] = useRecoilState(myPlanState);
+  // const goal = planState.goals.find((el) => {
+  //   if (el.id === prams.goalId) {
+  //     return true;
+  //   }
+  //   return false;
+  // });
 
-  const titleRef = useRef(null);
+  // const titleRef = useRef(null);
 
-  const [color, setColor] = useState(goal.color);
-  const [startDate, setStartDate] = useState(goal.startDate);
-  const [endDate, setEndDate] = useState(goal.endDate);
+  // const [color, setColor] = useState(goal.color);
+  // const [startDate, setStartDate] = useState(goal.startDate);
+  // const [endDate, setEndDate] = useState(goal.endDate);
 
-  const goToBackHandler = () => {
-    navigate(-1);
-  };
+  // const goToBackHandler = () => {
+  //   navigate(-1);
+  // };
 
-  const clickDeleteHandler = () => {
-    setPlanState({
-      ...planState,
-      goals: planState.goals.filter((el) => {
-        if (el.id === prams.goalId) {
-          return false;
-        } else {
-          return true;
-        }
-      }),
-    });
-    navigate('/main');
-  };
+  // const clickDeleteHandler = () => {
+  //   setPlanState({
+  //     ...planState,
+  //     goals: planState.goals.filter((el) => {
+  //       if (el.id === prams.goalId) {
+  //         return false;
+  //       } else {
+  //         return true;
+  //       }
+  //     }),
+  //   });
+  //   navigate('/main');
+  // };
 
-  const clickSubmitHandler = () => {
-    setPlanState({
-      ...planState,
-      goals: planState.goals.map((el) => {
-        if (el.id === prams.goalId) {
-          const newTitle = titleRef.current.value
-            ? titleRef.current.value
-            : el.title;
-          const newColor = color;
-          return {
-            ...el,
-            title: newTitle,
-            color: newColor,
-            startDate: startDate,
-            endDate: endDate,
-          };
-        } else {
-          return el;
-        }
-      }),
-    });
-    navigate(-1);
-  };
+  // const clickSubmitHandler = () => {
+  //   setPlanState({
+  //     ...planState,
+  //     goals: planState.goals.map((el) => {
+  //       if (el.id === prams.goalId) {
+  //         const newTitle = titleRef.current.value
+  //           ? titleRef.current.value
+  //           : el.title;
+  //         const newColor = color;
+  //         return {
+  //           ...el,
+  //           title: newTitle,
+  //           color: newColor,
+  //           startDate: startDate,
+  //           endDate: endDate,
+  //         };
+  //       } else {
+  //         return el;
+  //       }
+  //     }),
+  //   });
+  //   navigate(-1);
+  // };
 
   return (
     <section>
-      <TopBar
+      플랜 수정 페이지~.~ 뚝딱뚝딱
+      {/* <TopBar
         LeftIcon={ChevronLeftButton}
         RightIcon={DeleteButton}
         title='Goal(목표) 수정'
@@ -109,7 +110,7 @@ export default function EditPlan() {
         <SectionTitle titleEn='Plans' titleKr='계획' />
         <PlansList plans={goal.plans} />
       </section>
-      <Button onClick={clickSubmitHandler}>수정하기</Button>
+      <Button onClick={clickSubmitHandler}>수정하기</Button> */}
     </section>
   );
 }
