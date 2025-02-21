@@ -1,6 +1,7 @@
 .wrap {
     width: 100%;
     height: auto;
+    padding: 8px 0;
 }
 .simpleDateGrid {
     display: flex;
@@ -13,4 +14,10 @@
     border: 1px solid #999;
     border-radius: 8px;
     text-align: center;
+}
+.label {
+    font-size: var(--font-size-m);
+    font-weight: var(--font-wegith-semibold);
+    color: var(--color-grey-900);
+    line-height: 14px;
 }
