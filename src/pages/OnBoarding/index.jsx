@@ -12,6 +12,8 @@ import OnboardingStep06 from '../../components/molecules/OnboardingStep06';
 import OnBoardingStep07 from '../../components/molecules/OnBoardingStep07';
 import OnboardingStep08 from '../../components/molecules/OnboardingStep08';
 import OnboardingStep09 from '../../components/molecules/OnboardingStep09';
+import OnboardingStep10 from '../../components/molecules/OnboardingStep10';
+import OnboardingStep11 from '../../components/molecules/OnboardingStep11';
 import { v4 as uuid } from 'uuid';
 import useNavigationPage from '../../hooks/useNavigationPage';
 
@@ -79,7 +81,7 @@ const OnBoarding = () => {
         ],
       };
     });
-    routePage('/main');
+    nextStep();
   };
 
   // 현재 step을 기준으로 화면에 랜더링될 컴포넌트를 return 해주세요
@@ -171,6 +173,22 @@ const OnBoarding = () => {
           nextStep={completeOnboarding}
           beforeStep={beforeStep}
           type={onBoardingArr[9]}
+        />
+      );
+    case 11:
+      return (
+        <OnboardingStep10
+          nextStep={handlePage}
+          beforeStep={beforeStep}
+          type={onBoardingArr[10]}
+        />
+      );
+    case 12:
+      return (
+        <OnboardingStep11
+          nextStep={() => routePage('/main')}
+          beforeStep={beforeStep}
+          type={onBoardingArr[11]}
         />
       );
     default:

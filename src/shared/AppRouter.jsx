@@ -30,6 +30,7 @@ import PublishedRadio from '../pages/published/radio';
 import PublishedOnboardingCheck from '../pages/published/onboarding-check';
 import PublishedHomeQuickButtons from '../pages/published/home-quick-buttons';
 import PublishedHomePlanBottomSheet from '../pages/published/home-plan-bottom-sheet';
+import { Outlet } from 'react-router-dom';
 
 export default function AppRouter() {
   return (
@@ -46,136 +47,33 @@ function AnimatedRoutes() {
     <AnimatePresence mode='wait' exitBeforeEnter>
       <Routes location={location} key={location.pathname}>
         <Route element={<Layout />}>
-          <Route
-            path='/'
-            element={
-              <DissolvePage>
-                <OnBoarding />
-              </DissolvePage>
-            }
-          />
-          <Route
-            path='/home'
-            element={
-              <DissolvePage>
-                <Home />
-              </DissolvePage>
-            }
-          />
-          <Route
-            path='/main'
-            element={
-              <AnimatePage>
-                <Main />
-              </AnimatePage>
-            }
-          />
-          <Route
-            path='/goal/:goalId'
-            element={
-              <AnimatePage>
-                <GoalDetails />
-              </AnimatePage>
-            }
-          />
-          <Route
-            path='/goal/add'
-            element={
-              <AnimatePage>
-                <AddGoal />
-              </AnimatePage>
-            }
-          />
-          <Route
-            path='/plan/add'
-            element={
-              <AnimatePage>
-                <AddPlan />
-              </AnimatePage>
-            }
-          />
-          <Route
-            path='/goal/edit/:goalId'
-            element={
-              <AnimatePage>
-                <EditGoal />
-              </AnimatePage>
-            }
-          />
-          <Route
-            path='/plan/edit/:planId'
-            element={
-              <AnimatePage>
-                <EditPlan />
-              </AnimatePage>
-            }
-          />
-
-          <Route
-            path='/reflection'
-            element={
-              <AnimatePage>
-                <Reflection />
-              </AnimatePage>
-            }
-          >
-            <Route
-              path='vision-board'
-              element={
-                <AnimatePage>
-                  <VisionBoard />
-                </AnimatePage>
-              }
-            />
-            <Route
-              path='review'
-              element={
-                <AnimatePage>
-                  <Review />
-                </AnimatePage>
-              }
-            />
-            <Route
-              path='guide'
-              element={
-                <AnimatePage>
-                  <Guide />
-                </AnimatePage>
-              }
-            />
-            <Route
-              path='plans-review'
-              element={
-                <AnimatePage>
-                  <PlansReview />
-                </AnimatePage>
-              }
-            />
+          <Route element={<DissolvePage />}>
+            <Route path='/' element={<OnBoarding />} />
+            <Route path='/home' element={<Home />} />
           </Route>
-          <Route
-            path='/statistics'
-            element={
-              <AnimatePage>
-                <Statistics />
-              </AnimatePage>
-            }
-          />
-
-          <Route
-            path='/mypage'
-            element={
-              <AnimatePage>
-                <MyPage />
-              </AnimatePage>
-            }
-          />
+          <Route element={<AnimatePage />}>
+            <Route path='/main' element={<Main />} />
+            <Route path='/goal/:goalId' element={<GoalDetails />} />
+            <Route path='/goal/add' element={<AddGoal />} />
+            <Route path='/plan/add' element={<AddPlan />} />
+            <Route path='/goal/edit/:goalId' element={<EditGoal />} />
+            <Route path='/plan/edit/:planId' element={<EditPlan />} />
+            <Route path='/reflection' element={<Reflection />}>
+              <Route index path='vision-board' element={<VisionBoard />} />
+              <Route path='review' element={<Review />} />
+              <Route path='guide' element={<Guide />} />
+              <Route path='plans-review' element={<PlansReview />} />
+            </Route>
+            <Route path='/statistics' element={<Statistics />} />
+            <Route path='/mypage' element={<MyPage />} />
+          </Route>
         </Route>
       </Routes>
     </AnimatePresence>
   );
 }
 
-function DissolvePage({ children }) {
+function DissolvePage() {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -183,12 +81,12 @@ function DissolvePage({ children }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 1, ease: 'easeInOut' }}
     >
-      {children}
+      <Outlet />
     </motion.div>
   );
 }
 
-function AnimatePage({ children }) {
+function AnimatePage({}) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -196,7 +94,7 @@ function AnimatePage({ children }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.1, ease: 'easeInOut' }}
     >
-      {children}
+      <Outlet />
     </motion.div>
   );
 }
