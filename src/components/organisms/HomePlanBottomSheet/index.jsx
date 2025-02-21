@@ -6,38 +6,31 @@ import vacationIcon from '../../../assets/icons/solar/solar-vacation--black.svg'
 import editIcon from '../../../assets/icons/humble/edit.svg';
 import { Link } from 'react-router-dom';
 
-const HomePlanBottomSheet = ({
-  isOpen,
-  onClose
-}) => {
-  return (    
-    <Sheet 
-      isOpen={isOpen} 
-      onClose={onClose}
-      detent="content-height"
-    >
+const HomePlanBottomSheet = ({ isOpen, onClose, selectedPlanTitle }) => {
+  return (
+    <Sheet isOpen={isOpen} onClose={onClose} detent='content-height'>
       <Sheet.Container>
         <Sheet.Header />
-        <Sheet.Content style={{
-          padding: '0 16px 24px',
-        }}>
-          <h2 className={styles.title}>
-            매주 최소한 한 번 창의적인 활동하기
-          </h2>
+        <Sheet.Content
+          style={{
+            padding: '0 16px 24px',
+          }}
+        >
+          <h2 className={styles.title}>{selectedPlanTitle}</h2>
 
           <div className={styles.buttons}>
-            <Link to="/">
+            <Link to='/'>
               <div className={styles.button}>
                 <div className={styles.left}>
                   <img src={bulbIcon} />
-                회고하기
+                  회고하기
                 </div>
                 <span>
-                <img src={chevronRightIcon} width={20} height={20}/>
+                  <img src={chevronRightIcon} width={20} height={20} />
                 </span>
               </div>
             </Link>
-            
+
             <Link to='/'>
               <div className={styles.button}>
                 <div className={styles.left}>
@@ -45,29 +38,28 @@ const HomePlanBottomSheet = ({
                   휴식 가지기
                 </div>
                 <span>
-                <img src={chevronRightIcon} width={20} height={20}/>
+                  <img src={chevronRightIcon} width={20} height={20} />
                 </span>
-              </div>  
+              </div>
             </Link>
 
             <Link to='/'>
               <div className={styles.button}>
                 <div className={styles.left}>
-                  <img src={editIcon} width={20} height={20}/>
+                  <img src={editIcon} width={20} height={20} />
                   수정하기
                 </div>
                 <span>
-                  <img src={chevronRightIcon} width={20} height={20}/>
+                  <img src={chevronRightIcon} width={20} height={20} />
                 </span>
               </div>
             </Link>
           </div>
-          
         </Sheet.Content>
       </Sheet.Container>
-      <Sheet.Backdrop onTap={onClose}/>
+      <Sheet.Backdrop onTap={onClose} />
     </Sheet>
   );
-}
+};
 
 export default HomePlanBottomSheet;

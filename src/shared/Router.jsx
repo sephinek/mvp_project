@@ -20,8 +20,9 @@ import PublishedOnboardingCheck from '../pages/published/onboarding-check';
 import PublishedHomeQuickButtons from '../pages/published/home-quick-buttons';
 import PublishedHomePlanBottomSheet from '../pages/published/home-plan-bottom-sheet';
 import AddGoal from '../pages/AddGoal';
-import AddPlan from '../pages/EditGoal';
+import AddPlan from '../pages/AddPlan';
 import MyPage from '../pages/MyPage';
+import EditPlan from '../pages/EditPlan';
 
 const Router = () => {
   return (
@@ -35,6 +36,7 @@ const Router = () => {
           <Route path='/goal/add' element={<AddGoal />} />
           <Route path='/plan/add' element={<AddPlan />} />
           <Route path='/goal/edit/:goalId' element={<EditGoal />} />
+          <Route path='/plan/edit/:planId' element={<EditPlan />} />
 
           <Route path='/reflection' element={<Reflection />}>
             <Route path='vision-board' element={<VisionBoard />} />
