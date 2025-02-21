@@ -8,9 +8,7 @@ export default function PlansList({ plans, onPlanClick }) {
         ? plans.map((plan) => (
             <PlanItem
               key={plan.id}
-              plan={plan}
-              goalId={plan.goalId}
-              goalTitle={plan.goalTitle}
+              planId={plan.id}
               onPlanClick={() => onPlanClick(plan)}
             />
           ))
