@@ -84,6 +84,7 @@ export default function AddPlan() {
 
       <section className={styles.sectionContainer}>
         <ul>        
+          {/* 계획 수정할 때 보이는 컴포넌트 */}
           <li>
             <Textfield_default
               inputRef={titleRef}
@@ -92,6 +93,7 @@ export default function AddPlan() {
             />
           </li>
 
+          {/* 계획 추가할 때 보이는 컴포넌트 */}
           <li>
             <div className={styles.periodBox}>
               <DateController date={startDate} setDate={setStartDate} label="기간"/>
@@ -101,8 +103,10 @@ export default function AddPlan() {
           </li>
 
           <li>
-            <p className={styles.label}> 라벨</p>
-            <PublihsedRadio onClick={setColor} />
+            <PublihsedRadio 
+              onClick={setColor} 
+              label='목표색상'  
+            />
           </li>
         </ul>
       </section>

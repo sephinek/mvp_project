@@ -10,7 +10,7 @@ const GoalOverview = ({ label }) => {
             <div className={styles.goalBox}>
                 {/* 목표 제목 */}
                 <div className={styles.goalTitleBox}>
-                    <div className={styles.color}></div>
+                    <div className={styles.colorStyle}></div>
                     <span className={styles.goalTitle}>창의적 활동 지속하기</span>
                 </div>
                 {/* 목표 기간 */}

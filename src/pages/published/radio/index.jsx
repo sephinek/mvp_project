@@ -1,18 +1,15 @@
+import styles from './index.module.css'
 import Radio from '../../../components/atoms/Radio';
 
-const PublihsedRadio = ({ onClick }) => {
+const PublihsedRadio = ({ label, onClick }) => {
   const colors = ['orange', 'lemon', 'green-apple', 'blueberry', 'grape'];
 
   return (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'start',
-          gap: '8px',
-          marginTop: '12px',
-        }}
-      >
+    <div className={styles.inputContainer}>
+      {/* 📌 레이블 */}
+      {label && <label className={styles.label}>{label}</label>}
+
+      <div className={styles.wrap}>
         {colors.map((color) => (
           <Radio
             onClick={() => onClick(color)}
@@ -23,6 +20,7 @@ const PublihsedRadio = ({ onClick }) => {
           />
         ))}
       </div>
+    </div>
   );
 };
 
