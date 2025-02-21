@@ -1,14 +1,14 @@
-import { useSetRecoilState } from "recoil";
-import { confirmModalState } from "../shared/recoil/confirmModalState";
+import { useSetRecoilState } from 'recoil';
+import { confirmModalState } from '../shared/recoil/confirmModalState';
 // 준비중입니다 모달을 호출하는 hooks 입니다. (쉽게 말하면 그냥 함수입니다.)
 
 const useCallModal = () => {
   const setModal = useSetRecoilState(confirmModalState);
   const callModal = (
-    title = "",
-    subTitle = "",
-    cancleButtonName = "취소",
-    confirmButtonName = "확인",
+    title = '',
+    subTitle = '',
+    cancleButtonName = '취소',
+    confirmButtonName = '확인',
     callback = () => {}
   ) => {
     setModal({
@@ -21,7 +21,7 @@ const useCallModal = () => {
     });
   };
   const closeModal = () => {
-    setModal({ isOpen: false });
+    setModal((prev) => ({ ...prev, isOpen: false }));
   };
   return { callModal, closeModal };
 };
