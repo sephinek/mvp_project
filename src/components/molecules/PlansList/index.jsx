@@ -4,7 +4,7 @@ import styles from './index.module.css';
 export default function PlansList({ plans, onPlanClick }) {
   return (
     <ul className={styles.plansContainer}>
-      {plans
+      {plans.length
         ? plans.map((plan) => (
             <PlanItem
               key={plan.id}
