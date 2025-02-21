@@ -61,7 +61,6 @@ export default function AddPlan() {
               repetition: selectedWeek, // 월 화 수 목 금 토 일 최대 7개까지
               plansCount: 12, // repetition가 수정될 때 현재 시간을 기준으로 필요한 count 개수를 계산하고 completedDates.length를 더한다.
               isPaused: false,
-              isCompleted: false,
             });
             console.log('result', result);
             return result;

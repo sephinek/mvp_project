@@ -6,14 +6,18 @@ import { useRecoilState } from 'recoil';
 import styles from './index.module.css';
 import { useMemo } from 'react';
 
-export default function PlanItem({ planId, onPlanClick }) {
+export default function PlanItem({ planId, onPlanClick, currentDate }) {
   const [myState, setMyState] = useRecoilState(myPlanState);
+
 
   const plan = useMemo(() => {
     return myState.goals.flatMap(({plans}) => plans).filter(({id}) => id === planId)[0];
   }, [
     planId, myState
   ])
+  const _currentDate = useMemo(() => currentDate.toISOString(), [currentDate])
+
+  const isCompleted = useMemo(() => plan.completedDates.includes(_currentDate), [_currentDate, plan])
 
   const clickHandler = () => {
     setMyState(state => ({
@@ -21,7 +25,11 @@ export default function PlanItem({ planId, onPlanClick }) {
           ...goal,
           plans: goal.plans.map(
             plan => ({...plan,
-              isCompleted: !plan.isCompleted
+              completedDates: (() => {
+                if(plan.id !== planId) return plan.completedDates;
+                if(isCompleted) return plan.completedDates.filter(dateString => dateString !== _currentDate);
+                return [...plan.completedDates, _currentDate];
+              })(),
             })
           )
         }))
@@ -42,7 +50,7 @@ export default function PlanItem({ planId, onPlanClick }) {
         <button className={styles.checkbox} onClick={clickHandler} disabled={plan.isPaused}>
           {plan.isPaused ? (
             <img src={checkIconDisabled} />
-          ) : plan.isCompleted ? (
+          ) : isCompleted ? (
             <img src={checkIconChecked} />
           ) : (
             <img src={checkIconDefault} />
