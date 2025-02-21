@@ -14,9 +14,11 @@ import { useRef, useState } from 'react';
 import Datefield_default from '../../components/molecules/Datefield_default';
 import { v4 as uuid } from 'uuid';
 import useCallModal from '../../hooks/useCallModal';
+import { confirmModalState } from '../../shared/recoil/confirmModalState';
+import useNavigationPage from '../../hooks/useNavigationPage';
 
 export default function AddGoal() {
-  const navigate = useNavigate();
+  const { routePage } = useNavigationPage();
   const prams = useParams();
   const [planState, setPlanState] = useRecoilState(myPlanState);
 
@@ -28,8 +30,11 @@ export default function AddGoal() {
 
   const { callModal, closeModal } = useCallModal();
 
+  const [modalState, setModalState] = useRecoilState(confirmModalState);
+
+  const id = uuid();
   const goToBackHandler = () => {
-    navigate(-1);
+    routePage(-1);
   };
 
   const clickDeleteHandler = () => {
@@ -43,7 +48,7 @@ export default function AddGoal() {
         }
       }),
     });
-    navigate('/main');
+    routePage('/main');
   };
 
   const clickSubmitHandler = () => {
@@ -52,7 +57,7 @@ export default function AddGoal() {
       goals: [
         ...planState.goals,
         {
-          id: uuid(),
+          id: id,
           title: titleRef.current.value,
           color: color,
           startDate: startDate,
@@ -72,6 +77,16 @@ export default function AddGoal() {
         navigate('/plan/add');
       }
     );
+    setModalState({
+      isOpen: true,
+      title: '목표를 추가했습니다!',
+      subTitle: '',
+      cancleButtonName: '홈으로 가기',
+      confirmButtonName: '계획 추가하기',
+      callback: () => {
+        routePage('/plan/add', { goalId: id });
+      },
+    });
   };
 
   return (
