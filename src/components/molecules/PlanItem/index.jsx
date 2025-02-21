@@ -5,17 +5,28 @@ import { myPlanState } from '../../../shared/recoil/myPlanState';
 import { useRecoilState } from 'recoil';
 import styles from './index.module.css';
 import { useMemo } from 'react';
+import { format } from 'date-fns';
 
-export default function PlanItem({ planId, onPlanClick, currentDate }) {
+export default function PlanItem({ planId, onPlanClick, currentDate = new Date() }) {
   const [myState, setMyState] = useRecoilState(myPlanState);
 
-
-  const plan = useMemo(() => {
-    return myState.goals.flatMap(({plans}) => plans).filter(({id}) => id === planId)[0];
+  const { goal, plan} = useMemo(() => {
+    const { goals } = myState;
+    
+    for(const goal of goals) {
+      console.log('goal', goal)
+      for(const plan of goal.plans) {
+        if(plan.id === planId) {
+          return { goal, plan }
+        }
+      }
+    }
+    return {}
   }, [
     planId, myState
   ])
-  const _currentDate = useMemo(() => currentDate.toISOString(), [currentDate])
+
+  const _currentDate = useMemo(() => format(currentDate, 'yyyy-mm-dd'), [currentDate])
 
   const isCompleted = useMemo(() => plan.completedDates.includes(_currentDate), [_currentDate, plan])
 
@@ -37,10 +48,14 @@ export default function PlanItem({ planId, onPlanClick, currentDate }) {
     );
   };
 
+  if(!plan) {
+    return null;
+  }
+
   return (
     <li className={styles.planBox}>
       <div className={styles.colorAndTitlesBox} onClick={onPlanClick}>
-        <div className={styles.colorBar}></div>
+        <div className={[styles.colorBar, styles[goal.color]].join(' ')}></div>
         <div className={styles.goalAndPlanTitles}>
           <span className={styles.planTitle}>{plan.title}</span>
         </div>

@@ -3,7 +3,7 @@ import ArrowRightButton from '../../common/Icons/ArrowRightButton';
 import { getDay, getMonth, getYear } from 'date-fns';
 import { Link } from 'react-router-dom';
 
-export default function GoalItem({ goal, title, percentage, dueDate }) {
+export default function GoalItem({ goal, title, percentage, dueDate, color }) {
   return (
     <Link to={{ pathname: `/goal/${goal.id}` }} state={goal}>
       <li className={styles.goalBox}>
@@ -20,7 +20,7 @@ export default function GoalItem({ goal, title, percentage, dueDate }) {
           </div>
           <div className={styles.bar}>
             <div className={styles.full}>
-              <div className={styles.filled}></div>
+              <div className={[styles.filled, styles[color]].join(' ')}></div>
             </div>
           </div>
         </div>

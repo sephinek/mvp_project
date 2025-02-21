@@ -94,9 +94,26 @@ img {
   border-radius: 10px;
   overflow: hidden;
 }
+
 .filled {
   width: 30%;
   height: 8px;
   background-color: var(--color-green-apple);
   border-radius: 20px;
+}
+
+.orange {
+  background-color: var(--color-orange);
+}
+
+.lemon {
+  background-color: var(--color-lemon);
+}
+
+.blueberry {
+  background-color: var(--color-blueberry);
+}
+
+.grape {
+  background-color: var(--color-grape);
 }

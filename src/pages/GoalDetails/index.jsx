@@ -41,7 +41,7 @@ export default function GoalDetails() {
 
       <section className={styles.goalInfo}>
         <div className={styles.goalTitleBox}>
-          <div className={styles.color}></div>
+          <div className={[styles.color, styles[goal.color]].join(' ')}></div>
           <span className={styles.goalTitle}>{goal.title}</span>
         </div>
 
@@ -78,7 +78,7 @@ export default function GoalDetails() {
       <section className={styles.planInfo}>
         <SectionTitle titleEn='Plans' titleKr='계획' />
         <div className={styles.plansWrap}>
-          <PlansList plans={goal?.plans} />
+          <PlansList plans={goal?.plans}/>
         </div>
       </section>
     </div>
