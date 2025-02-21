@@ -20,6 +20,23 @@
   height: 20px;
   border-radius: 50%;
 }
+
+.orange {
+  background-color: var(--color-orange);
+}
+
+.lemon {
+  background-color: var(--color-lemon);
+}
+
+.blueberry {
+  background-color: var(--color-blueberry);
+}
+
+.grape {
+  background-color: var(--color-grape);
+}
+
 .goalTitle {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);

@@ -94,6 +94,7 @@ img {
   border-radius: 10px;
   overflow: hidden;
 }
+
 .filled {
   width: 30%;
   height: 8px;
@@ -109,13 +110,14 @@ img {
   background-color: var(--color-lemon);
 }
 
-.green-apple {
-  background-color: var(--color-green-apple);
-}
-
 .blueberry {
   background-color: var(--color-blueberry);
 }
+
 .grape {
   background-color: var(--color-grape);
+}
+
+.green-apple {
+  background-color: var(--color-green-apple);
 }

@@ -17,6 +17,7 @@ export default function Goals({ goals }) {
               color={goal.color}
               percentage={goal.plans.length}
               dueDate={goal.endDate}
+              color={goal.color}
             />
           ))}
         </ul>

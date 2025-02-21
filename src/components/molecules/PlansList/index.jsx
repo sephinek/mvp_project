@@ -4,7 +4,7 @@ import styles from './index.module.css';
 export default function PlansList({ plans, onPlanClick, currentDate }) {
   return (
     <ul className={styles.plansContainer}>
-      {plans.length ? (
+      {/* {plans.length ? (
         plans.map((plan) => (
           <PlanItem
             key={plan.id}
@@ -18,7 +18,7 @@ export default function PlansList({ plans, onPlanClick, currentDate }) {
         <div className={styles.emptyPlan}>
           <span>계획을 추가해주세요</span>
         </div>
-      )}
+      )} */}
       {plans.length
         ? plans.map((plan) => (
             <PlanItem
