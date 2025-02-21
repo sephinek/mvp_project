@@ -59,6 +59,7 @@ export default function PlanItem({ planId, onPlanClick, currentDate = new Date()
       <div className={styles.colorAndTitlesBox} onClick={onPlanClick}>
         <div className={[styles.colorBar, styles[goal.color]].join(' ')}></div>
         <div className={styles.goalAndPlanTitles}>
+          <span className={styles.goalTitle}>{goal.title}</span>
           <span className={styles.planTitle}>{plan.title}</span>
         </div>
       </div>
