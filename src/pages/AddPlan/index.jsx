@@ -1,7 +1,7 @@
 import TopBar from '../../components/atoms/TopBar';
 import ChevronLeftButton from '../../components/common/Icons/ChevronLeftButton';
 import styles from './index.module.css';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Textfield_default from '../../components/atoms/Textfield_defalt';
 import { useRecoilState } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
@@ -13,16 +13,22 @@ import AI_button from '../../components/molecules/Ai_button';
 import SimpleDateGrid from '../../components/atoms/SimpleDateGrid';
 import GoalOverview from '../../components/atoms/GoalOverview';
 import Togglebox from '../../components/atoms/Togglebox';
+import useNavigationPage from '../../hooks/useNavigationPage';
 
 export default function AddPlan() {
   const navigate = useNavigate();
-  const { goalId } = useParams();
+  const { state, routePage } = useNavigationPage();
   const [planState, setPlanState] = useRecoilState(myPlanState);
+  let goalData;
+  if (state !== null) {
+    goalData =
+      state?.goalId && planState.goals.find((el) => el.id === state?.goalId);
+  }
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [selectedWeek, setSelectedWeek] = useState([]);
   const [isPaused, setIsPaused] = useState([]);
-  const [goal, setGoal] = useState();
+  const [goal, setGoal] = useState(goalData && goalData.title);
   const titleRef = useRef(null);
   const goalTitles = planState.goals.map((el) => el.title);
 
@@ -45,7 +51,6 @@ export default function AddPlan() {
         goals: prev.goals.map((el) => {
           if (el.title === goal) {
             const result = { ...el, plans: [...el.plans] };
-            console.log(result);
             result.plans.push({
               id: uuid(),
               title: titleRef.current.value,
@@ -65,7 +70,7 @@ export default function AddPlan() {
         }),
       };
     });
-    navigate(-1);
+    routePage('/main');
   };
 
   return (
@@ -78,9 +83,13 @@ export default function AddPlan() {
 
       <section className={styles.sectionContainer}>
         <ul>
-          {goalId ? (
+          {state !== null ? (
             <li>
-              <GoalOverview label='상위목표' />
+              <GoalOverview
+                title={goalData.title}
+                date={goalData.startDate}
+                label='상위목표'
+              />
             </li>
           ) : (
             <li>
