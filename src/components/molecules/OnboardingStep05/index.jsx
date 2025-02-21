@@ -1,11 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Button from '../../atoms/Button';
 import GoBackHeader from '../../common/GoBackHeader';
 import OnBoardingTitle from '../../atoms/OnboardingTitle';
-import styles from './index.module.css';
 import Input from '../../atoms/Input';
 import OnboardingYesIcon from '../../../assets/icons/toss/yes.svg';
 import OnboardingCheckList from '../OnboardingCheckList';
+import MoneyIcon from '../../../assets/icons/toss/money.svg';
+import SaluteIcon from '../../../assets/icons/toss/salute.svg';
+import SpeakerIcon from '../../../assets/icons/toss/speaker.svg';
+import RelationshipIcon from '../../../assets/icons/toss/relationship.svg';
+import PlaneIcon from '../../../assets/icons/toss/plane.svg';
+import OwlIcon from '../../../assets/icons/toss/owl.svg';
+import styles from './index.module.css';
 
 const OnboardingStep05 = ({ nextStep, beforeStep, type }) => {
   const ref = useRef(null);
@@ -79,38 +85,38 @@ const OnboardingStep05 = ({ nextStep, beforeStep, type }) => {
               {
                 value: '경제적으로 여유로운 사람',
                 children: '경제적으로 여유로운 사람',
-                icon: OnboardingYesIcon,
-                targetFn: () => setTarget('경제적으로 여유로운 사람'),
+                icon: MoneyIcon,
+                targetFn: () => setTarget('경제적으로 여유로운'),
               },
               {
                 value: '커리어적으로 성공한 사람',
                 children: '커리어적으로 성공한 사람',
-                icon: OnboardingYesIcon,
-                targetFn: () => setTarget('커리어적으로 성공한 사람'),
+                icon: SaluteIcon,
+                targetFn: () => setTarget('커리어적으로 성공한'),
               },
               {
                 value: '사회적으로 영향력 있는 사람',
                 children: '사회적으로 영향력 있는 사람',
-                icon: OnboardingYesIcon,
-                targetFn: () => setTarget('사회적으로 영향력 있는 사람'),
+                icon: SpeakerIcon,
+                targetFn: () => setTarget('사회적으로 영향력 있는'),
               },
               {
                 value: '사람들과 좋은 관계를 형성한 사람',
                 children: '사람들과 좋은 관계를 형성한 사람',
-                icon: OnboardingYesIcon,
-                targetFn: () => setTarget('사람들과 좋은 관계를 형성한 사람'),
+                icon: RelationshipIcon,
+                targetFn: () => setTarget('사람들과 좋은 관계를 형성한'),
               },
               {
                 value: '시간과 공간에서 자유로운 사람',
                 children: '시간과 공간에서 자유로운 사람',
-                icon: OnboardingYesIcon,
-                targetFn: () => setTarget('시간과 공간에서 자유로운 사람'),
+                icon: PlaneIcon,
+                targetFn: () => setTarget('시간과 공간에서 자유로운'),
               },
               {
                 value: '동물들에게 도움을 주는 사람',
                 children: '동물들에게 도움을 주는 사람',
-                icon: OnboardingYesIcon,
-                targetFn: () => setTarget('동물들에게 도움을 주는 사람'),
+                icon: OwlIcon,
+                targetFn: () => setTarget('동물들에게 도움을 주는'),
               },
             ]}
           />
