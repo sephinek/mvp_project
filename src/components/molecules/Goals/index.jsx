@@ -14,6 +14,7 @@ export default function Goals({ goals }) {
               key={goal.id}
               goal={goal}
               title={goal.title}
+              color={goal.color}
               percentage={goal.plans.length}
               dueDate={goal.endDate}
             />

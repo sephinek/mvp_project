@@ -20,6 +20,7 @@ import useNavigationPage from '../../hooks/useNavigationPage';
 export default function AddGoal() {
   const { routePage } = useNavigationPage();
   const prams = useParams();
+  const navigate = useNavigate();
   const [planState, setPlanState] = useRecoilState(myPlanState);
 
   const titleRef = useRef(null);
@@ -36,6 +37,8 @@ export default function AddGoal() {
   const goToBackHandler = () => {
     routePage(-1);
   };
+
+  const handleColorChange = (selectedColor) => setColor(selectedColor);
 
   const clickDeleteHandler = () => {
     setPlanState({
@@ -120,7 +123,7 @@ export default function AddGoal() {
         </div>
 
         <div className={styles.inputBox}>
-          <PublihsedRadio onClick={setColor} />
+          <PublihsedRadio onClick={handleColorChange} />
         </div>
       </section>
 

@@ -100,3 +100,22 @@ img {
   background-color: var(--color-green-apple);
   border-radius: 20px;
 }
+
+.orange {
+  background-color: var(--color-orange);
+}
+
+.lemon {
+  background-color: var(--color-lemon);
+}
+
+.green-apple {
+  background-color: var(--color-green-apple);
+}
+
+.blueberry {
+  background-color: var(--color-blueberry);
+}
+.grape {
+  background-color: var(--color-grape);
+}
