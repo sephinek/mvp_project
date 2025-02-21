@@ -6,9 +6,12 @@ import vacationIcon from '../../../assets/icons/solar/solar-vacation--black.svg'
 import editIcon from '../../../assets/icons/humble/edit.svg';
 import styles from './index.module.css';
 import useCallModal from '../../../hooks/useCallModal';
+import { useSetRecoilState } from 'recoil';
+import { myPlanState } from '../../../shared/recoil/myPlanState';
 
 const HomePlanBottomSheet = ({ isOpen, onClose, selectedPlan }) => {
-  const { callModal } = useCallModal();
+  const { callModal, closeModal } = useCallModal();
+  const setMyPlanState = useSetRecoilState(myPlanState);
 
   const restClickHandler = () => {
     onClose();
@@ -19,7 +22,22 @@ const HomePlanBottomSheet = ({ isOpen, onClose, selectedPlan }) => {
       '괜찮아요',
       '휴식 가질래요',
       () => {
-        console.log('휴식 가질래요 버튼 클릭됨');
+        setMyPlanState((prev) =>
+          prev
+            ? {
+                ...prev,
+                goals: prev.goals.map((goal) => ({
+                  ...goal,
+                  plans: goal.plans.map((plan) =>
+                    plan.id === selectedPlan.id
+                      ? { ...plan, isPaused: true }
+                      : plan
+                  ),
+                })),
+              }
+            : prev
+        );
+        closeModal();
       }
     );
   };

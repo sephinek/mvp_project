@@ -37,7 +37,7 @@ const OnboardingCheckList = ({ name, choice = 'single', items }) => {
             selectHandler(value);
           }}
           isSelected={
-            choice === 'single' ? selected === value : selected.includes(value)
+            choice === 'single' ? selected === value : selected?.includes(value)
           }
         >
           {children}

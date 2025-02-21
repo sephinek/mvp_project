@@ -1,60 +1,18 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import Button from '../../atoms/Button';
 import GoBackHeader from '../../common/GoBackHeader';
 import OnBoardingTitle from '../../atoms/OnboardingTitle';
 import styles from './index.module.css';
-import Input from '../../atoms/Input';
-import OnboardingYesIcon from '../../../assets/icons/toss/yes.svg';
 import OnboardingCheckList from '../OnboardingCheckList';
+import star from '../../../assets/icons/toss/star.svg';
+import folder from '../../../assets/icons/toss/folder.svg';
+import notes from '../../../assets/icons/toss/notes.svg';
+import ferris from '../../../assets/icons/toss/ferris.svg';
+import graph from '../../../assets/icons/toss/graph.svg';
 
-const OnboardingStep10 = ({ nextStep, beforeStep, type }) => {
-  const ref = useRef(null);
-  const [isConfirmed, setIsConfirmed] = useState(false);
+const OnboardingStep10 = ({ nextStep, beforeStep }) => {
   const [target, setTarget] = useState(false);
 
-  const handleChange = (e) => {
-    const { value } = e.target;
-    value ? setIsConfirmed(true) : setIsConfirmed(false);
-  };
-
-  const handleNextStep = () => {
-    if (type === 'yes') {
-      nextStep(ref.current.value);
-    } else {
-      nextStep(target);
-    }
-  };
-
-  if (type === 'yes') {
-    return (
-      <div className={styles.wrap}>
-        <div className={styles.goBackBox}>
-          <GoBackHeader handler={beforeStep} />
-        </div>
-
-        <div className={styles.contentContainer}>
-          <OnBoardingTitle
-            secondLine='우선 한 가지만 작성해보세요.
-ex) 매일 30분씩 영어 공부하기'
-          >
-            그 목표를 달성하려면 어떤 계획을 세워야 할까요?
-          </OnBoardingTitle>
-
-          <Input inputRef={ref} type='visible' onChange={handleChange} />
-        </div>
-
-        <div className={styles.bottomBtn}>
-          <Button
-            theme='secondary'
-            disabled={!isConfirmed}
-            onClick={handleNextStep}
-          >
-            다음
-          </Button>
-        </div>
-      </div>
-    );
-  }
   return (
     <div className={styles.wrap}>
       <div className={styles.goBackBox}>
@@ -62,60 +20,54 @@ ex) 매일 30분씩 영어 공부하기'
       </div>
 
       <div className={styles.contentContainer}>
-        <OnBoardingTitle>
-          다른 사람들이
+        <OnBoardingTitle secondLine='여러 개를 선택할 수 있어요.'>
+          비전을 이루기 위해서
           <br />
-          많이 꾸는 꿈들을 모아봤어요.
-          <br />
-          생각했던 꿈이 있으면
-          <br />
-          선택해주세요
+          어떤 기능들을 사용하고 싶어요?
         </OnBoardingTitle>
 
         <div className={styles.button_wrap}>
           <OnboardingCheckList
             name='step01'
-            choice='single'
+            choice='multiple'
             items={[
               {
-                value: '창의적인 활동을 지속적으로 이어가기',
-                children: '창의적인 활동을 지속적으로 이어가기',
-                icon: OnboardingYesIcon,
-                targetFn: () =>
-                  setTarget('창의적인 활동을 지속적으로 이어가기'),
+                value: '비전을 되새겨주는 기능',
+                children: '비전을 되새겨주는 기능',
+                icon: star,
+                targetFn: () => setTarget('비전을 되새겨주는 기능'),
               },
               {
-                value: '매달 새로운 지식이나 기술 배우기',
-                children: '매달 새로운 지식이나 기술 배우기',
-                icon: OnboardingYesIcon,
-                targetFn: () => setTarget('매달 새로운 지식이나 기술 배우기'),
+                value: '한 눈에 볼 수 있는 달성 리포트',
+                children: '한 눈에 볼 수 있는 달성 리포트',
+                icon: graph,
+                targetFn: () => setTarget('한 눈에 볼 수 있는 달성 리포트'),
               },
               {
-                value: '건강한 생활 습관을 유지하기',
-                children: '건강한 생활 습관을 유지하기',
-                icon: OnboardingYesIcon,
-                targetFn: () => setTarget('건강한 생활 습관을 유지하기'),
+                value: '하루 단위의 회고 기능',
+                children: '하루 단위의 회고 기능',
+                icon: notes,
+                targetFn: () => setTarget('하루 단위의 회고 기능'),
               },
               {
-                value: '재정적인 자유 달성하기',
-                children: '재정적인 자유 달성하기',
-                icon: OnboardingYesIcon,
-                targetFn: () => setTarget('재정적인 자유 달성하기'),
+                value: '비전을 상상할 수 있는 나만의 공간',
+                children: '비전을 상상할 수 있는 나만의 공간',
+                icon: ferris,
+                targetFn: () => setTarget('비전을 상상할 수 있는 나만의 공간'),
               },
               {
-                value: '사회적인 네트워크 구축하기',
-                children: '사회적인 네트워크 구축하기',
-                icon: OnboardingYesIcon,
-                targetFn: () => setTarget('사회적인 네트워크 구축하기'),
+                value: '정보를 나눌 수 있는 커뮤니티',
+                children: '정보를 나눌 수 있는 커뮤니티',
+                icon: folder,
+                targetFn: () => setTarget('정보를 나눌 수 있는 커뮤니티'),
               },
             ]}
           />
         </div>
       </div>
-      <button onClick={beforeStep}>다시 생성하기</button>
 
       <div className={styles.bottomBtn}>
-        <Button theme='secondary' disabled={!target} onClick={handleNextStep}>
+        <Button theme='secondary' disabled={!target} onClick={nextStep}>
           다음
         </Button>
       </div>
