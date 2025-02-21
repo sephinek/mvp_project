@@ -1,11 +1,11 @@
 import checkIconDisabled from '../../../assets/icons/humble/checkbox-disabled.svg';
 import checkIconChecked from '../../../assets/icons/humble/checkbox-checked.svg';
 import checkIconDefault from '../../../assets/icons/humble/checkbox-default.svg';
-import styles from './index.module.css';
 import { myPlanState } from '../../../shared/recoil/myPlanState';
 import { useRecoilState } from 'recoil';
+import styles from './index.module.css';
 
-export default function PlanItem({ plan, goalId, goalTitle }) {
+export default function PlanItem({ plan, goalId, goalTitle, onPlanClick }) {
   const {
     id,
     title,
@@ -44,12 +44,12 @@ export default function PlanItem({ plan, goalId, goalTitle }) {
   };
 
   return (
-    <li className={styles.planBox}>
+    <li className={styles.planBox} onClick={onPlanClick}>
       <div className={styles.colorAndTitlesBox}>
         <div className={styles.colorBar}></div>
         <div className={styles.goalAndPlanTitles}>
           <span className={styles.goalTitle}>{goalTitle}</span>
-          <span className={styles.planTitle}>{title}</span>
+          <span className={styles.planTitle}>{plan.title}</span>
         </div>
       </div>
       <div className={styles.pausedAndCheckboxBox}>

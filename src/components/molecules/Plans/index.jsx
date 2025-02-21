@@ -5,7 +5,7 @@ import PlansList from '../PlansList/index.jsx';
 import { useEffect, useState } from 'react';
 // import { getDate } from '../../../utils/date.js';
 
-export default function Plans({ goals }) {
+export default function Plans({ goals, onPlanClick }) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [plans, setPlans] = useState([]);
 
@@ -39,7 +39,7 @@ export default function Plans({ goals }) {
 
       <div className={styles.planWrap}>
         <PlansCalender current={currentDate} setCurrent={handleCurrentDate} />
-        <PlansList plans={plans} />
+        <PlansList plans={plans} onPlanClick={onPlanClick} />
       </div>
     </section>
   );

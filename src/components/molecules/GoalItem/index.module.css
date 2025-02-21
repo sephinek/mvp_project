@@ -97,6 +97,6 @@ img {
 .filled {
   width: 30%;
   height: 8px;
-  background-color: var(--color-other-1);
+  background-color: var(--color-green-apple);
   border-radius: 20px;
 }

@@ -1,9 +1,9 @@
 import Modal from 'react-modal';
 import { addModalState } from '../../../../shared/recoil/addModalState';
-import styles from './index.module.css';
 import { useRecoilState } from 'recoil';
 import HomeQuickButtons from '../../../organisms/HomeQuickButtons';
 import { motion, AnimatePresence } from 'framer-motion';
+import styles from './index.module.css';
 
 export default function AddModals() {
   const [goalState, setGoalState] = useRecoilState(addModalState);

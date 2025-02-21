@@ -11,20 +11,24 @@ import { useRecoilState } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
 import Button from '../../components/atoms/Button';
 import { useRef, useState } from 'react';
-import Datefield_default from '../../components/molecules/Datefield_default';
-import { v4 as uuid } from 'uuid';
+import DateController from '../../components/molecules/Date_Picker';
 
-export default function AddPlan() {
-  console.log('AddPlan에서!!');
+export default function EditPlan() {
   const navigate = useNavigate();
   const prams = useParams();
   const [planState, setPlanState] = useRecoilState(myPlanState);
+  const goal = planState.goals.find((el) => {
+    if (el.id === prams.goalId) {
+      return true;
+    }
+    return false;
+  });
 
   const titleRef = useRef(null);
 
-  const [color, setColor] = useState();
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const [color, setColor] = useState(goal.color);
+  const [startDate, setStartDate] = useState(goal.startDate);
+  const [endDate, setEndDate] = useState(goal.endDate);
 
   const goToBackHandler = () => {
     navigate(-1);
@@ -47,16 +51,23 @@ export default function AddPlan() {
   const clickSubmitHandler = () => {
     setPlanState({
       ...planState,
-      goals: [
-        ...planState.goals,
-        {
-          id: uuid(),
-          title: titleRef.current.value,
-          startDate: startDate,
-          endDate: endDate,
-          plans: [],
-        },
-      ],
+      goals: planState.goals.map((el) => {
+        if (el.id === prams.goalId) {
+          const newTitle = titleRef.current.value
+            ? titleRef.current.value
+            : el.title;
+          const newColor = color;
+          return {
+            ...el,
+            title: newTitle,
+            color: newColor,
+            startDate: startDate,
+            endDate: endDate,
+          };
+        } else {
+          return el;
+        }
+      }),
     });
     navigate(-1);
   };
@@ -66,7 +77,7 @@ export default function AddPlan() {
       <TopBar
         LeftIcon={ChevronLeftButton}
         RightIcon={DeleteButton}
-        title='Goal(목표) 추가'
+        title='Goal(목표) 수정'
         onClickLeft={goToBackHandler}
         onClickRight={clickDeleteHandler}
       ></TopBar>
@@ -76,31 +87,29 @@ export default function AddPlan() {
           <Textfield_default
             inputRef={titleRef}
             label='제목'
-            placeholder={'123'}
+            placeholder={goal.title}
           />
         </div>
 
         <div className={styles.inputBox}>
-          <Datefield_default
-            label='기간'
-            startDate={startDate}
-            endDate={endDate}
-            onStartDateChange={setStartDate}
-            onEndDateChange={setEndDate}
-            isDateRange
-          />
+          <div className={styles.periodBox}>
+            <DateController date={startDate} setDate={setStartDate} />
+            <DateController date={endDate} setDate={setEndDate} />
+            <span>-</span>
+          </div>
         </div>
 
         <div className={styles.inputBox}>
+          <Textfield_default label='목표 색상' />
           <PublihsedRadio onClick={setColor} />
         </div>
       </section>
 
       <section className={styles.sectionContainer}>
         <SectionTitle titleEn='Plans' titleKr='계획' />
-        <PlansList plans={[]} />
+        <PlansList plans={goal.plans} />
       </section>
-      <Button onClick={clickSubmitHandler}>추가하기</Button>
+      <Button onClick={clickSubmitHandler}>수정하기</Button>
     </section>
   );
 }
