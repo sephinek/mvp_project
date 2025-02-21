@@ -1,15 +1,15 @@
-import './App.css'
-import ConfirmModal from './components/common/Modal/ConfirmModal'
-import Router from './shared/Router'
-import { RecoilRoot } from 'recoil'
+import './App.css';
+import ConfirmModal from './components/common/Modal/ConfirmModal';
+import AppRouter from './shared/AppRouter';
+import { RecoilRoot } from 'recoil';
 
 function App() {
-    return (
-        <RecoilRoot>
-            <Router />
-            <ConfirmModal ></ConfirmModal>
-        </RecoilRoot>
-    )
+  return (
+    <RecoilRoot>
+      <AppRouter />
+      <ConfirmModal></ConfirmModal>
+    </RecoilRoot>
+  );
 }
 
-export default App
+export default App;

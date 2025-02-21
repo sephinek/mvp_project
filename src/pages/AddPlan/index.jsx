@@ -17,7 +17,8 @@ import { useRecoilValue } from 'recoil';
 import { getDate } from '../../utils/date';
 import SimpleDateGrid from '../../components/atoms/SimpleDateGrid';
 
-export default function AddGoal() {
+export default function AddPlan() {
+  
   const navigate = useNavigate();
   const { goalId } = useParams(); 
   const [planState, setPlanState] = useRecoilState(myPlanState);

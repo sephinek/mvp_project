@@ -5,8 +5,8 @@ import OnBoardingTitle from '../../atoms/OnboardingTitle';
 import styles from './index.module.css';
 import OnboardingCheckList from '../OnboardingCheckList';
 import OnboardingYesIcon from '../../../assets/icons/toss/yes.svg';
-import OnboardingNoIcon from '../../../assets/icons/toss/no.svg';
-import OnboardingQuestionIcon from '../../../assets/icons/toss/question-mark.svg';
+import AiIcon from '../../../assets/icons/humble/ai.svg';
+import AiActiveIcon from '../../../assets/icons/humble/ai-active.svg';
 
 const OnboardingStep08 = ({ nextStep, beforeStep, type }) => {
   const [target, setTarget] = useState();
@@ -44,7 +44,7 @@ const OnboardingStep08 = ({ nextStep, beforeStep, type }) => {
               {
                 value: 'no',
                 children: '추천 받을래요',
-                icon: OnboardingNoIcon,
+                icon: target === 'no' ? AiActiveIcon : AiIcon,
                 targetFn: () => setTarget('no'),
               },
             ]}

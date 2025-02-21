@@ -1,4 +1,4 @@
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import TopBar from '../../components/atoms/TopBar';
 import ChevronLeftButton from '../../components/common/Icons/ChevronLeftButton';
 import styles from './index.module.css';
@@ -8,6 +8,7 @@ import SectionTitle from '../../components/atoms/SectionTitle';
 import { useRecoilValue } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
 import { getDate } from '../../utils/date';
+
 export default function GoalDetails() {
   // const { state: goal } = useLocation();
   const navigate = useNavigate();
