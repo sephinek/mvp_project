@@ -5,6 +5,7 @@ import styles from './index.module.css';
 import { getDate } from '../../../utils/date';
 import Textfield_default from '../../atoms/Textfield_defalt';
 import { format } from 'date-fns';
+import './styles.css';
 
 const DateController = ({ label, date = null, setDate }) => {
   const [isStartCalendarOpen, setIsStartCalendarOpen] = useState(false); // 시작 날짜 캘린더 상태

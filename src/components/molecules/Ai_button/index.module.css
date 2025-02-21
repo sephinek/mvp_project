@@ -1,50 +1,53 @@
 .card {
     display: flex;
-    flex-direction: column; /* 세로 정렬 */
-    gap: 8px; /* 텍스트 영역과 버튼 영역 사이의 간격 */
-    padding: 16px; /* 상하좌우 패딩 */
-    border-radius: 8px; /* 보더 둥글기 */
-    background: #FFF; /* 배경색 */
-    border: 1px solid #E0E0E0; /* 보더 색상 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 */
-    margin: 16px;
+    flex-direction: column; 
+    gap: 8px;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: var(--color-grey-10);
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
   }
   
   /* 텍스트 영역 */
   .textArea {
     display: flex;
     align-items: center;
-    gap: 8px; /* 아이콘과 텍스트 사이의 간격 */
+    gap: 8px; 
   }
   
   /* 아이콘 영역 */
   .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 60px;
+    height: 50px;
+    background-image: url(../../../assets/characters/AILucid.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
   }
   
   /* 텍스트 내용 (타이틀과 서브타이틀) */
   .textContent {
     display: flex;
     flex-direction: column;
-    gap: 8px; /* 타이틀과 서브타이틀 사이의 간격 */
+    gap: 4px;
   }
   
   /* 타이틀 */
   .title {
-    font-size: 14px;
-    font-weight: 700;
-    color: #ff1b1a;
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary-500);
+    line-height: 16px;
   }
   
   /* 서브타이틀 */
   .subtitle {
-    font-size: 10px;
-    color: #666;
-    white-space: pre-line; /* 줄바꿈 허용 */
-    word-break: break-word; /* 단어 단위로 줄바꿈 */
-    line-height: 140%;
+    font-size: 11px;
+    color: var(--color-grey-600);
+    font-weight: 400;
+    white-space: pre-line; 
+    word-break: break-word; 
+    line-height: 14px;
   }
   
   /* 버튼 영역 */
@@ -52,29 +55,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px; /* 버튼 내부 아이콘과 텍스트 사이의 간격 */
-    padding: 8px 16px; /* 상하 패딩 8px, 좌우 패딩 16px */
-    background: #000; /* 버튼 배경색 */
-    color: #FFF; /* 버튼 텍스트 색상 */
+    gap: 8px; 
+    padding: 8px 16px; 
+    background-color: var(--color-grey-900); 
+    color: var(--color-white);
+    border-radius: 8px;
     border: none;
-    border-radius: 4px; /* 버튼 둥글기 */
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background-color 0.2s;
   }
   
   .button:hover {
-    background: #333; /* 호버 시 배경색 변경 */
+    background-color: var(--color-grey-700);
   }
   
   /* 버튼 아이콘 */
   .buttonIcon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background-image: url(../../../assets/icons/humble/humbleicons_AI.svg);
+    background-repeat: no-repeat;
+    background-size: 18px auto;
+    background-position: center;
   }
   
   /* 버튼 텍스트 */
   .buttonText {
-    font-size: 12px;
-    font-weight: 500;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: 18px;
   }
