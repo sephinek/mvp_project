@@ -32,9 +32,9 @@ export default function EditPlan() {
   const [isPaused, setIsPaused] = useState([]);
   const [color, setColor] = useState(goal ? goal.color : '');
   const [startDate, setStartDate] = useState(
-    plan ? plan.startDate : new Date()
+    plan ? new Date(plan.startDate) : new Date()
   );
-  const [endDate, setEndDate] = useState(plan ? plan.endDate : new Date());
+  const [endDate, setEndDate] = useState(plan ? new Date(plan.endDate) : new Date());
 
   const titleRef = useRef(null);
 
@@ -87,6 +87,8 @@ export default function EditPlan() {
 
   if (!plan) return <div>Please add a plan first!</div>;
 
+  console.log(plan)
+
   return (
     <section>
       <TopBar
@@ -103,6 +105,7 @@ export default function EditPlan() {
                 title={goal.title}
                 date={goal.startDate}
                 label='상위목표'
+                color={goal.color}
               />
             </li>
             <li>

@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 import styles from './index.module.css';
 
-const GoalOverview = ({ label, title, date }) => {
+const GoalOverview = ({ label, title, date, color }) => {
   return (
     <div className={styles.inputContainer}>
       {/* 📌 레이블 */}
@@ -10,7 +10,7 @@ const GoalOverview = ({ label, title, date }) => {
       <div className={styles.goalBox}>
         {/* 목표 제목 */}
         <div className={styles.goalTitleBox}>
-          <div className={styles.colorStyle}></div>
+          <div className={[styles.colorStyle, styles[color]].join(' ')}></div>
           <span className={styles.goalTitle}>{title}</span>
         </div>
         {/* 목표 기간 */}

@@ -54,3 +54,24 @@
     line-height: 16px;
   }
 
+
+
+.orange {
+  background-color: var(--color-orange);
+}
+
+.lemon {
+  background-color: var(--color-lemon);
+}
+
+.blueberry {
+  background-color: var(--color-blueberry);
+}
+
+.grape {
+  background-color: var(--color-grape);
+}
+
+.green-apple {
+  background-color: var(--color-green-apple);
+}
