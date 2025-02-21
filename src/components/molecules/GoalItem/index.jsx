@@ -1,9 +1,10 @@
-import styles from './index.module.css';
 import ArrowRightButton from '../../common/Icons/ArrowRightButton';
 import { getDay, getMonth, getYear } from 'date-fns';
 import { Link } from 'react-router-dom';
+import styles from './index.module.css';
 
-export default function GoalItem({ goal, title, percentage, dueDate }) {
+export default function GoalItem({ goal, title, color, percentage, dueDate }) {
+  const colorClass = color.replace('--color-', '');
   return (
     <Link to={{ pathname: `/goal/${goal.id}` }} state={goal}>
       <li className={styles.goalBox}>
@@ -20,7 +21,7 @@ export default function GoalItem({ goal, title, percentage, dueDate }) {
           </div>
           <div className={styles.bar}>
             <div className={styles.full}>
-              <div className={styles.filled}></div>
+              <div className={`${styles.filled} ${styles[colorClass]}`}></div>
             </div>
           </div>
         </div>

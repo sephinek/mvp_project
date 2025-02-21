@@ -20,6 +20,7 @@ import useNavigationPage from '../../hooks/useNavigationPage';
 export default function AddGoal() {
   const { routePage } = useNavigationPage();
   const prams = useParams();
+  const navigate = useNavigate();
   const [planState, setPlanState] = useRecoilState(myPlanState);
 
   const titleRef = useRef(null);
@@ -36,6 +37,8 @@ export default function AddGoal() {
   const goToBackHandler = () => {
     routePage(-1);
   };
+
+  const handleColorChange = (selectedColor) => setColor(selectedColor);
 
   const clickDeleteHandler = () => {
     setPlanState({
@@ -100,6 +103,28 @@ export default function AddGoal() {
       ></TopBar>
 
       <section className={styles.sectionContainer}>
+        <div className={styles.inpuㅡtBox}>
+          <Textfield_default
+            inputRef={titleRef}
+            label='제목'
+            placeholder={'123'}
+          />
+        </div>
+
+        <div className={styles.inputBox}>
+          <Datefield_default
+            label='기간'
+            startDate={startDate}
+            endDate={endDate}
+            onStartDateChange={setStartDate}
+            onEndDateChange={setEndDate}
+            isDateRange
+          />
+        </div>
+
+        <div className={styles.inputBox}>
+          <PublihsedRadio onClick={handleColorChange} />
+        </div>
         <ul>
           <li>
             <Textfield_default
