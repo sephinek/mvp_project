@@ -15,7 +15,7 @@ export default function GoalItem({ goal, title, color, percentage, dueDate }) {
         <div>
           <div className={styles.percentageAndDueDate}>
             <span className={styles.percentage}>{percentage}%</span>
-            <span className={styles.dueDate}>{`${getDay(dueDate)}/${getMonth(
+            <span className={styles.dueDate}>{`${getMonth(dueDate)}/${getDay(
               dueDate
             )}/${getYear(dueDate)}`}</span>
           </div>
