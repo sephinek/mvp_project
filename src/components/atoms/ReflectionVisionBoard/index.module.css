@@ -43,3 +43,14 @@
     background-position: center;
     background-size: 100% auto;
 }
+
+.container {
+  padding: 16px;
+}
+
+.item img {
+  border-radius: 16px;
+  overflow: hidden;
+  width:100%;
+  filter: contrast(0.9);
+}
