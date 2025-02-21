@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: var(--spacing-xs);
   margin-bottom: 100px;
+  height: 100%;
 }
 
 .planBox {
@@ -60,4 +61,13 @@
 }
 
 .checkbox {
+}
+
+.emptyPlan {
+  color: var(--color-grey-400);
+  font-size: var(--font-size-m);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

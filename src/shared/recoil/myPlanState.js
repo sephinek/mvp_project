@@ -12,7 +12,6 @@ export const localStorageEffect =
     }
 
     onSet((newValue) => {
-      console.log(`Saving ${key} to  localStorage:`, newValue);
       localStorage.setItem(key, JSON.stringify(newValue));
     });
   };

@@ -12,10 +12,10 @@ import { getDate } from '../../utils/date';
 export default function GoalDetails() {
   // const { state: goal } = useLocation();
   const navigate = useNavigate();
-  const prams = useParams();
+  const params = useParams();
   const goalArr = useRecoilValue(myPlanState);
   const goal = goalArr.goals.find((el) => {
-    if (el.id === prams.goalId) {
+    if (el.id === params.goalId) {
       return true;
     }
     return false;
