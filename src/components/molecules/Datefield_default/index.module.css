@@ -9,7 +9,7 @@
   --text-color-hover: #007bff;
   --text-color-error: #c0392b;
   --text-color-disabled: #999;
-  --text-color-selectbox: #222;
+  --text-color-selectbox: #CCC;
 
   --focus-border-color: #ff0000; /* 빨간색 테두리 추가 */
 }
@@ -18,7 +18,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
 }
 
 /* 📌 바텀 시트 */
@@ -80,9 +80,10 @@
 
 /* 📌 레이블 */
 .label {
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
+  font-size: var(--font-size-m);
+  font-weight: var(--font-wegith-semibold);
+  color: var(--color-grey-900);
+  line-height: 14px;
 }
 
 /* 📌 도움말 텍스트 */
@@ -107,6 +108,7 @@
   font-size: 14px;
   color: var(--text-color-default);
   transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
 }
 
 /* 📌 상태별 인풋 스타일 */

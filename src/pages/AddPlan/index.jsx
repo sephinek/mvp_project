@@ -16,6 +16,8 @@ import AI_button from '../../components/molecules/Ai_button';
 import { useRecoilValue } from 'recoil';
 import { getDate } from '../../utils/date';
 import SimpleDateGrid from '../../components/atoms/SimpleDateGrid';
+import GoalOverview from '../../components/atoms/GoalOverview';
+import Togglebox from '../../components/atoms/Togglebox';
 
 export default function AddPlan() {
   const navigate = useNavigate();
@@ -80,21 +82,17 @@ export default function AddPlan() {
       <section className={styles.sectionContainer}>
         <ul>
           <li>
-            <p className={styles.label}>상위 목표</p>
-            <div className={styles.goalBox}>
-              {/* 목표 제목 */}
-              <div className={styles.goalTitleBox}>
-                <div className={styles.color}></div>
-                <span className={styles.goalTitle}>창의적 활동 지속하기</span>
-              </div>
-              {/* 목표 기간 */}
-              <div className={styles.goalDate}>
-                <div className={styles.icon}></div>
-                <div className={styles.infoBox}>
-                  <span className={styles.infoText}>2025년 06월 28일</span>
-                </div>
-              </div>
-            </div>
+            <GoalOverview
+              label="상위목표"
+            />
+          </li>
+          <li>
+            <Textfield_default
+              inputRef={titleRef}
+              label="상위목표"
+              type = 'select'
+              placeholder={'목표를 선택해주세요'}
+            />
           </li>
           <li>
             <AI_button title={'루시드가 계획을 한번에 설정해줘요!'}></AI_button>
@@ -122,18 +120,17 @@ export default function AddPlan() {
               isDateRange
             />
           </li>
-
           <li>
-            <SimpleDateGrid></SimpleDateGrid>
+            <SimpleDateGrid
+              label='반복 (미선택 시 To-do로 지정됩니다)'
+            />
           </li>
-          <li></li>
+          <li>
+            <Togglebox/>
+          </li>
         </ul>
       </section>
 
-      <section className={styles.sectionContainer}>
-        <SectionTitle titleEn='Plans' titleKr='계획' />
-        <PlansList plans={[]} />
-      </section>
       <div className={styles.buttonWrap}>
         <Button onClick={clickSubmitHandler}>추가하기</Button>
       </div>

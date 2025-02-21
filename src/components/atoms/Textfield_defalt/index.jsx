@@ -28,7 +28,7 @@ const Textfield_default = ({
                 <div className={`${styles.selectContainer} ${styles[state] || ''}`} {...rest}>
                     {/* 📌 셀렉트 박스 */}
                     <div className={styles.selectBox} onClick={toggleDropdown}>
-                        {selectedOption || '선택하세요'}
+                        {selectedOption || '목표를 선택해주세요'}
                         <span className={styles.arrow}>&#9662;</span>
                     </div>
 

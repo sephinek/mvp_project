@@ -3,7 +3,7 @@
   --border-color-hover: #3498DB;
   --border-color-error: #E74C3C;
   --border-color-disabled: #DDD;
-  --border-color-selectbox: #888;
+  --border-color-selectbox: #CCC;
 
   --text-color-default: #111;
   --text-color-hover: #007BFF;
@@ -82,9 +82,10 @@
 
 /* 📌 레이블 */
 .label {
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
+  font-size: var(--font-size-m);
+  font-weight: var(--font-wegith-semibold);
+  color: var(--color-grey-900);
+  line-height: 14px;
 }
 
 /* 📌 도움말 텍스트 */
@@ -109,6 +110,7 @@
   font-size: 14px;
   color: var(--text-color-default);
   transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
 }
 
 /* 📌 상태별 인풋 스타일 */

@@ -10,10 +10,11 @@
     gap: 16px;
 }
 .label {
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
-  }
+    font-size: var(--font-size-m);
+    font-weight: var(--font-wegith-semibold);
+    color: var(--color-grey-900);
+    line-height: 14px;
+}
 .periodBox {
     display: flex;
     justify-content: space-between;
@@ -30,4 +31,5 @@
     left: 0;
     width: 100%;
     padding: 16px;
-}
+    background-color: var(--color-white);
+  }
