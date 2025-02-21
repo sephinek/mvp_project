@@ -16,7 +16,7 @@ const MENUS = [
     title: '점검데이',
     alt: 'Reflection Day menu',
     icon: ReflectionDayIcon,
-    to: '/reflection',
+    to: '/reflection/vision-board',
   },
   { title: '추가', alt: 'Add menu', icon: AddIcon },
   {
