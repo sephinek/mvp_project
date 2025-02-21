@@ -1,6 +1,5 @@
+import { dayOptions } from '../../../utils/date';
 import styles from './index.module.css';
-
-const weeks = ['월', '화', '수', '목', '금', '토', '일'];
 
 const SimpleDateGrid = ({ label, selected, setSelected }) => {
   return (
@@ -10,13 +9,13 @@ const SimpleDateGrid = ({ label, selected, setSelected }) => {
 
       <div className={styles.wrap}>
         <ul className={styles.simpleDateGrid}>
-          {weeks.map((el) => (
+          {dayOptions.map(({label, value}) => (
             <li
-              className={selected?.includes(el) && styles.selected}
-              key={el}
-              onClick={() => setSelected(el)}
+              className={selected?.includes(value) && styles.selected}
+              key={label}
+              onClick={() => setSelected(value)}
             >
-              {el}
+              {label}
             </li>
           ))}
         </ul>
