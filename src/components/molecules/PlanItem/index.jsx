@@ -4,43 +4,37 @@ import checkIconDefault from '../../../assets/icons/humble/checkbox-default.svg'
 import { myPlanState } from '../../../shared/recoil/myPlanState';
 import { useRecoilState } from 'recoil';
 import styles from './index.module.css';
+import { useMemo } from 'react';
 
-export default function PlanItem({ plan, goalId, goalTitle, onPlanClick }) {
-  const {
-    id,
-    title,
-    startDate,
-    endDate,
-    completedDates,
-    pausedDates,
-    repetition, // 월 화 수 목 금 토 일 최대 7개까지
-    plansCount, // repetition가 수정될 때 현재 시간을 기준으로 필요한 count 개수를 계산하고 completedDates.length를 더한다.
-    isPaused,
-    isCompleted,
-  } = plan;
+export default function PlanItem({ planId, onPlanClick, currentDate }) {
+  const [myState, setMyState] = useRecoilState(myPlanState);
 
-  const [myPlan, setMyPlan] = useRecoilState(myPlanState);
+
+  const plan = useMemo(() => {
+    return myState.goals.flatMap(({plans}) => plans).filter(({id}) => id === planId)[0];
+  }, [
+    planId, myState
+  ])
+  const _currentDate = useMemo(() => currentDate.toISOString(), [currentDate])
+
+  const isCompleted = useMemo(() => plan.completedDates.includes(_currentDate), [_currentDate, plan])
 
   const clickHandler = () => {
-    setMyPlan((prevPlan) => {
-      const updatedGoals = prevPlan.goals.map((goal) => {
-        if (goal.id === goalId) {
-          return {
-            ...goal,
-            plans: goal.plans.map((p) =>
-              p.id === id ? { ...p, isCompleted: !p.isCompleted } : p
-            ),
-          };
-        }
-        return goal;
-      });
-
-      const newPlanState = { ...prevPlan, goals: updatedGoals };
-
-      localStorage.setItem('myPlan', JSON.stringify(newPlanState));
-
-      return newPlanState;
-    });
+    setMyState(state => ({
+        goals: state.goals.map(goal => ({
+          ...goal,
+          plans: goal.plans.map(
+            plan => ({...plan,
+              completedDates: (() => {
+                if(plan.id !== planId) return plan.completedDates;
+                if(isCompleted) return plan.completedDates.filter(dateString => dateString !== _currentDate);
+                return [...plan.completedDates, _currentDate];
+              })(),
+            })
+          )
+        }))
+      })
+    );
   };
 
   return (
@@ -48,14 +42,13 @@ export default function PlanItem({ plan, goalId, goalTitle, onPlanClick }) {
       <div className={styles.colorAndTitlesBox} onClick={onPlanClick}>
         <div className={styles.colorBar}></div>
         <div className={styles.goalAndPlanTitles}>
-          <span className={styles.goalTitle}>{goalTitle}</span>
           <span className={styles.planTitle}>{plan.title}</span>
         </div>
       </div>
       <div className={styles.pausedAndCheckboxBox}>
-        <span className={styles.paused}>{isPaused ? '휴식중' : ''}</span>
-        <button className={styles.checkbox} onClick={clickHandler}>
-          {isPaused ? (
+        <span className={styles.paused}>{plan.isPaused ? '휴식중' : ''}</span>
+        <button className={styles.checkbox} onClick={clickHandler} disabled={plan.isPaused}>
+          {plan.isPaused ? (
             <img src={checkIconDisabled} />
           ) : isCompleted ? (
             <img src={checkIconChecked} />
