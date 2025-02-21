@@ -12,4 +12,9 @@
     contrast(100%);
   width: 20px;
   height: 20px;
+  transition: filter 0.3s ease-in-out;
+}
+
+.activeIcon {
+  filter: brightness(0);
 }
