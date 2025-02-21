@@ -12,6 +12,7 @@ import { myPlanState } from '../../shared/recoil/myPlanState';
 import Button from '../../components/atoms/Button';
 import { useRef, useState } from 'react';
 import DateController from '../../components/molecules/Date_Picker';
+import { isAfter }  from "date-fns";
 
 export default function AddPlan() {
   const navigate = useNavigate();
@@ -33,6 +34,14 @@ export default function AddPlan() {
   const goToBackHandler = () => {
     navigate(-1);
   };
+
+  const handleEndDateChange = (date /* date */) => {
+    if(!isAfter(date, startDate)) {
+      alert('종료일은 시작일 후이어야 합니다.');
+      return;
+    }
+    setEndDate(date);
+  }
 
   const clickDeleteHandler = () => {
     setPlanState({
@@ -98,7 +107,7 @@ export default function AddPlan() {
             <div className={styles.periodBox}>
               <DateController date={startDate} setDate={setStartDate} label="기간"/>
               <span>-</span>
-              <DateController date={endDate} setDate={setEndDate} label={null}/>
+              <DateController date={endDate} setDate={handleEndDateChange} label={null}/>
             </div>
           </li>
 
