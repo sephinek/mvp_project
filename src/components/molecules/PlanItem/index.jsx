@@ -14,21 +14,23 @@ export default function PlanItem({ planId, onPlanClick, currentDate = new Date()
     const { goals } = myState;
     
     for(const goal of goals) {
-      console.log('goal', goal)
       for(const plan of goal.plans) {
         if(plan.id === planId) {
           return { goal, plan }
         }
       }
     }
-    return {}
+    return {
+      goal: {},
+      plan: {},
+    }
   }, [
     planId, myState
   ])
 
   const _currentDate = useMemo(() => format(currentDate, 'yyyy-mm-dd'), [currentDate])
 
-  const isCompleted = useMemo(() => plan.completedDates.includes(_currentDate), [_currentDate, plan])
+  const isCompleted = useMemo(() => plan.completedDates?.includes(_currentDate), [_currentDate, plan])
 
   const clickHandler = () => {
     setMyState(state => ({
