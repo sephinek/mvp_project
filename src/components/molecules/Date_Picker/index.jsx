@@ -4,8 +4,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 import styles from './index.module.css';
 import { getDate } from '../../../utils/date';
 import Textfield_default from '../../atoms/Textfield_defalt';
+import { format } from 'date-fns';
 
-const DateController = ({ date = null, setDate }) => {
+const DateController = ({ label, date = null, setDate }) => {
   const [isStartCalendarOpen, setIsStartCalendarOpen] = useState(false); // 시작 날짜 캘린더 상태
 
   const handleCallPicker = () => {
@@ -21,8 +22,8 @@ const DateController = ({ date = null, setDate }) => {
     <div className={styles.inputContainer}>
       <Textfield_default
         onFocus={handleCallPicker}
-        label='기간'
-        placeholder={date}
+        label={label}
+        placeholder={format(date, 'yyyy-MM-dd')}
       />
       <div
         className={`${styles.overlay} ${
@@ -43,6 +44,7 @@ const DateController = ({ date = null, setDate }) => {
                 onChange={handleStartDateChange}
                 selectsStart
                 inline
+                className={styles.bottomSheetCalendar}
               />
             )}
           </div>

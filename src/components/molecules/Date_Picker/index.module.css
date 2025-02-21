@@ -70,11 +70,13 @@
 /* 📌 캘린더 닫기 버튼 */
 .closeButton {
   position: absolute;
-  top: 16px;
+  top: 5px;
   right: 16px;
+  width: 16px;
+  height: 16px;
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 30px;
   cursor: pointer;
 }
 
