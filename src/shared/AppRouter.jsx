@@ -22,6 +22,7 @@ import PlansReview from '../pages/PlansReview';
 
 import VisionBoard from '../pages/VisionBoard';
 import Review from '../pages/Review';
+import ReviewDetail from '../pages/ReviewDetail';
 import Guide from '../pages/Guide';
 import Statistics from '../pages/Statistics';
 
@@ -61,6 +62,7 @@ function AnimatedRoutes() {
             <Route path='/reflection' element={<Reflection />}>
               <Route index path='vision-board' element={<VisionBoard />} />
               <Route path='review' element={<Review />} />
+              <Route path='review/:id' element={<ReviewDetail />} />
               <Route path='guide' element={<Guide />} />
               <Route path='plans-review' element={<PlansReview />} />
             </Route>
