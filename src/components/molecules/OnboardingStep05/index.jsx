@@ -39,7 +39,7 @@ const OnboardingStep05 = ({ nextStep, beforeStep, type }) => {
         </div>
 
         <div className={styles.contentContainer}>
-          <OnBoardingTitle secondLine='ex) 창작하는 것, 사람들에게 위로를 주는 것, 큰 성취를 이루는 것'>
+          <OnBoardingTitle secondLine={`ex) 창작하는 것, 사람들에게 위로를 주는 것,\n 큰 성취를 이루는 것 등`}>
             내가 생각하는
             <br />
             나의 꿈을 적어주세요.
