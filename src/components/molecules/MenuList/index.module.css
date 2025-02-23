@@ -1,0 +1,42 @@
+.menuList {
+    width: 100%;
+    margin: 0 16px; /* 좌우 마진 16px */
+    background: #F6F6F6;
+    border-radius: 10px; /* 라운딩 값 */
+    padding: 4px; /* 내부 텍스트 영역 패딩 */
+  }
+  
+  .menuItem {
+    display: flex;
+    align-items: center;
+    padding: 10px; /* 내부 텍스트 영역 패딩 */
+    background: #F6F6F6;
+    border-radius: 10px; /* 라운딩 값 */
+    margin: 8px 0; /* 상하 마진 8px */
+  }
+  
+  /* 아이콘 */
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px; /* 아이콘과 텍스트 사이 간격 */
+  }
+  
+  /* 텍스트 */
+  .text {
+    font-size: 14px; /* 텍스트 크기 */
+    flex-grow: 1; /* 남은 공간을 모두 차지 */
+  }
+  
+  /* 우측 화살표 */
+  .arrow {
+    font-size: 14px;
+    color: #000;
+  }
+  
+  /* 구분선 */
+  .divider {
+    height: 1px;
+    background: #E0E0E0; /* 회색 라인 */
+    margin: 8px 0; /* 상하 마진 8px */
+  }
