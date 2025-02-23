@@ -26,7 +26,7 @@ const OnboardingStep03 = ({ nextStep, beforeStep, type }) => {
         </div>
 
         <div className={styles.contentContainer}>
-          <OnBoardingTitle secondLine='ex) 창작하는 것, 사람들에게 위로를 주는 것, 큰 성취를 이루는 것'>
+          <OnBoardingTitle secondLine={`ex) 창작하는 것, 사람들에게 위로를 주는 것,\n 큰 성취를 이루는 것 등`}>
             그 꿈의 가치가
             <br />
             무엇이라고 생각하나요?

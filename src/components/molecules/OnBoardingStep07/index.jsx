@@ -25,7 +25,7 @@ const OnBoardingStep07 = ({ nextStep, beforeStep, type }) => {
       </div>
 
       <div className={styles.contentContainer}>
-        <OnBoardingTitle secondLine='우선 한 가지만 작성해보세요. ex) 건강, 재정, 네트워킹, 영어'>
+        <OnBoardingTitle secondLine={`우선 한 가지만 작성해보세요.\n ex) 건강, 재정, 네트워킹, 영어 등`}>
           그 비전을 이루려면 어떤
           <br />
           세부적인 목표가 필요할까요?

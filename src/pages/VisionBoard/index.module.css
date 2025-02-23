@@ -1,5 +1,5 @@
 .wrap {
-  height: 100vh;
+  /* height: 100vh; 스크롤 생겨서 막음 */ 
 }
 
 .file-input-label {
