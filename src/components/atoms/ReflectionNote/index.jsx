@@ -1,10 +1,18 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './index.module.css';
 
 const ReflectionNote = ({ children, ...rest }) => {
+  const navigate = useNavigate();
+
+  const handleClick = (id) => {
+    navigate(`/reflection/review/${id}`); 
+  };
+
   return (
     <div className={styles.wrap} {...rest}>
       <ul className={styles.reflectionNote}>
-        <li className={styles.noteContent}>
+        <li className={styles.noteContent} 
+          onClick={() => handleClick(1)}>
           <p>창의적 활동 지속하기</p>
           <h2>끝없는 목표 속에서</h2>
           <ol>
@@ -14,7 +22,8 @@ const ReflectionNote = ({ children, ...rest }) => {
             </li>
           </ol>
         </li>
-        <li className={styles.noteContent}>
+        <li className={styles.noteContent} 
+          onClick={() => handleClick(2)}>
           <p>재정적 자유 달성하기</p>
           <h2>올해부터는 나도 달라져야겠다!</h2>
           <ol>
@@ -24,7 +33,8 @@ const ReflectionNote = ({ children, ...rest }) => {
             </li>
           </ol>
         </li>
-        <li className={styles.noteContent}>
+        <li className={styles.noteContent} 
+          onClick={() => handleClick(3)}>
           <p>건강한 생활 습관 유지하기</p>
           <h2>오늘은 정말루 힘들었다</h2>
           <ol>
@@ -34,7 +44,8 @@ const ReflectionNote = ({ children, ...rest }) => {
             </li>
           </ol>
         </li>
-        <li className={styles.noteContent}>
+        <li className={styles.noteContent} 
+          onClick={() => handleClick(4)}>
           <p>창의적 활동 지속하기</p>
           <h2>모든 아름다움의 발견: 나탈리 카르푸센코 사진전 후기</h2>
           <ol>
@@ -44,7 +55,8 @@ const ReflectionNote = ({ children, ...rest }) => {
             </li>
           </ol>
         </li>
-        <li className={styles.noteContent}>
+        <li className={styles.noteContent} 
+          onClick={() => handleClick(5)}>
           <p>건강한 생활 습관 유지하기</p>
           <h2>수영 시작: 드디어 오늘 문화센터에 등록했다</h2>
           <ol>
