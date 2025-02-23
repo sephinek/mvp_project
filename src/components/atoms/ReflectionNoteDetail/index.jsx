@@ -1,11 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import styles from './index.module.css';
 import TopBar from '../../../components/atoms/TopBar';
 import ChevronLeftButton from '../../../components/common/Icons/ChevronLeftButton';
 
-const ReflectionNoteDetail = ({ children, ...rest }) => {
+const ReflectionNoteDetail = () => {
   const { id } = useParams();
-  
+  const navigate = useNavigate();  
   const goToBackHandler = () => {
     navigate(-1);
   };
@@ -16,7 +17,7 @@ const ReflectionNoteDetail = ({ children, ...rest }) => {
         title='회고 상세'
         onClickLeft={goToBackHandler}
       ></TopBar>
-      <div className={styles.wrap} {...rest}>
+      <div className={styles.wrap}>
         <div className={styles.reflectionNoteDetail}>
           <div className={styles.reflectionNoteTag}> 창의적 활동 지속하기 {id}</div>
           <h1>끝없는 목표 속에서</h1>
