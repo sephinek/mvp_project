@@ -103,28 +103,6 @@ export default function AddGoal() {
       ></TopBar>
 
       <section className={styles.sectionContainer}>
-        <div className={styles.inpuㅡtBox}>
-          <Textfield_default
-            inputRef={titleRef}
-            label='제목'
-            placeholder={'123'}
-          />
-        </div>
-
-        <div className={styles.inputBox}>
-          <Datefield_default
-            label='기간'
-            startDate={startDate}
-            endDate={endDate}
-            onStartDateChange={setStartDate}
-            onEndDateChange={setEndDate}
-            isDateRange
-          />
-        </div>
-
-        <div className={styles.inputBox}>
-          <PublihsedRadio onClick={handleColorChange} />
-        </div>
         <ul>
           <li>
             <Textfield_default
@@ -157,7 +135,7 @@ export default function AddGoal() {
         <PlansList plans={[]} />
       </section>
       <div className={styles.buttonWrap}>
-        <Button onClick={clickSubmitHandler}>수정하기</Button>
+        <Button onClick={clickSubmitHandler}>추가하기</Button>
       </div>
     </section>
   );
