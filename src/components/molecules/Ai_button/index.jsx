@@ -35,7 +35,6 @@ const Ai_button = ({
     <div className={styles.card}>
       <div className={styles.textArea}>
         <div className={styles.icon}></div>
-
         <div className={styles.textContent}>
           {title && <div className={styles.title}>{title}</div>}
           <div className={styles.subtitle}>해당 기능은 Chat GPT를 활용합니다.<br></br>개인정보 입력은 유의해 주세요</div>
@@ -46,7 +45,11 @@ const Ai_button = ({
         onClick={handleClick}
         disabled={isSetting}
       >
+        {hasGenerated ? (
+            <img src="public/assets/icons/humble/cuida_refresh-outline.svg" alt="" /> 
+          ) : (
           <div className={styles.buttonIcon}></div>
+          )}
           <span className={styles.buttonText}>
           {isSetting ? "AI 세팅중입니다..." : hasGenerated ? "다시 생성하기" : "AI 계획 추천받기"}</span>
       </button>
