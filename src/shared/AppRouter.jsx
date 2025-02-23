@@ -25,6 +25,7 @@ import Review from '../pages/Review';
 import ReviewDetail from '../pages/ReviewDetail';
 import Guide from '../pages/Guide';
 import Statistics from '../pages/Statistics';
+import GuideDetail from '../pages/GuideDetail';
 
 import PublishedButton from '../pages/published/button';
 import PublishedRadio from '../pages/published/radio';
@@ -64,6 +65,7 @@ function AnimatedRoutes() {
               <Route path='review' element={<Review />} />
               <Route path='review/:id' element={<ReviewDetail />} />
               <Route path='guide' element={<Guide />} />
+              <Route path='guide/:id' element={<GuideDetail />} />
               <Route path='plans-review' element={<PlansReview />} />
             </Route>
             <Route path='/statistics' element={<Statistics />} />

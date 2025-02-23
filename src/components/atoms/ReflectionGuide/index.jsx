@@ -1,10 +1,17 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './index.module.css'
 
 const ReflectionGuide = ({ children, ...rest }) => {
+    const navigate = useNavigate();
+
+    const handleClick = (id) => {
+        navigate(`/reflection/guide/${id}`); 
+  };
     return (
         <div className={styles.wrap} {...rest}>
             <ul className={styles.guide}>
-                <li className={styles.guideContent}>
+                <li className={styles.guideContent}
+                onClick={() => handleClick(1)}>
                     <div className={styles.guideContentLeft}>
                         <div>
                             <h2>미래를 보는 힘: 장기적인 목표 설정이 삶을 어떻게 변화 시키는가</h2>
@@ -39,7 +46,7 @@ const ReflectionGuide = ({ children, ...rest }) => {
                                     <span>7 min</span>
                                 </li>
                             </ol>
-                         </div>
+                        </div>
                         <div>
                             <span className={styles.guideChip}>장기목표</span>
                         </div>

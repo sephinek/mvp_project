@@ -1,6 +1,6 @@
 import ReflectionNoteDetail from '../../components/atoms/ReflectionNoteDetail';
 
-export default function Review() {
+export default function ReviewDetail() {
   return (
     <section>
       <ReflectionNoteDetail></ReflectionNoteDetail>
