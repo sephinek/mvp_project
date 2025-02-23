@@ -1,0 +1,60 @@
+.myPageOverview {
+    width: 100%;
+    height: auto;
+    background-color: var(--color-white);
+    padding: 24px 16px;
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    align-items: center;
+    box-shadow: 0px 5px 5px 1px #00000017;
+}
+.myOverviewWrap {
+    width: 70%;
+}
+.myVision {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    line-height: 32px;
+    color: var(--color-grey-900);
+    word-break: keep-all;
+}
+.myName {
+    padding-top: 4px;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    line-height: 20px;
+    color: var(--color-grey-700);
+}
+.visionEditButton {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    line-height: 32px;
+    color: var(--color-grey-300);
+    cursor: pointer;
+    position: relative;
+}
+.visionEditButton::before {
+    content: '＞';
+    position: absolute;
+    top: 50%;
+    left: 68px;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 32px;
+
+}
+
+/* my 이미지 */
+.myImage {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    border: 1px solid #ccc;
+
+    background-image: url(../../../assets/characters/reflectionIcon.svg);
+    background-size: 70% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
