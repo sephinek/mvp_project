@@ -12,7 +12,7 @@ import { myPlanState } from '../../shared/recoil/myPlanState';
 import Button from '../../components/atoms/Button';
 import { useRef, useState } from 'react';
 import DateController from '../../components/molecules/Date_Picker';
-import { isAfter }  from "date-fns";
+import { isAfter } from 'date-fns';
 
 export default function EditGoal() {
   const navigate = useNavigate();
@@ -27,23 +27,24 @@ export default function EditGoal() {
 
   const titleRef = useRef(null);
 
-  const [color, setColor] = useState(goal.color);
-  const [startDate, setStartDate] = useState(goal.startDate);
-  const [endDate, setEndDate] = useState(goal.endDate);
+  const [color, setColor] = useState(goal?.color);
+  const [startDate, setStartDate] = useState(goal?.startDate);
+  const [endDate, setEndDate] = useState(goal?.endDate);
 
   const goToBackHandler = () => {
     navigate(-1);
   };
 
   const handleEndDateChange = (date /* date */) => {
-    if(!isAfter(date, startDate)) {
+    if (!isAfter(date, startDate)) {
       alert('종료일은 시작일 후이어야 합니다.');
       return;
     }
     setEndDate(date);
-  }
+  };
 
   const clickDeleteHandler = () => {
+    navigate('/main');
     setPlanState({
       ...planState,
       goals: planState.goals.filter((el) => {
@@ -54,7 +55,6 @@ export default function EditGoal() {
         }
       }),
     });
-    navigate('/main');
   };
 
   const clickSubmitHandler = () => {
@@ -83,50 +83,57 @@ export default function EditGoal() {
 
   return (
     <section>
-      <TopBar
-        LeftIcon={ChevronLeftButton}
-        RightIcon={DeleteButton}
-        title='Goal(목표) 수정'
-        onClickLeft={goToBackHandler}
-        onClickRight={clickDeleteHandler}
-      ></TopBar>
+      {goal && (
+        <>
+          <TopBar
+            LeftIcon={ChevronLeftButton}
+            RightIcon={DeleteButton}
+            title='Goal(목표) 수정'
+            onClickLeft={goToBackHandler}
+            onClickRight={clickDeleteHandler}
+          ></TopBar>
+          <section className={styles.sectionContainer}>
+            <ul>
+              {/* 계획 수정할 때 보이는 컴포넌트 */}
+              <li>
+                <Textfield_default
+                  inputRef={titleRef}
+                  label='제목'
+                  placeholder={goal?.title}
+                />
+              </li>
 
-      <section className={styles.sectionContainer}>
-        <ul>        
-          {/* 계획 수정할 때 보이는 컴포넌트 */}
-          <li>
-            <Textfield_default
-              inputRef={titleRef}
-              label='제목'
-              placeholder={goal.title}
-            />
-          </li>
+              {/* 계획 추가할 때 보이는 컴포넌트 */}
+              <li>
+                <div className={styles.periodBox}>
+                  <DateController
+                    date={startDate}
+                    setDate={setStartDate}
+                    label='기간'
+                  />
+                  <span>-</span>
+                  <DateController
+                    date={endDate}
+                    setDate={handleEndDateChange}
+                    label={null}
+                  />
+                </div>
+              </li>
 
-          {/* 계획 추가할 때 보이는 컴포넌트 */}
-          <li>
-            <div className={styles.periodBox}>
-              <DateController date={startDate} setDate={setStartDate} label="기간"/>
-              <span>-</span>
-              <DateController date={endDate} setDate={handleEndDateChange} label={null}/>
-            </div>
-          </li>
-
-          <li>
-            <PublihsedRadio 
-              onClick={setColor} 
-              label='목표색상'  
-            />
-          </li>
-        </ul>
-      </section>
-
-      <SectionTitle titleEn='Plans' titleKr='계획' />
-      <section className={styles.sectionContainer02}>
-        <PlansList plans={goal.plans} />
-      </section>
-      <div className={styles.buttonWrap}>
-        <Button onClick={clickSubmitHandler}>수정하기</Button>
-      </div>
+              <li>
+                <PublihsedRadio onClick={setColor} label='목표색상' />
+              </li>
+            </ul>
+          </section>
+          <SectionTitle titleEn='Plans' titleKr='계획' />
+          <section className={styles.sectionContainer02}>
+            <PlansList plans={goal?.plans} />
+          </section>
+          <div className={styles.buttonWrap}>
+            <Button onClick={clickSubmitHandler}>수정하기</Button>
+          </div>
+        </>
+      )}
     </section>
   );
 }
