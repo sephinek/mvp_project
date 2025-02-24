@@ -1,7 +1,7 @@
 /* 라벨 */
 .label {
   font-size: var(--font-size-m);
-  font-weight: var(--font-wegith-semibold);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-grey-900);
   line-height: 14px;
 }
@@ -30,7 +30,7 @@
 }
 
 .simpleDateGrid > li.selected {
-    background-color: var(--color-grey-700);
-    color: var(--color-white);
-    border: 1px solid var(--color-grey-700);
+  background-color: var(--color-grey-700);
+  color: var(--color-white);
+  border: 1px solid var(--color-grey-700);
 }
