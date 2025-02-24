@@ -9,7 +9,10 @@ const Togglebox = ({ label, isPaused, setIsPaused }) => {
       <div className={styles.wrap}>
         <div className={styles.togglebox}>
           <label htmlFor=''>휴식 가지기</label>
-          <div className={styles.toggle} onClick={() => setIsPaused(!isPaused)}>
+          <div 
+            className={`${styles.toggle} ${isPaused ? styles.active : ''}`}
+            onClick={() => setIsPaused(!isPaused)}
+          >
             <div className={styles.toggleBTN}></div>
           </div>
         </div>
