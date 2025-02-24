@@ -1,7 +1,17 @@
-import styles from './index.module.css'
-import SectionTitleCheck from '../SectionTitleCheck'
+import { useState } from 'react';
+import styles from './index.module.css';
+import SectionTitleCheck from '../SectionTitleCheck';
 
-const ReflectionPlansList = ({ children, ...rest }) => {
+const ReflectionPlansList = () => {
+    const [checkedItems, setCheckedItems] = useState({});
+
+    const handleCheck = (index) => {
+      setCheckedItems((prev) => ({
+        ...prev,
+        [index]: !prev[index], 
+      }));
+    };
+
     return (
         <>
         <SectionTitleCheck titleEn='Plans' titleKr='계획' />
@@ -15,18 +25,24 @@ const ReflectionPlansList = ({ children, ...rest }) => {
                     </div>
                     <div className={styles.checkbox}>
                         <span>0%</span>
-                        <div className={styles.check}></div>
+                        <div 
+                            className={`${styles.check} ${checkedItems[0] ? styles.checked : ''}`}
+                            onClick={() => handleCheck(0)}
+                        ></div>
                     </div>
                 </li>
                 <li>
                     <div className={styles.plansBar}></div>
                     <div className={styles.plans}>
                         <span>건강한 생활 습관 유지</span>
-                        <h1>건강체크 - 몸상태 관리하기 관리 관리관리 관리 관리과ㅣㄴ리</h1>
+                        <h1>건강체크 - 몸상태 관리하기</h1>
                     </div>
                     <div className={styles.checkbox}>
                         <span>10%</span>
-                        <div className={styles.check}></div>
+                        <div 
+                            className={`${styles.check} ${checkedItems[0] ? styles.checked : ''}`}
+                            onClick={() => handleCheck(0)}
+                        ></div>
                     </div>
                 </li>
                 <li>
@@ -37,7 +53,10 @@ const ReflectionPlansList = ({ children, ...rest }) => {
                     </div>
                     <div className={styles.checkbox}>
                         <span>100%</span>
-                        <div className={styles.check}></div>
+                        <div 
+                            className={`${styles.check} ${checkedItems[0] ? styles.checked : ''}`}
+                            onClick={() => handleCheck(0)}
+                        ></div>
                     </div>
                 </li>
                 <li>
@@ -48,7 +67,10 @@ const ReflectionPlansList = ({ children, ...rest }) => {
                     </div>
                     <div className={styles.checkbox}>
                         <span>24%</span>
-                        <div className={styles.check}></div>
+                        <div 
+                            className={`${styles.check} ${checkedItems[0] ? styles.checked : ''}`}
+                            onClick={() => handleCheck(0)}
+                        ></div>
                     </div>
                 </li>
                 <li>
@@ -59,7 +81,10 @@ const ReflectionPlansList = ({ children, ...rest }) => {
                     </div>
                     <div className={styles.checkbox}>
                         <span>12%</span>
-                        <div className={styles.check}></div>
+                        <div 
+                            className={`${styles.check} ${checkedItems[0] ? styles.checked : ''}`}
+                            onClick={() => handleCheck(0)}
+                        ></div>
                     </div>
                 </li>
             </ul>
