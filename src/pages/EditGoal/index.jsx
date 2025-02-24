@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import PublihsedRadio from '../published/radio';
 import Textfield_default from '../../components/atoms/Textfield_defalt';
 import DeleteButton from '../../components/common/Icons/DeleteButton';
-import SectionTitle from '../../components/atoms/SectionTitle';
+import SectionTitle02 from '../../components/atoms/SectionTitle02';
 import { useRecoilState } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
 import Button from '../../components/atoms/Button';
@@ -125,7 +125,7 @@ export default function EditGoal() {
               </li>
             </ul>
           </section>
-          <SectionTitle titleEn='Plans' titleKr='계획' />
+          <SectionTitle02 titleEn='Plans' titleKr='계획' />
           <section className={styles.sectionContainer02}>
             <PlansList plans={goal?.plans} />
           </section>
