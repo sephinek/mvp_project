@@ -9,7 +9,6 @@ const Radio = ({
   selectedColor,
   ...rest
 }) => {
-  console.log(name, value, color, selectedColor);
   return (
     <div {...rest}>
       <input
@@ -18,6 +17,7 @@ const Radio = ({
         id={id}
         value={value}
         className={styles.input} // 실제 radio input은 숨김
+        defaultChecked={selectedColor === value? 'true': undefined}
       />
       <label className={styles.label} htmlFor={id}>
         <span

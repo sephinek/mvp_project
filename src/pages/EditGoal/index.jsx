@@ -9,7 +9,7 @@ import SectionTitle02 from '../../components/atoms/SectionTitle02';
 import { useRecoilState } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
 import Button from '../../components/atoms/Button';
-import { useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import DateController from '../../components/molecules/Date_Picker';
 import { isAfter } from 'date-fns';
 import styles from './index.module.css';
@@ -18,12 +18,10 @@ export default function EditGoal() {
   const navigate = useNavigate();
   const prams = useParams();
   const [planState, setPlanState] = useRecoilState(myPlanState);
-  const goal = planState.goals.find((el) => {
-    if (el.id === prams.goalId) {
-      return true;
-    }
-    return false;
-  });
+ 
+  const goal = useMemo(() => {
+    return planState.goals.find((el) => el.id === prams.goalId)
+  }, [planState, prams.goalId]);
 
   const titleRef = useRef(null);
 
@@ -84,6 +82,13 @@ export default function EditGoal() {
   const clickAddHandler = () => {
     navigate(`/plan/add`);
   };
+  
+  useEffect(() => {
+    if(!goal) return;
+    setColor(goal?.color);
+    setStartDate(goal?.startDate);
+    setEndDate(goal?.endDate);
+  }, [goal])
 
   return (
     <section>
