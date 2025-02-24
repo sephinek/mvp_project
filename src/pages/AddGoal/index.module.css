@@ -1,6 +1,6 @@
 /* 라벨 */
 .label {
-  font-size: var(--font-size-m);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: var(--color-grey-900);
   line-height: 14px;

@@ -49,8 +49,8 @@
 }
 
 .dateBoxToday {
-  background-color: var(--color-primary-500);
-  border: 1px solid var(--color-primary-500);
+  background-color: var(--color-grey-700);
+  border: 1px solid var(--color-grey-700);
 }
 
 .day,
