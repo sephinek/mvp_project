@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import OnBoardingStep00 from '../../components/molecules/OnboardingStep00';
 import OnBoardingStep01 from '../../components/molecules/OnboardingStep01';
 import OnBoardingStep02 from '../../components/molecules/OnboardingStep02';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
 import OnboardingStep03 from '../../components/molecules/OnboardingStep03';
 import OnboardingStep04 from '../../components/molecules/OnboardingStep04';
@@ -20,7 +20,7 @@ import useNavigationPage from '../../hooks/useNavigationPage';
 const OnBoarding = () => {
   const [step, setStep] = useState(0);
   const [onBoardingArr, setOnBoardingArr] = useState([]);
-  const setMyPlan = useSetRecoilState(myPlanState);
+  const [myPlan, setMyPlan] = useRecoilState(myPlanState);
   const { routePage } = useNavigationPage();
 
   // 다음 단계로 보내주는 함수
@@ -46,8 +46,13 @@ const OnBoarding = () => {
     result[step] = item;
     setOnBoardingArr(result);
     nextStep();
-    // routePage('/main', [...onBoardingArr, item]);
   };
+
+  useEffect(() => {
+    if (myPlan.vision !== '' && myPlan.vision !== undefined) {
+      routePage('main');
+    }
+  }, []);
 
   const today = new Date();
 
