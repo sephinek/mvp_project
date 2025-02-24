@@ -7,50 +7,60 @@ import styles from './index.module.css';
 import { useMemo } from 'react';
 import { format } from 'date-fns';
 
-export default function PlanItem({ planId, onPlanClick, currentDate = new Date() }) {
+export default function PlanItem({
+  planId,
+  onPlanClick,
+  currentDate = new Date(),
+}) {
   const [myState, setMyState] = useRecoilState(myPlanState);
 
-  const { goal, plan} = useMemo(() => {
+  const { goal, plan } = useMemo(() => {
     const { goals } = myState;
-    
-    for(const goal of goals) {
-      for(const plan of goal.plans) {
-        if(plan.id === planId) {
-          return { goal, plan }
+
+    for (const goal of goals) {
+      for (const plan of goal.plans) {
+        if (plan.id === planId) {
+          return { goal, plan };
         }
       }
     }
     return {
       goal: {},
       plan: {},
-    }
-  }, [
-    planId, myState
-  ])
+    };
+  }, [planId, myState]);
 
-  const _currentDate = useMemo(() => format(currentDate, 'yyyy-mm-dd'), [currentDate])
+  const _currentDate = useMemo(
+    () => format(currentDate, 'yyyy-mm-dd'),
+    [currentDate]
+  );
 
-  const isCompleted = useMemo(() => plan.completedDates?.includes(_currentDate), [_currentDate, plan])
+  const isCompleted = useMemo(
+    () => plan.completedDates?.includes(_currentDate),
+    [_currentDate, plan]
+  );
 
   const clickHandler = () => {
-    setMyState(state => ({
-        goals: state.goals.map(goal => ({
-          ...goal,
-          plans: goal.plans.map(
-            plan => ({...plan,
-              completedDates: (() => {
-                if(plan.id !== planId) return plan.completedDates;
-                if(isCompleted) return plan.completedDates.filter(dateString => dateString !== _currentDate);
-                return [...plan.completedDates, _currentDate];
-              })(),
-            })
-          )
-        }))
-      })
-    );
+    setMyState((state) => ({
+      ...state,
+      goals: state.goals.map((goal) => ({
+        ...goal,
+        plans: goal.plans.map((plan) => ({
+          ...plan,
+          completedDates: (() => {
+            if (plan.id !== planId) return plan.completedDates;
+            if (isCompleted)
+              return plan.completedDates.filter(
+                (dateString) => dateString !== _currentDate
+              );
+            return [...plan.completedDates, _currentDate];
+          })(),
+        })),
+      })),
+    }));
   };
 
-  if(!plan) {
+  if (!plan) {
     return null;
   }
 
@@ -65,7 +75,11 @@ export default function PlanItem({ planId, onPlanClick, currentDate = new Date()
       </div>
       <div className={styles.pausedAndCheckboxBox}>
         <span className={styles.paused}>{plan.isPaused ? '휴식중' : ''}</span>
-        <button className={styles.checkbox} onClick={clickHandler} disabled={plan.isPaused}>
+        <button
+          className={styles.checkbox}
+          onClick={clickHandler}
+          disabled={plan.isPaused}
+        >
           {plan.isPaused ? (
             <img src={checkIconDisabled} />
           ) : isCompleted ? (
