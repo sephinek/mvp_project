@@ -81,6 +81,10 @@ export default function EditGoal() {
     navigate(-1);
   };
 
+  const clickAddHandler = () => {
+    navigate(`/plan/add`);
+  };
+
   return (
     <section>
       {goal && (
@@ -129,7 +133,11 @@ export default function EditGoal() {
               </li>
             </ul>
           </section>
-          <SectionTitle02 titleEn='Plans' titleKr='계획' />
+          <SectionTitle02
+            titleEn='Plans'
+            titleKr='계획'
+            onAdd={clickAddHandler}
+          />
           <section className={styles.sectionContainer02}>
             <PlansList plans={goal?.plans} />
           </section>

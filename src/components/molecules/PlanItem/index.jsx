@@ -6,12 +6,10 @@ import { useRecoilState } from 'recoil';
 import styles from './index.module.css';
 import { useMemo } from 'react';
 import { format } from 'date-fns';
+import { useNavigate } from 'react-router-dom';
 
-export default function PlanItem({
-  planId,
-  onPlanClick,
-  currentDate = new Date(),
-}) {
+export default function PlanItem({ planId, currentDate = new Date() }) {
+  const navigate = useNavigate();
   const [myState, setMyState] = useRecoilState(myPlanState);
 
   const { goal, plan } = useMemo(() => {
@@ -64,9 +62,13 @@ export default function PlanItem({
     return null;
   }
 
+  const handleClick = () => {
+    navigate(`/plan/edit/${planId}`);
+  };
+
   return (
     <li className={styles.planBox}>
-      <div className={styles.colorAndTitlesBox} onClick={onPlanClick}>
+      <div className={styles.colorAndTitlesBox} onClick={handleClick}>
         <div className={[styles.colorBar, styles[goal.color]].join(' ')}></div>
         <div className={styles.goalAndPlanTitles}>
           <span className={styles.goalTitle}>{goal.title}</span>

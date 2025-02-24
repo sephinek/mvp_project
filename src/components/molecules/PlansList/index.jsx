@@ -1,7 +1,7 @@
 import PlanItem from '../PlanItem';
 import styles from './index.module.css';
 
-export default function PlansList({ plans, onPlanClick, currentDate }) {
+export default function PlansList({ plans, currentDate }) {
   return (
     <ul className={styles.plansContainer}>
       {/* {plans.length ? (
@@ -21,12 +21,7 @@ export default function PlansList({ plans, onPlanClick, currentDate }) {
       )} */}
       {plans.length ? (
         plans.map((plan) => (
-          <PlanItem
-            key={plan.id}
-            planId={plan.id}
-            onPlanClick={() => onPlanClick(plan)}
-            currentDate={currentDate}
-          />
+          <PlanItem key={plan.id} planId={plan.id} currentDate={currentDate} />
         ))
       ) : (
         <span className={styles.emptyPlan}>아직 추가된 계획이 없어요.</span>
