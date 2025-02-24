@@ -18,7 +18,9 @@ const HomePlanBottomSheet = ({ isOpen, onClose, selectedPlan }) => {
 
     callModal(
       '휴식 가지기',
-      '지금까지의 데이터는 보관되며, 이후 반복은 중지됩니다.',
+      <>
+      지금까지의 데이터는 보관되며,<br></br> 이후 반복은 중지됩니다.
+      </>,
       '괜찮아요',
       '휴식 가질래요',
       () => {
