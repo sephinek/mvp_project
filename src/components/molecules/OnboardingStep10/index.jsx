@@ -66,7 +66,7 @@ const OnboardingStep10 = ({ nextStep, beforeStep }) => {
         </div>
       </div>
 
-      <div className={styles.bottomBtn}>
+      <div className={styles.buttonWrap}>
         <Button theme='secondary' disabled={!target} onClick={nextStep}>
           다음
         </Button>

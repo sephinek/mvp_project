@@ -51,7 +51,7 @@ ex) 매일 30분씩 영어 공부하기'
           <Input inputRef={ref} onChange={handleChange} />
         </div>
 
-        <div className={styles.bottomBtn}>
+        <div className={styles.buttonWrap}>
           <Button
             theme='secondary'
             disabled={!isConfirmed}
@@ -124,7 +124,7 @@ ex) 매일 30분씩 영어 공부하기'
         )}
       </div>
 
-      <div className={styles.bottomBtn}>
+      <div className={styles.buttonWrap}>
         <Button theme='secondary' disabled={!target} onClick={handleNextStep}>
           다음
         </Button>

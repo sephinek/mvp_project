@@ -26,6 +26,7 @@
 .contentContainer {
   display: flex;
   flex-direction: column;
+  padding: 0 0 100px;
 }
 
 .button_wrap {
@@ -34,6 +35,12 @@
   gap: 10px;
 }
 
-.bottomBtn {
+.buttonWrap {
   justify-content: flex-start;
+  width: 100%;
+  padding: 16px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: white;
 }

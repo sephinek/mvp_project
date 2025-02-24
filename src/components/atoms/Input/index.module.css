@@ -3,7 +3,7 @@
   width: 100%;
   display: flex;
   flex-direction: column-reverse;
-  padding: 105px 8px 40px;
+  padding: 105px 8px 100px;
 }
 
 .inputBox {
