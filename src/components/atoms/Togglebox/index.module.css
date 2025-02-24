@@ -1,7 +1,7 @@
 /* 라벨 스타일 */
 .label {
   font-size: var(--font-size-m);
-  font-weight: var(--font-wegith-semibold);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-grey-900);
   line-height: 14px;
 }
@@ -20,7 +20,7 @@
 }
 .togglebox > label {
   font-size: var(--font-size-m);
-  font-weight: var(--font-wegith-semibold);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-grey-900);
   line-height: 30px;
 }

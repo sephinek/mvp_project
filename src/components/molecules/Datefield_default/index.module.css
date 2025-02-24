@@ -9,7 +9,7 @@
   --text-color-hover: #111;
   --text-color-error: #c0392b;
   --text-color-disabled: #999;
-  --text-color-selectbox: #CCC;
+  --text-color-selectbox: #ccc;
 
   --focus-border-color: #ff0000; /* 빨간색 테두리 추가 */
 }
@@ -81,7 +81,7 @@
 /* 📌 레이블 */
 .label {
   font-size: var(--font-size-m);
-  font-weight: var(--font-wegith-semibold);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-grey-900);
   line-height: 14px;
 }

@@ -31,10 +31,13 @@ export default function EditPlan() {
   const [selectedWeek, setSelectedWeek] = useState([]);
   const [isPaused, setIsPaused] = useState([]);
   const [color, setColor] = useState(goal ? goal.color : '');
+  console.log(plan.title);
   const [startDate, setStartDate] = useState(
     plan ? new Date(plan.startDate) : new Date()
   );
-  const [endDate, setEndDate] = useState(plan ? new Date(plan.endDate) : new Date());
+  const [endDate, setEndDate] = useState(
+    plan ? new Date(plan.endDate) : new Date()
+  );
 
   const titleRef = useRef(null);
 
@@ -87,8 +90,6 @@ export default function EditPlan() {
 
   if (!plan) return <div>Please add a plan first!</div>;
 
-  console.log(plan)
-
   return (
     <section>
       <TopBar
@@ -100,17 +101,17 @@ export default function EditPlan() {
       ></TopBar>
       <section className={styles.sectionContainer}>
         <ul>
-            <li>
-              <GoalOverview
-                title={goal.title}
-                date={goal.startDate}
-                label='상위목표'
-                color={goal.color}
-              />
-            </li>
-            <li>
-              <AI_button title={'루시드가 계획을 한번에 설정해줘요!'}></AI_button>
-            </li>
+          <li>
+            <GoalOverview
+              title={goal.title}
+              date={goal.startDate}
+              label='상위목표'
+              color={goal.color}
+            />
+          </li>
+          <li>
+            <AI_button title={'루시드가 계획을 한번에 설정해줘요!'}></AI_button>
+          </li>
         </ul>
       </section>
 
@@ -120,7 +121,7 @@ export default function EditPlan() {
             <Textfield_default
               inputRef={titleRef}
               label='제목'
-              placeholder={'계획을 작성해주세요'}
+              placeholder={plan.title || '계획을 작성해주세요'}
             />
           </li>
 
@@ -138,6 +139,7 @@ export default function EditPlan() {
             <SimpleDateGrid
               selected={selectedWeek}
               setSelected={selectHandler}
+              repetition={plan.repetition}
               label='반복 (미선택 시 To-do로 지정됩니다)'
             />
           </li>
@@ -151,6 +153,5 @@ export default function EditPlan() {
         <Button onClick={clickSubmitHandler}>수정하기</Button>
       </div>
     </section>
-
   );
 }
