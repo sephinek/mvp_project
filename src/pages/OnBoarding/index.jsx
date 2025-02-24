@@ -41,16 +41,15 @@ const OnBoarding = () => {
     nextStep();
   };
 
-  const handlePage = (item, vision) => {
+  const handlePage = (item) => {
     const result = [...onBoardingArr];
     result[step] = item;
     setOnBoardingArr(result);
-    setMyPlan((prev) => {
-      return { ...prev, vision };
-    });
     nextStep();
     // routePage('/main', [...onBoardingArr, item]);
   };
+
+  const today = new Date();
 
   const completeOnboarding = (item) => {
     setMyPlan((prev) => {
@@ -63,16 +62,24 @@ const OnBoarding = () => {
             title: onBoardingArr[8],
             color: 'green',
             startDate: new Date(),
-            endDate: new Date(),
+            endDate: new Date(
+              today.getFullYear(),
+              today.getMonth() + 1,
+              today.getDate()
+            ),
             plans: [
               {
                 id: uuid(),
                 title: item,
                 startDate: new Date(),
-                endDate: new Date(),
+                endDate: new Date(
+                  today.getFullYear(),
+                  today.getMonth() + 1,
+                  today.getDate()
+                ),
                 completedDates: [],
                 pausedDates: [],
-                repetition: [], // 월 화 수 목 금 토 일 최대 7개까지
+                repetition: [0, 1, 2, 3, 4, 5, 6], // 월 화 수 목 금 토 일 최대 7개까지
                 plansCount: 1, // repetition가 수정될 때 현재 시간을 기준으로 필요한 count 개수를 계산하고 completedDates.length를 더한다.
                 isPaused: false,
               },
