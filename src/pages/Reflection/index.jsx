@@ -8,17 +8,17 @@ export default function Reflection() {
   const { state, routePage } = useNavigationPage();
   const location = useLocation();
 
-  const hiddenRoutes = ['reflection/review/:id'];
+  const hiddenRoutes = ['reflection/review/:id', 'reflection/guide/:id'];
 
-  const shouldHideTab = hiddenRoutes.some((pattern) =>
+  const shouldHideElements = hiddenRoutes.some((pattern) =>
     matchPath(pattern, location.pathname)
   );
 
   return (
     <>
       <section className={styles.reflectionPage}>
-        <ReflectionTopBar>점검데이</ReflectionTopBar>
-        {!shouldHideTab && <ReflectionTab />}
+        {!shouldHideElements && <ReflectionTopBar>점검데이</ReflectionTopBar>}
+        {!shouldHideElements && <ReflectionTab />}
         <div className={styles.reflectionContents}>
           <Outlet />
         </div>
