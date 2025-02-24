@@ -53,8 +53,8 @@
 }
 
 .aiIcon {
-  filter: brightness(0) invert(1);
   width: 18px;
+  margin-right: 8px;
 }
 
 .aiText {

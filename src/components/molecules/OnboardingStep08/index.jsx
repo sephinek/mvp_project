@@ -5,8 +5,7 @@ import OnBoardingTitle from '../../atoms/OnboardingTitle';
 import styles from './index.module.css';
 import OnboardingCheckList from '../OnboardingCheckList';
 import OnboardingYesIcon from '../../../assets/icons/toss/yes.svg';
-import AiIcon from '../../../assets/icons/humble/ai.svg';
-import AiActiveIcon from '../../../assets/icons/humble/ai-active.svg';
+import CassandraIcon from '../../../assets/icons/toss/cassandra.svg';
 
 const OnboardingStep08 = ({ nextStep, beforeStep, type }) => {
   const [target, setTarget] = useState();
@@ -44,7 +43,7 @@ const OnboardingStep08 = ({ nextStep, beforeStep, type }) => {
               {
                 value: 'no',
                 children: '추천 받을래요',
-                icon: target === 'no' ? AiActiveIcon : AiIcon,
+                icon: CassandraIcon,
                 targetFn: () => setTarget('no'),
               },
             ]}

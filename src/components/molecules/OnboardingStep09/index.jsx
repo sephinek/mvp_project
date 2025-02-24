@@ -5,7 +5,7 @@ import GoBackHeader from '../../common/GoBackHeader';
 import OnBoardingTitle from '../../atoms/OnboardingTitle';
 import Input from '../../atoms/Input';
 import OnboardingCheckList from '../OnboardingCheckList';
-import AiIcon from '../../../assets/icons/humble/ai.svg';
+import CassandraIcon from '../../../assets/icons/toss/cassandra.svg';
 
 import styles from './index.module.css';
 
@@ -117,7 +117,7 @@ ex) 매일 30분씩 영어 공부하기'
             />
 
             <button className={styles.aiBtn}>
-              <img src={AiIcon} className={styles.aiIcon} />
+              <img src={CassandraIcon} className={styles.aiIcon} />
               <span className={styles.aiText}>다시 생성하기</span>
             </button>
           </div>
