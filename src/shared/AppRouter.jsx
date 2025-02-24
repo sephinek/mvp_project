@@ -27,11 +27,6 @@ import Guide from '../pages/Guide';
 import Statistics from '../pages/Statistics';
 import GuideDetail from '../pages/GuideDetail';
 
-import PublishedButton from '../pages/published/button';
-import PublishedRadio from '../pages/published/radio';
-import PublishedOnboardingCheck from '../pages/published/onboarding-check';
-import PublishedHomeQuickButtons from '../pages/published/home-quick-buttons';
-import PublishedHomePlanBottomSheet from '../pages/published/home-plan-bottom-sheet';
 import { Outlet } from 'react-router-dom';
 
 export default function AppRouter() {
@@ -90,7 +85,7 @@ function DissolvePage() {
   );
 }
 
-function AnimatePage({}) {
+function AnimatePage() {
   return (
     <motion.div
       initial={{ opacity: 0 }}
