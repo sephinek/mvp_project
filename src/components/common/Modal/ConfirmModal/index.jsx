@@ -33,6 +33,11 @@ const ConfirmModal = () => {
       contentLabel='Pop up Message'
       shouldCloseOnOverlayClick={true}
       className={styles.modalContainer}
+      style={{
+        overlay: {
+          zIndex:10000,
+        }
+      }}
     >
       <div className={styles.modal}>
         <div className={styles.title}>{title}</div>
