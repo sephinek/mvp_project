@@ -37,6 +37,10 @@
   background-color: var(--color-grape);
 }
 
+.green-apple {
+  background-color: var(--color-green-apple);
+}
+
 .goalTitle {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
@@ -47,7 +51,8 @@
 .goalInfoContainer {
   padding: 0 16px;
 }
-.goalInfoContainer > ul {}
+.goalInfoContainer > ul {
+}
 .goalInfoContainer > ul > li {
   display: flex;
   align-items: center;
@@ -78,7 +83,8 @@
   color: var(--color-grey-700);
   line-height: 24px;
 }
-.infoDash {}
+.infoDash {
+}
 .planInfo {
   background-color: var(--color-white);
 }
