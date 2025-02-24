@@ -18,7 +18,23 @@ export default function VisionBoard() {
 
   return (
     <section className={styles.wrap}>
-      {!images.length ? (
+      <>
+        <ReflectionVisionBoard images={images} />
+        <label
+          htmlFor='fileInput'
+          className={styles['file-input-label']}
+          aria-label='이미지 첨부'
+        ></label>
+        <input
+          type='file'
+          name='fileInput'
+          id='fileInput'
+          className={styles['file-input']}
+          accept='image/*'
+          onChange={handleFileChange}
+        />
+      </>
+      {/* {!images.length ? (
         <>
           <ReflectionEmptyState></ReflectionEmptyState>
           <label
@@ -52,7 +68,7 @@ export default function VisionBoard() {
             onChange={handleFileChange}
           />
         </>
-      )}
+      )} */}
     </section>
   );
 }

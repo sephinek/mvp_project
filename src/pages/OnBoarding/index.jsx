@@ -65,7 +65,7 @@ const OnBoarding = () => {
           {
             id: uuid(),
             title: onBoardingArr[8],
-            color: 'green',
+            color: 'green-apple',
             startDate: new Date(),
             endDate: new Date(
               today.getFullYear(),

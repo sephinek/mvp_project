@@ -78,7 +78,7 @@ export default function GoalDetails() {
       <section className={styles.planInfo}>
         <SectionTitle titleEn='Plans' titleKr='계획' />
         <div className={styles.plansWrap}>
-          <PlansList plans={goal?.plans}/>
+          <PlansList plans={goal?.plans} />
         </div>
       </section>
     </div>

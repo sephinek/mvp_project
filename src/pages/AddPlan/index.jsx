@@ -32,8 +32,6 @@ export default function AddPlan() {
   const titleRef = useRef(null);
   const goalTitles = planState.goals.map((el) => el.title);
 
-  console.log(planState);
-
   const goToBackHandler = () => {
     navigate(-1);
   };
@@ -90,6 +88,7 @@ export default function AddPlan() {
                 title={goalData.title}
                 date={goalData.startDate}
                 label='상위목표'
+                color={goalData.color}
               />
             </li>
           ) : (
