@@ -9,3 +9,12 @@
 .space {
   height: 114px;
 }
+
+.buttonWrap {
+  width: 100%;
+  padding: 16px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+}

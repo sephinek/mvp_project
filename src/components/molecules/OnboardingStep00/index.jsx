@@ -13,14 +13,16 @@ const OnBoardingStep00 = ({ nextStep }) => {
 
       <Lucid01 />
 
-      <ButtonSet
-        firstBtnTheme='secondary'
-        firstBtnText='좋아요'
-        firstOnClick={() => nextStep('yes')}
-        secondBtnTheme='tertiary'
-        secondBtnText='저는 계정이 있어요'
-        secondOnClick={() => nextStep('no')}
-      />
+      <div className={styles.buttonWrap}>
+        <ButtonSet
+          firstBtnTheme='secondary'
+          firstBtnText='좋아요'
+          firstOnClick={() => nextStep('yes')}
+          secondBtnTheme='tertiary'
+          secondBtnText='저는 계정이 있어요'
+          secondOnClick={() => nextStep('no')}
+          />
+      </div>
     </div>
   );
 };

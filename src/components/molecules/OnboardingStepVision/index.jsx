@@ -16,7 +16,7 @@ const OnboardingStepVision = ({ nextStep, type }) => {
       </OnBoardingTitle>
 
       <Lucid02 />
-      <div className={styles.bottomBtn}>
+      <div className={styles.buttonWrap}>
         <Button theme='secondary' onClick={nextStep}>
           다음
         </Button>

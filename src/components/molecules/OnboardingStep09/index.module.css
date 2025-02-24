@@ -32,15 +32,12 @@
 .contentContainer {
   display: flex;
   flex-direction: column;
+  padding: 0 0 100px;
 }
 
 .button_wrap {
   display: flex;
   flex-direction: column;
-}
-
-.bottomBtn {
-  justify-content: flex-start;
 }
 
 .aiBtn {
@@ -65,4 +62,14 @@
   font-size: var(--font-size-m);
   font-weight: var(--font-weight-bold);
   line-height: 20px;
+}
+
+.buttonWrap {
+  justify-content: flex-start;
+  width: 100%;
+  padding: 16px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: white;
 }

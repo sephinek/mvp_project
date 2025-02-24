@@ -13,7 +13,9 @@ const OnBoardingStep11 = ({ nextStep }) => {
         시작해 볼 시간이에요!
       </OnBoardingTitle>
       <Lucid03 />
-      <Button onClick={nextStep}>시작할래요!</Button>
+      <div className={styles.buttonWrap}>
+        <Button onClick={nextStep}>시작할래요!</Button>
+      </div>
     </div>
   );
 };

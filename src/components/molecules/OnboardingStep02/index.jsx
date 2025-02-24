@@ -35,7 +35,7 @@ const OnboardingStep02 = ({ nextStep, beforeStep, type }) => {
           <Input inputRef={ref} onChange={handleChange} />
         </div>
 
-        <div className={styles.bottomBtn}>
+        <div className={styles.buttonWrap}>
           <Button
             theme='secondary'
             disabled={!isConfirmed}
@@ -64,7 +64,7 @@ const OnboardingStep02 = ({ nextStep, beforeStep, type }) => {
         <Input inputRef={ref} onChange={handleChange} />
       </div>
 
-      <div className={styles.bottomBtn}>
+      <div className={styles.buttonWrap}>
         <Button
           theme='secondary'
           disabled={!isConfirmed}
