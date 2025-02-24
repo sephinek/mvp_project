@@ -1,6 +1,5 @@
 import TopBar from '../../components/atoms/TopBar';
 import ChevronLeftButton from '../../components/common/Icons/ChevronLeftButton';
-import styles from './index.module.css';
 import { useNavigate } from 'react-router-dom';
 import Textfield_default from '../../components/atoms/Textfield_defalt';
 import { useRecoilState } from 'recoil';
@@ -14,6 +13,7 @@ import SimpleDateGrid from '../../components/atoms/SimpleDateGrid';
 import GoalOverview from '../../components/atoms/GoalOverview';
 import Togglebox from '../../components/atoms/Togglebox';
 import useNavigationPage from '../../hooks/useNavigationPage';
+import styles from './index.module.css';
 
 export default function AddPlan() {
   const navigate = useNavigate();
@@ -31,6 +31,8 @@ export default function AddPlan() {
   const [goal, setGoal] = useState(goalData && goalData.title);
   const titleRef = useRef(null);
   const goalTitles = planState.goals.map((el) => el.title);
+
+  console.log(planState);
 
   const goToBackHandler = () => {
     navigate(-1);
@@ -73,7 +75,7 @@ export default function AddPlan() {
   };
 
   return (
-    <section>
+    <section className={styles.container}>
       <TopBar
         LeftIcon={ChevronLeftButton}
         title='Plan(계획) 추가'
@@ -92,14 +94,28 @@ export default function AddPlan() {
             </li>
           ) : (
             <li>
-              <Textfield_default
+              {/* <Textfield_default
                 setSelectedOption={setGoal}
                 selectedOption={goal}
                 label='상위목표'
                 type='select'
                 options={goalTitles}
                 placeholder={'목표를 선택해주세요'}
-              />
+              /> */}
+              {planState.goals.length ? (
+                <Textfield_default
+                  setSelectedOption={setGoal}
+                  selectedOption={goal}
+                  label='상위목표'
+                  type='select'
+                  options={goalTitles}
+                  placeholder={'목표를 선택해주세요'}
+                />
+              ) : (
+                <span className={styles.noGoalMessage}>
+                  먼저 목표를 최소 1개 설정해주세요.
+                </span>
+              )}
             </li>
           )}
 

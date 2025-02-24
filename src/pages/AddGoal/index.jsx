@@ -1,6 +1,5 @@
 import TopBar from '../../components/atoms/TopBar';
 import ChevronLeftButton from '../../components/common/Icons/ChevronLeftButton';
-import styles from './index.module.css';
 import PlansList from '../../components/molecules/PlansList';
 import { useNavigate, useParams } from 'react-router-dom';
 import PublihsedRadio from '../published/radio';
@@ -16,6 +15,7 @@ import { v4 as uuid } from 'uuid';
 import useCallModal from '../../hooks/useCallModal';
 import { confirmModalState } from '../../shared/recoil/confirmModalState';
 import useNavigationPage from '../../hooks/useNavigationPage';
+import styles from './index.module.css';
 
 export default function AddGoal() {
   const { routePage } = useNavigationPage();
@@ -108,7 +108,7 @@ export default function AddGoal() {
             <Textfield_default
               inputRef={titleRef}
               label='제목'
-              placeholder={'123'}
+              placeholder={'목표 제목을 입력해주세요'}
             />
           </li>
           <li>
@@ -122,14 +122,11 @@ export default function AddGoal() {
             />
           </li>
           <li>
-            <PublihsedRadio 
-              onClick={setColor} 
-              label='목표색상'  
-            />
+            <PublihsedRadio onClick={setColor} label='목표 색상' />
           </li>
         </ul>
       </section>
-      
+
       <SectionTitle titleEn='Plans' titleKr='계획' />
       <section className={styles.sectionContainer}>
         <PlansList plans={[]} />

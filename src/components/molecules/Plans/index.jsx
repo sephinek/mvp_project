@@ -29,7 +29,12 @@ export default function Plans({ goals, onPlanClick }) {
 
       <div className={styles.planWrap}>
         <PlansCalender current={currentDate} setCurrent={handleCurrentDate} />
-        <PlansList plans={plans} onPlanClick={onPlanClick} currentDate={currentDate}/>
+
+        <PlansList
+          plans={plans}
+          onPlanClick={onPlanClick}
+          currentDate={currentDate}
+        />
       </div>
     </section>
   );
