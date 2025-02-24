@@ -1,7 +1,15 @@
 import classNames from 'classnames';
 import styles from './index.module.css'; // CSS 모듈로 임포트
 
-const Radio = ({ id, name, value, color = 'orange', ...rest }) => {
+const Radio = ({
+  id,
+  name,
+  value,
+  color = 'orange',
+  selectedColor,
+  ...rest
+}) => {
+  console.log(name, value, color, selectedColor);
   return (
     <div {...rest}>
       <input

@@ -1,7 +1,7 @@
-import styles from './index.module.css'
+import styles from './index.module.css';
 import Radio from '../../../components/atoms/Radio';
 
-const PublihsedRadio = ({ label, onClick }) => {
+const PublihsedRadio = ({ label, onClick, selectedColor }) => {
   const colors = ['orange', 'lemon', 'green-apple', 'blueberry', 'grape'];
 
   return (
@@ -15,8 +15,10 @@ const PublihsedRadio = ({ label, onClick }) => {
             onClick={() => onClick(color)}
             key={color}
             color={color}
+            value={color}
             name='publish'
             id={`publish-${color}`}
+            selectedColor={selectedColor}
           />
         ))}
       </div>

@@ -121,7 +121,11 @@ export default function EditGoal() {
               </li>
 
               <li>
-                <PublihsedRadio onClick={setColor} label='목표색상' />
+                <PublihsedRadio
+                  selectedColor={color}
+                  onClick={setColor}
+                  label='목표색상'
+                />
               </li>
             </ul>
           </section>
