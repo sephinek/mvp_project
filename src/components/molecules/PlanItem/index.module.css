@@ -1,0 +1,85 @@
+.plansContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.planBox {
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-m);
+  padding-right: calc(var(--spacing-m) - 8px);
+  background-color: var(--color-grey-10);
+  border-radius: var(--border-radius-lg);
+}
+
+.colorAndTitlesBox {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  width: 100%;
+}
+
+.colorBar {
+  width: 10px;
+  height: 100%;
+  border-radius: var(--border-radius-xs);
+  background-color: var(--color-green-apple);
+}
+
+.orange {
+  background-color: var(--color-orange);
+}
+
+.lemon {
+  background-color: var(--color-lemon);
+}
+
+.blueberry {
+  background-color: var(--color-blueberry);
+}
+
+.grape {
+  background-color: var(--color-grape);
+}
+
+.goalAndPlanTitles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+  width: 100%;
+}
+
+.goalTitle {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  line-height: 1;
+  color: var(--color-grey-400);
+}
+
+.planTitle {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  color: var(--color-grey-900);
+}
+
+.pausedAndCheckboxBox {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.paused {
+  color: var(--color-paused);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  line-height: 150%;
+  width: max-content;
+  text-align: center;
+}
+
+.checkbox {
+  width: auto;
+}

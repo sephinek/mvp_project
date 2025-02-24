@@ -1,0 +1,39 @@
+/* .wrap {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.input_wrap {
+  margin-bottom: 20px;
+} */
+
+.wrap {
+  text-align: center;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 10px 16px;
+}
+
+.goBackBox {
+  margin-bottom: 58px;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.button_wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bottomBtn {
+  justify-content: flex-start;
+}

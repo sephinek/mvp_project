@@ -1,0 +1,68 @@
+/* .wrap {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.input_wrap {
+  margin-bottom: 20px;
+} */
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrap {
+  text-align: center;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 10px 16px;
+}
+
+.goBackBox {
+  margin-bottom: 58px;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.button_wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottomBtn {
+  justify-content: flex-start;
+}
+
+.aiBtn {
+  width: 130px;
+  height: 36px;
+  background-color: var(--color-grey-900);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  align-self: center;
+}
+
+.aiIcon {
+  filter: brightness(0) invert(1);
+  width: 18px;
+}
+
+.aiText {
+  color: var(--color-white);
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-bold);
+  line-height: 20px;
+}

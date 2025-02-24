@@ -1,0 +1,26 @@
+.timePeriodTabs {
+    width: 100%;
+    background-color: var(--color-grey-50);
+    border-radius: var(--spacing-xs);
+    padding: 4px;
+    margin-bottom: 16px;
+}
+.timePeriodTabs > ul {
+    display: flex;  
+}
+.timePeriodTabs > ul > li {
+    flex: 50%;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    line-height: 32px;
+    color: var(--color-grey-800);
+    text-align: center;
+    border-radius: var(--spacing-xs);
+    transition: background-color .5s ;
+}
+.timePeriodTabs > ul > li:hover {
+    cursor: pointer;
+}
+li.active {
+    background-color: var(--color-white);
+}

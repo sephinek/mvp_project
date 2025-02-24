@@ -1,0 +1,222 @@
+:root {
+  --border-color-default: #ccc;
+  --border-color-hover: #3498db;
+  --border-color-error: #e74c3c;
+  --border-color-disabled: #ddd;
+  --border-color-selectbox: #888;
+
+  --text-color-default: #111;
+  --text-color-hover: #007bff;
+  --text-color-error: #c0392b;
+  --text-color-disabled: #999;
+  --text-color-selectbox: #CCC;
+
+  --focus-border-color: #ff0000; /* 빨간색 테두리 추가 */
+}
+
+.inputContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 📌 바텀 시트 */
+.bottomSheet {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  max-height: 70vh; /* 최대 높이 설정 */
+  overflow-y: auto; /* 내용이 길 경우 스크롤 */
+  background: #fff;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  transition: bottom 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.bottomSheet.open {
+  bottom: 0; /* 열린 상태: 화면 하단에 표시 */
+}
+
+/* 📌 오버레이 */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999; /* 바텀 시트보다 아래에 표시 */
+  display: none;
+}
+
+.overlay.visible {
+  display: block; /* 오버레이 표시 */
+}
+
+/* 📌 캘린더 래퍼 */
+.calendarWrapper {
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-direction: column; /* 캘린더를 세로로 배치 */
+  align-items: center; /* 가운데 정렬 */
+}
+
+/* 📌 캘린더 닫기 버튼 */
+.closeButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* 📌 레이블 */
+.label {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-wegith-semibold);
+  color: var(--color-grey-900);
+  line-height: 14px;
+}
+
+/* 📌 도움말 텍스트 */
+.helpText {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.errorText {
+  color: var(--text-color-error);
+}
+
+/* 📌 일반 인풋 필드 */
+.inputField {
+  width: 100%;
+  height: 52px;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color-default);
+  background: #fff;
+  font-size: 14px;
+  color: var(--text-color-default);
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+/* 📌 상태별 인풋 스타일 */
+.default {
+  border-color: var(--border-color-default);
+}
+.hover:hover {
+  border-color: var(--border-color-hover);
+}
+.error {
+  border-color: var(--border-color-error);
+}
+.disabled {
+  border-color: var(--border-color-disabled);
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+/* 📌 셀렉트 박스 */
+.selectContainer {
+  width: 100%;
+  position: relative;
+}
+
+.selectBox {
+  width: 100%;
+  height: 52px;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color-selectbox);
+  background: #fff;
+  font-size: 14px;
+  color: var(--text-color-selectbox);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 📌 드롭다운 리스트 */
+.optionList {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--border-color-default);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  padding: 8px 0;
+}
+
+.optionItem {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--text-color-default);
+  cursor: pointer;
+}
+
+.optionItem:hover {
+  background: #f0f0f0;
+}
+
+/* 📌 날짜 범위 컨테이너 */
+.dateRangeContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+/* 📌 날짜 입력 필드 */
+.dateInput {
+  width: 50%;
+  height: 52px;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color-default);
+  background: #fff;
+  font-size: 14px;
+  color: var(--text-color-default);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.dateInput:hover {
+  border-color: var(--border-color-hover);
+}
+
+/* 📌 날짜 구분자 */
+.dateSeparator {
+  font-size: 16px;
+  color: var(--text-color-default);
+}
+
+/* 📌 react-datepicker 캘린더 스타일 */
+.react-datepicker {
+  position: relative !important; /* 절대 위치 제거 */
+  transform: none !important;
+  margin: 0 auto;
+}
+
+.react-datepicker__input-container input:focus {
+  outline: none;
+  border-color: var(--focus-border-color); /* 빨간색 테두리 */
+  box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.2); /* 빨간색 그림자 */
+}

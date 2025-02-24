@@ -1,0 +1,21 @@
+.titleContainer {
+  display: flex;
+  gap: var(--spacing-3xs);
+  padding: 16px;
+}
+
+.titleEn {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: 150%;
+  letter-spacing: -2%;
+  color: var(--color-grey-900);
+}
+
+.titleKr {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+  letter-spacing: -2%;
+  color: var(--color-grey-400);
+}

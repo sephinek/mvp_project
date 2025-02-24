@@ -1,0 +1,42 @@
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px 0 16px;
+}
+.titleContainer > div {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+}
+.titleEn {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: 150%;
+  letter-spacing: -2%;
+  color: var(--color-grey-900);
+}
+
+.titleKr {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+  letter-spacing: -2%;
+  color: var(--color-grey-400);
+}
+
+.titleContainer > div > p {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-grey-500);
+  padding-right: 4px;
+}
+.check {
+    width: 24px;
+    height: 24px;
+    background-image: url(../../../assets/icons/humble/checkbox-checked.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 22px auto;
+}
+

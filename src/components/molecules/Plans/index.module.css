@@ -1,0 +1,10 @@
+.planContainer {
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.planWrap {
+  padding: 16px;
+}

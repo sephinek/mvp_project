@@ -1,0 +1,21 @@
+.visionContainer {
+  background-color: var(--color-white);
+  padding: 20px 24px;
+}
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  color: red;
+  padding: 16px 0;
+  cursor: pointer;
+}
+.visionHeading {
+  font-size: var(--font-size-xl);
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+.visionText {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  line-height: 32px;
+}

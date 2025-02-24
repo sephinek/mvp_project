@@ -1,0 +1,77 @@
+/* 라벨 */
+.label {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-wegith-semibold);
+  color: var(--color-grey-900);
+  line-height: 14px;
+}
+
+.goalBox {
+    padding: 16px;
+}
+.goalTitleBox {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .colorStyle {
+    background-color: #bbe7ab;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+  .goalTitle {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-grey-900);
+    line-height: 24px;
+  }
+
+.goalDate {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 24px;
+}
+.goalDate > .icon {
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% auto;
+    background-image: url(../../../assets/icons/humble/humbleicons_calendar.svg);
+}
+.infoBox {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.infoText {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-grey-600);
+    line-height: 16px;
+  }
+
+
+
+.orange {
+  background-color: var(--color-orange);
+}
+
+.lemon {
+  background-color: var(--color-lemon);
+}
+
+.blueberry {
+  background-color: var(--color-blueberry);
+}
+
+.grape {
+  background-color: var(--color-grape);
+}
+
+.green-apple {
+  background-color: var(--color-green-apple);
+}

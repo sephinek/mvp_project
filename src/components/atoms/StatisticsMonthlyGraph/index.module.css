@@ -1,0 +1,64 @@
+.statisticsGraph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+            
+.graphDay {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    width: 100%;
+    padding: 4px 0;
+}
+/* 요일 & 날짜 */
+.graphDay > li {
+  text-align: center;
+  width: 14%;
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-regular);
+  line-height: 20px;
+  color: var(--color-grey-700);
+}
+
+.dailyTracker {
+  width: 100%;
+  height: 250px;
+  background-image: url(../../../assets/image/dailyTracker.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+}
+.dailyTrackerView {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.dailyTrackerView > li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.dailyTrackerView > li > .dailyTrackerBadge {
+  width: 18px;
+  height: 18px;
+  border-radius: 10px;
+}
+.dailyTrackerView > li:nth-child(1) > .dailyTrackerBadge {background-color: var(--color-primary-200);}
+.dailyTrackerView > li:nth-child(2) > .dailyTrackerBadge {background-color: var(--color-primary-100);}
+.dailyTrackerView > li:nth-child(3) > .dailyTrackerBadge {background-color: var(--color-grey-100);}
+
+.dailyTrackerView > li > p {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-grey-600);
+  line-height: 20px;
+}
+ 
+.statisticsGraph > span {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-grey-50);
+  margin: 12px 0;
+}
