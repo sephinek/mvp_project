@@ -18,8 +18,10 @@
 }
 .title {
     font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
     line-height: 20px;
     text-align: center;
+    padding: 8px 0;
 }
 .subTitle {
     font-size: var(--font-size-m);
