@@ -88,6 +88,9 @@
 
 * {
   box-sizing: border-box;
+  -webkit-appearance: none; /* iOS 기본 스타일 제거 */
+  -moz-appearance: none;
+  appearance: none;
 }
 html,
 body,
