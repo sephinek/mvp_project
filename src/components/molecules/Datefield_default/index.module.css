@@ -1,12 +1,12 @@
 :root {
   --border-color-default: #ccc;
-  --border-color-hover: #3498db;
+  --border-color-hover: #ccc;
   --border-color-error: #e74c3c;
   --border-color-disabled: #ddd;
   --border-color-selectbox: #888;
 
   --text-color-default: #111;
-  --text-color-hover: #007bff;
+  --text-color-hover: #111;
   --text-color-error: #c0392b;
   --text-color-disabled: #999;
   --text-color-selectbox: #CCC;

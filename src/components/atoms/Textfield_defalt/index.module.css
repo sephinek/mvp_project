@@ -1,13 +1,14 @@
 :root {
-  --border-color-default: #ccc;
-  --border-color-hover: #3498db;
-  --border-color-error: #e74c3c;
-  --border-color-disabled: #ddd;
-  --border-color-selectbox: #ccc;
+  --border-color-default: #CCC;
+  --border-color-hover: #CCC;
+  --border-color-error: #E74C3C;
+  --border-color-disabled: #DDD;
+  --border-color-selectbox: #CCC;
 
   --text-color-default: #111;
-  --text-color-hover: #007bff;
-  --text-color-error: #c0392b;
+  --text-color-hover: #111;
+  --text-color-error: #C0392B;
+
   --text-color-disabled: #999;
   --text-color-selectbox: #ccc;
 }
