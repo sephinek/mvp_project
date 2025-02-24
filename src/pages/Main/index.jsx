@@ -2,7 +2,6 @@ import Goals from '../../components/molecules/Goals';
 import Plans from '../../components/molecules/Plans';
 import Vision from '../../components/molecules/Vision';
 import BottomNav from '../../components/common/BottomNav';
-import useCallModal from '../../hooks/useCallModal';
 import { useRecoilValue } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
 import { useState } from 'react';
@@ -11,6 +10,7 @@ import styles from './index.module.css';
 
 export default function Main() {
   const myPlan = useRecoilValue(myPlanState);
+  console.log('myPlan', myPlan);
 
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState('');
