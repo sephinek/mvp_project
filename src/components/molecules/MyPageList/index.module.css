@@ -1,0 +1,89 @@
+.my {
+  width: 100%;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+}
+.my > ul {
+  background-color: var(--color-grey-10);
+  border-radius: 8px;
+  padding: 8px;
+  overflow: hidden;
+}
+.my > ul > li {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  cursor: pointer;
+}
+.my > ul > li > div {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+/* 아이콘 */
+.myListImage {
+  width: 28px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center;
+}
+.myList01 > li:nth-child(1) > div > .myListImage {background-image: url(../../../assets/icons/toss/toss_My.svg);}
+.myList01 > li:nth-child(3) > div > .myListImage {background-image: url(../../../assets/icons/toss/toss_Alarm.svg);}
+.myList01 > li:nth-child(5) > div > .myListImage {background-image: url(../../../assets/icons/toss/toss_lucid.svg);}
+.myList01 > li:nth-child(7) > div > .myListImage {background-image: url(../../../assets/icons/toss/toss_settings.svg);}
+
+.myList02 > li:nth-child(1) > div > .myListImage {background-image: url(../../../assets/icons/toss/toss_world.svg);}
+
+.myList03 > li:nth-child(1) > div > .myListImage {background-image: url(../../../assets/icons/toss/toss_question.svg);}
+.myList03 > li:nth-child(3) > div > .myListImage {background-image: url(../../../assets/icons/toss/toss_security.svg);}
+.myList03 > li:nth-child(5) > div > .myListImage {background-image: url(../../../assets/icons/toss/toss_T&C.svg);}
+
+
+.myListText {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-grey-900);
+  line-height: 24px;
+}
+.myListIcon {
+  width: 24px;
+  height: 24px;
+  background-image: url(../../../assets/icons/humble/chevron-right.svg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+}
+
+/* pro 버전 */
+.myList01 > li:nth-child(5) > .myListIcon {
+  position: relative;
+}
+.myList01 > li:nth-child(5) > .myListIcon::before {
+  content: 'Pro';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateX(-32px);
+  width: 22px;
+  height: 18px;
+  color: #1A5Bff;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 18px;
+}
+
+/* 라인 */
+.myListLine {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-grey-100) ;
+  margin: 8px 0;
+}
