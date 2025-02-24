@@ -19,16 +19,18 @@ export default function PlansList({ plans, onPlanClick, currentDate }) {
           <span>계획을 추가해주세요</span>
         </div>
       )} */}
-      {plans.length
-        ? plans.map((plan) => (
-            <PlanItem
-              key={plan.id}
-              planId={plan.id}
-              onPlanClick={() => onPlanClick(plan)}
-              currentDate={currentDate}
-            />
-          ))
-        : '아직 계획이 없습니다.'}
+      {plans.length ? (
+        plans.map((plan) => (
+          <PlanItem
+            key={plan.id}
+            planId={plan.id}
+            onPlanClick={() => onPlanClick(plan)}
+            currentDate={currentDate}
+          />
+        ))
+      ) : (
+        <span className={styles.emptyPlan}>아직 추가된 계획이 없어요.</span>
+      )}
     </ul>
   );
 }

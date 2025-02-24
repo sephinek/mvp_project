@@ -1,6 +1,5 @@
 import TopBar from '../../components/atoms/TopBar';
 import ChevronLeftButton from '../../components/common/Icons/ChevronLeftButton';
-import styles from './index.module.css';
 import PlansList from '../../components/molecules/PlansList';
 import { useNavigate, useParams } from 'react-router-dom';
 import PublihsedRadio from '../published/radio';
@@ -13,6 +12,7 @@ import Button from '../../components/atoms/Button';
 import { useRef, useState } from 'react';
 import DateController from '../../components/molecules/Date_Picker';
 import { isAfter } from 'date-fns';
+import styles from './index.module.css';
 
 export default function EditGoal() {
   const navigate = useNavigate();
