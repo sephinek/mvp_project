@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import OnBoardingStep00 from '../../components/molecules/OnBoardingStep00';
+import OnBoardingStep00 from '../../components/molecules/OnboardingStep00';
 import OnBoardingStep01 from '../../components/molecules/OnboardingStep01';
 import OnBoardingStep02 from '../../components/molecules/OnboardingStep02';
 import { useSetRecoilState } from 'recoil';
@@ -9,7 +9,7 @@ import OnboardingStep04 from '../../components/molecules/OnboardingStep04';
 import OnboardingStepVision from '../../components/molecules/OnboardingStepVision';
 import OnboardingStep05 from '../../components/molecules/OnboardingStep05';
 import OnboardingStep06 from '../../components/molecules/OnboardingStep06';
-import OnBoardingStep07 from '../../components/molecules/OnBoardingStep07';
+import OnBoardingStep07 from '../../components/molecules/OnboardingStep07';
 import OnboardingStep08 from '../../components/molecules/OnboardingStep08';
 import OnboardingStep09 from '../../components/molecules/OnboardingStep09';
 import OnboardingStep10 from '../../components/molecules/OnboardingStep10';
