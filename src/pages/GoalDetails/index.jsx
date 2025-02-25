@@ -8,18 +8,24 @@ import SectionTitle from '../../components/atoms/SectionTitle';
 import { useRecoilValue } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
 import { getDate } from '../../utils/date';
+import { useState } from 'react';
+import HomePlanBottomSheet from '../../components/organisms/HomePlanBottomSheet';
 
 export default function GoalDetails() {
   // const { state: goal } = useLocation();
   const navigate = useNavigate();
   const params = useParams();
   const goalArr = useRecoilValue(myPlanState);
+
   const goal = goalArr.goals.find((el) => {
     if (el.id === params.goalId) {
       return true;
     }
     return false;
   });
+
+  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState({});
 
   const goToBackHandler = () => {
     navigate(-1);
@@ -28,6 +34,13 @@ export default function GoalDetails() {
   const clickEditHandler = () => {
     navigate(`/goal/edit/${goal.id}`);
   };
+
+  const planClickHandler = (plan) => {
+    setSelectedPlan(plan);
+    setIsBottomSheetOpen(true);
+  };
+
+  const closeBottomSheetHandler = () => setIsBottomSheetOpen(false);
 
   return (
     <div className={styles.goalDetailContainer}>
@@ -75,12 +88,19 @@ export default function GoalDetails() {
           </div>
         </div> */}
       </section>
+
       <section className={styles.planInfo}>
         <SectionTitle titleEn='Plans' titleKr='계획' />
         <div className={styles.plansWrap}>
-          <PlansList plans={goal?.plans} />
+          <PlansList plans={goal?.plans || []} onPlanClick={planClickHandler} />
         </div>
       </section>
+
+      <HomePlanBottomSheet
+        isOpen={isBottomSheetOpen}
+        onClose={closeBottomSheetHandler}
+        selectedPlan={selectedPlan}
+      />
     </div>
   );
 }
