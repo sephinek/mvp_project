@@ -1,0 +1,162 @@
+@keyframes fadeBackground {
+  0% {
+    background-color: red; 
+  }
+  100% {
+    background-color: #ffffff; 
+  }
+}
+
+/* 로고 교체되는 지점 */
+@keyframes fadeOutLogo {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -40%);
+  }
+  60% {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -40%)translateY(50%);
+  }
+  70% {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -40%)translateY(60%) scale(0.9);
+  }
+  80% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(-50%, -40%)translateY(80%) scale(0.7);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -40%)translateY(100%) scale(0.5);
+    visibility: hidden;
+  }
+}
+
+@keyframes fadeInLogo02 {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  35% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes scaleImage {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  28% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  30% {
+    transform: scale(1.4);
+  }
+  35% {
+    transform: scale(1.2);
+  }
+  40% {    
+    transform: scale(1.3);
+  }
+  45% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  55% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+  }
+  60% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1.0);
+  }
+  80% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+  }
+  100% {
+    transform: scale(100.0);
+  }
+}
+
+
+.splashWrap {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.splash {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #ffffff;
+  animation: fadeBackground 4s ease-in-out; 
+}
+.splashLogo {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  width: 170px;
+  height: 54px;
+  background-image: url(../../assets/splash/splash_logo_white.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 1;
+  visibility: visible;
+  animation-delay: 2s;
+  animation: fadeOutLogo 4s ease-out;
+}
+
+.splashLogo02 {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  width: 150px;
+  height: 165px;
+  display: flex;
+  flex-direction: column;
+  background-image: url(../../assets/splash/splash_logo_red.svg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100px auto;
+  opacity: 0;
+  visibility: hidden;
+  animation-delay: 6s;
+  animation: fadeInLogo02 9.0s ease;
+}
+.splashLogoImage {
+  width: 100%;
+  height: 150px;
+  background-image: url(../../assets/splash/splash_logo.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100px auto;
+  opacity: 10.0s;
+  visibility: visible;
+  animation: scaleImage 9.0s ease;
+}
+
+
