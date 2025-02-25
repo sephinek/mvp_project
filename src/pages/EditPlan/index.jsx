@@ -41,10 +41,14 @@ export default function EditPlan() {
   );
 
   const [selectedWeek, setSelectedWeek] = useState([]);
-  const [isPaused, setIsPaused] = useState([]);
-  const [color, setColor] = useState('');
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const [isPaused, setIsPaused] = useState(false);
+  const [color, setColor] = useState(goal ? goal.color : '');
+  const [startDate, setStartDate] = useState(
+    plan ? new Date(plan.startDate) : new Date()
+  );
+  const [endDate, setEndDate] = useState(
+    plan ? new Date(plan.endDate) : new Date()
+  );
 
   const titleRef = useRef(null);
 
