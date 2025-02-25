@@ -21,7 +21,7 @@ export default function GuideDetail() {
         <div className={styles.guideDetailImage}></div>
         <div className={styles.guideDetail}>
           <div className={styles.guideDetailChip}> 미래 시간 조망 {id}</div>
-          <h1>미래를 보는 힘:장기적인 목표 설정이 삶을 어떻게 변화시키는가</h1>
+          <h1>미래를 보는 힘:삶을 어떻게 변화시키는가</h1>
           <ol className={styles.GuideSubText}>
             <li>
               <div className={styles.guideCalendar}></div>

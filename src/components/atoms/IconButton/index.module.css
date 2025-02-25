@@ -17,4 +17,6 @@
 
 .activeIcon {
   filter: brightness(0);
+  /* filter: invert(50%) contrast(500%); */
+  /* filter: brightness(0.5) contrast(2); */
 }

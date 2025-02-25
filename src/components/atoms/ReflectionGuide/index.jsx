@@ -14,7 +14,7 @@ const ReflectionGuide = ({ children, ...rest }) => {
                 onClick={() => handleClick(1)}>
                     <div className={styles.guideContentLeft}>
                         <div>
-                            <h2>미래를 보는 힘: 장기적인 목표 설정이 삶을 어떻게 변화 시키는가</h2>
+                            <h2>미래를 보는 힘:삶을 어떻게 변화 시키는가</h2>
                             <ol>
                                 <li>
                                     <div className={styles.calendar}></div>
@@ -35,7 +35,7 @@ const ReflectionGuide = ({ children, ...rest }) => {
                 <li className={styles.guideContent}>
                     <div className={styles.guideContentLeft}>
                         <div>
-                            <h2>장기적인 목표에 실패하는 5가지 이유와 해결책</h2>
+                            <h2>장기 목표에 실패하는 5가지 이유와 해결책</h2>
                             <ol>
                                 <li>
                                     <div className={styles.calendar}></div>
