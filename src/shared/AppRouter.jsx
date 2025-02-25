@@ -28,6 +28,7 @@ import Statistics from '../pages/Statistics';
 import GuideDetail from '../pages/GuideDetail';
 
 import { Outlet } from 'react-router-dom';
+import NotFound from '../pages/NotFound';
 
 export default function AppRouter() {
   return (
@@ -65,6 +66,7 @@ function AnimatedRoutes() {
             </Route>
             <Route path='/statistics' element={<Statistics />} />
             <Route path='/mypage' element={<MyPage />} />
+            <Route path='/*' element={<NotFound />} />
           </Route>
         </Route>
       </Routes>
