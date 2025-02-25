@@ -64,6 +64,8 @@ export default function PlanItem({
     return null;
   }
 
+  console.log('plan!!!!!!!!!', plan);
+
   return (
     <li className={styles.planBox}>
       <div
