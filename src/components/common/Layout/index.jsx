@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import ConfirmModal from '../Modal/ConfirmModal';
-import styles from './index.module.css';
 import AddModals from '../Modal/AddModals';
+import styles from './index.module.css';
 
 const Layout = () => {
   return (
