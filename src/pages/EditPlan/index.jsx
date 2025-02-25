@@ -24,24 +24,19 @@ export default function EditPlan() {
   const [planState, setPlanState] = useRecoilState(myPlanState);
 
   const goal = useMemo(() => {
-    if(!planState) return;
-    return planState.goals.find((goal) => goal.plans.some(({id}) => id === params.planId))},
-    [
-      params,
-      planState,
-    ]
-  );
+    if (!planState) return;
+    return planState.goals.find((goal) =>
+      goal.plans.some(({ id }) => id === params.planId)
+    );
+  }, [params, planState]);
 
   const plan = useMemo(() => {
-    if(!goal) return;
-    return goal
-      .plans
-      .find((plan) => plan.id === params.planId)},
-    [goal, params.planId]
-  );
+    if (!goal) return;
+    return goal.plans.find((plan) => plan.id === params.planId);
+  }, [goal, params.planId]);
 
   const [selectedWeek, setSelectedWeek] = useState([]);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isPaused, setIsPaused] = useState(plan.isPaused);
   const [color, setColor] = useState(goal ? goal.color : '');
   const [startDate, setStartDate] = useState(
     plan ? new Date(plan.startDate) : new Date()
@@ -89,7 +84,7 @@ export default function EditPlan() {
               startDate: startDate,
               endDate: endDate,
               repetition: selectedWeek,
-              isPaused: false,
+              isPaused: isPaused,
             };
           }
           return p;
@@ -100,18 +95,18 @@ export default function EditPlan() {
   };
 
   useEffect(() => {
-    if(!goal) return;
+    if (!goal) return;
 
-    setColor(goal.color)
+    setColor(goal.color);
   }, [goal]);
 
   useEffect(() => {
-    if(!plan) return;
+    if (!plan) return;
 
     setStartDate(new Date(plan.startDate));
     setEndDate(new Date(plan.endDate));
-    setSelectedWeek(Array.from(plan.repetition))
-  }, [plan])
+    setSelectedWeek(Array.from(plan.repetition));
+  }, [plan]);
 
   if (!plan) return <div>Please add a plan first!</div>;
 
@@ -124,56 +119,58 @@ export default function EditPlan() {
         onClickLeft={goToBackHandler}
         onClickRight={clickDeleteHandler}
       ></TopBar>
-      
-      <div  className={styles.layoutWrap}>
-      <section className={styles.sectionContainer}>
-        <ul>
-          <li>
-            <GoalOverview
-              title={goal.title}
-              date={goal.startDate}
-              label='상위목표'
-              color={goal.color}
-            />
-          </li>
-          <li>
-            <AI_button title={'루시드가 계획을 한번에 설정해줘요!'}></AI_button>
-          </li>
-        </ul>
-      </section>
 
-      <section className={styles.sectionContainer}>
-        <ul>
-          <li>
-            <Textfield_default
-              inputRef={titleRef}
-              label='제목'
-              placeholder={plan.title || '계획을 작성해주세요'}
-            />
-          </li>
+      <div className={styles.layoutWrap}>
+        <section className={styles.sectionContainer}>
+          <ul>
+            <li>
+              <GoalOverview
+                title={goal.title}
+                date={goal.startDate}
+                label='상위목표'
+                color={goal.color}
+              />
+            </li>
+            <li>
+              <AI_button
+                title={'루시드가 계획을 한번에 설정해줘요!'}
+              ></AI_button>
+            </li>
+          </ul>
+        </section>
 
-          <li>
-            <Datefield_default
-              label='달성일(목표 달성일 이내)'
-              startDate={startDate}
-              endDate={endDate}
-              onStartDateChange={setStartDate}
-              onEndDateChange={setEndDate}
-              isDateRange
-            />
-          </li>
-          <li>
-            <SimpleDateGrid
-              selected={selectedWeek}
-              setSelected={selectHandler}
-              label='반복 (미선택 시 To-do로 지정됩니다)'
-            />
-          </li>
-          <li>
-            <Togglebox isPaused={isPaused} setIsPaused={setIsPaused} />
-          </li>
-        </ul>
-      </section>
+        <section className={styles.sectionContainer}>
+          <ul>
+            <li>
+              <Textfield_default
+                inputRef={titleRef}
+                label='제목'
+                placeholder={plan.title || '계획을 작성해주세요'}
+              />
+            </li>
+
+            <li>
+              <Datefield_default
+                label='달성일(목표 달성일 이내)'
+                startDate={startDate}
+                endDate={endDate}
+                onStartDateChange={setStartDate}
+                onEndDateChange={setEndDate}
+                isDateRange
+              />
+            </li>
+            <li>
+              <SimpleDateGrid
+                selected={selectedWeek}
+                setSelected={selectHandler}
+                label='반복 (미선택 시 To-do로 지정됩니다)'
+              />
+            </li>
+            <li>
+              <Togglebox isPaused={isPaused} setIsPaused={setIsPaused} />
+            </li>
+          </ul>
+        </section>
       </div>
 
       <div className={styles.buttonWrap}>
