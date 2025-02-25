@@ -94,6 +94,9 @@
 .container {
   padding: 16px;
 }
+.container > div {
+  display: inline-block;
+}
 
 .item img {
   border-radius: 16px;

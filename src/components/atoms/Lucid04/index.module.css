@@ -1,0 +1,45 @@
+.lucidWrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.lucid {
+    width: 100%;
+    width: 160px;
+    height: 160px;
+    position: relative;
+}
+.lucid > div{
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% auto;
+    animation-fill-mode: forwards; 
+}
+
+.lucidBody {
+    width: 140px;
+    height: 140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(../../../assets/characters/LucidNotfound.svg);
+}
+.lucidRightHand {
+    width: 42px;
+    height: 65px;
+    top: 60%;
+    right: -30px;
+    transform: translateY(-60%);
+    background-image: url(../../../assets/characters/LucidNotfound_hand.svg);
+    animation: updown02-1 4s linear infinite;
+}
+@keyframes updown02-1{
+    0%{ transform:translate(-50%, -50%) ;}
+    20%{ transform:translate(-50%, -50%) rotate(-10deg);}
+    40%{transform:translate(-50%, -50%);}
+    60%{ transform:translate(-50%, -50%);}
+    80%{transform:translate(-50%, -50%);}
+    90%{transform:translate(-50%, -50%) rotate(-13deg);}
+    100%{transform:translate(-50%, -50%);}
+}
