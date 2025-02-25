@@ -2,6 +2,7 @@ import { format } from 'date-fns';
 import styles from './index.module.css';
 
 const GoalOverview = ({ label, title, date, color }) => {
+  console.log('goaloverview------', date);
   return (
     <div className={styles.inputContainer}>
       {/* 📌 레이블 */}

@@ -126,7 +126,7 @@ export default function EditPlan() {
             <li>
               <GoalOverview
                 title={goal.title}
-                date={goal.startDate}
+                date={goal.endDate}
                 label='상위목표'
                 color={goal.color}
               />
