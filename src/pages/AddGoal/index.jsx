@@ -26,8 +26,11 @@ export default function AddGoal() {
   const titleRef = useRef(null);
 
   const [color, setColor] = useState();
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const today = new Date();
+  const [startDate, setStartDate] = useState(today);
+  const [endDate, setEndDate] = useState(
+    new Date(today.getFullYear(), today.getMonth() + 1, today.getDate())
+  );
 
   const { callModal, closeModal } = useCallModal();
 
