@@ -1,6 +1,6 @@
-import {  useLayoutEffect, useState } from 'react';
-import styles from './index.module.css';
+import { useLayoutEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import styles from './index.module.css';
 
 const tabs = [
   { title: '비전보드', to: '/reflection/vision-board' },
@@ -16,20 +16,17 @@ const ReflectionTab = ({ children, ...rest }) => {
   // 탭 이름 배열
   // const tabNames = ['비전보드', '회고', '가이드', '계획정리'];
 
-
   // 탭 클릭 시 활성화된 탭 변경
   const handleTabClick = (index) => {
     setActiveTab(index);
   };
 
   useLayoutEffect(() => {
-    if(!location) return;
+    if (!location) return;
     const { pathname } = location;
-    const index = tabs.findIndex(({to}) => to === pathname);
+    const index = tabs.findIndex(({ to }) => to === pathname);
     setActiveTab(index);
-  }, [
-    location
-  ])
+  }, [location]);
 
   return (
     <div {...rest} className={styles.tabContainer}>
