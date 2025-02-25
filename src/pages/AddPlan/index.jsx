@@ -53,6 +53,8 @@ export default function AddPlan() {
     setEndDate(date);
   };
 
+  console.log('******', goalData);
+
   const clickSubmitHandler = () => {
     setPlanState((prev) => {
       return {
@@ -96,7 +98,7 @@ export default function AddPlan() {
               <li>
                 <GoalOverview
                   title={goalData.title}
-                  date={goalData.startDate}
+                  date={goalData.endDate}
                   label='상위목표'
                   color={goalData.color}
                 />
