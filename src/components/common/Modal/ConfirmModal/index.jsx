@@ -1,7 +1,7 @@
 import Modal from 'react-modal';
 
 import { useRecoilState } from 'recoil';
-import { confirmModalState } from '../../../../shared/recoil/confirmModalState';
+import { initState, confirmModalState } from '../../../../shared/recoil/confirmModalState';
 
 import styles from './index.module.css';
 import Button from '../../../atoms/Button';
@@ -12,17 +12,29 @@ const ConfirmModal = () => {
     isOpen,
     title,
     subTitle,
-    callback,
     confirmButtonName,
     cancleButtonName,
+    callback,
+    handleClickConfirmButton,
+    handleClickCancelButton,
   } = modalState;
+  
   const handleClose = () => {
-    setModalState({ isOpen: false });
+    setModalState({ ...initState });
+    if(typeof handleClickCancelButton !== 'function') {
+      callback();
+      return;
+    }
+    handleClickCancelButton();
   };
 
   const handleConfirm = () => {
-    setModalState({ isOpen: false });
-    callback();
+    setModalState({ ...initState });
+    if(typeof handleClickConfirmButton !== 'function') {
+      callback();
+      return;
+    }
+    handleClickConfirmButton();
   };
 
   return (

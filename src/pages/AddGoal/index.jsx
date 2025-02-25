@@ -81,18 +81,22 @@ export default function AddGoal() {
       () => {
         closeModal();
         navigate('/plan/add');
+      },
+      () => {
+        navigate('/main');
       }
     );
-    setModalState({
-      isOpen: true,
-      title: '목표를 추가했습니다!',
-      subTitle: '',
-      cancleButtonName: '홈으로 가기',
-      confirmButtonName: '계획 추가하기',
-      callback: () => {
-        routePage('/plan/add', { goalId: id });
-      },
-    });
+
+    // setModalState({
+    //   isOpen: true,
+    //   title: '목표를 추가했습니다!',
+    //   subTitle: '',
+    //   cancleButtonName: '홈으로 가기',
+    //   confirmButtonName: '계획 추가하기',
+    //   callback: () => {
+    //     routePage('/plan/add', { goalId: id });
+    //   },
+    // });
   };
 
   return (
