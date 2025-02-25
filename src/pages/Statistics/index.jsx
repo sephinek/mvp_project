@@ -30,8 +30,8 @@ export default function Reflection() {
             <div className={styles.yearAndMonthBar}>
               <ChevronLeftButton></ChevronLeftButton>
               <div className={styles.yearnAndMonthBox}>
-                <span>1년</span>
-                <span>1월</span>
+                <span>2025년</span>
+                <span>2월</span>
               </div>
               <ChevronRightButton></ChevronRightButton>
             </div>
