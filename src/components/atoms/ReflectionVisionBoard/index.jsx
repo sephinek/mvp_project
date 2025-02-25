@@ -85,7 +85,7 @@ const ReflectionVisionBoard = ({ images }) => {
 
   return (
     <div className={styles.container}>
-      <Masonry columnsCount={2} gutter={'10px'}>
+      <Masonry columnsCount={2} gutter={'10px'} display={'block'}>
         {images.map((url) => (
           <div key={url} className={styles.item}>
             <img src={url} />
