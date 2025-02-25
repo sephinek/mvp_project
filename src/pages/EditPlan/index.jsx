@@ -29,9 +29,8 @@ export default function EditPlan() {
 
   const goal = planState.goals.find((goal) => goal.plans.includes(plan));
   const [selectedWeek, setSelectedWeek] = useState([]);
-  const [isPaused, setIsPaused] = useState([]);
+  const [isPaused, setIsPaused] = useState(false);
   const [color, setColor] = useState(goal ? goal.color : '');
-  console.log(plan.title);
   const [startDate, setStartDate] = useState(
     plan ? new Date(plan.startDate) : new Date()
   );
