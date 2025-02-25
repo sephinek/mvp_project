@@ -26,6 +26,7 @@ import ReviewDetail from '../pages/ReviewDetail';
 import Guide from '../pages/Guide';
 import Statistics from '../pages/Statistics';
 import GuideDetail from '../pages/GuideDetail';
+import Splash from '../pages/Splash';
 
 import { Outlet } from 'react-router-dom';
 import NotFound from '../pages/NotFound';
@@ -45,6 +46,7 @@ function AnimatedRoutes() {
     <AnimatePresence mode='wait' exitBeforeEnter>
       <Routes location={location} key={location.pathname}>
         <Route element={<Layout />}>
+        <Route path="/splash" element={<Splash />} />
           <Route element={<DissolvePage />}>
             <Route path='/' element={<OnBoarding />} />
             <Route path='/home' element={<Home />} />
