@@ -1,18 +1,22 @@
 import Button from '../../components/atoms/Button';
 import styles from './index.module.css';
 import Lucid04 from '../../components/atoms/Lucid04';
+import { useNavigate } from 'react-router-dom';
 
 export default function NotFound() {
+  const navigate = useNavigate();
+
   return (
     <section className={styles.container}>
       <div>
         <h1>Oops!</h1>
-        <p>앗, 여긴 아무것도 없네요<br></br> 홈으로 돌아갈까요?</p>
-
+        <p>
+          앗, 여긴 아무것도 없네요<br></br> 홈으로 돌아갈까요?
+        </p>
       </div>
-      <Lucid04/>
+      <Lucid04 />
       <div className={styles.buttonWrap}>
-        <Button to='/main'>홈으로 돌아가기</Button>
+        <Button onClick={() => navigate('/main')}>홈으로 돌아가기</Button>
       </div>
     </section>
   );
