@@ -22,6 +22,7 @@ export default function EditPlan() {
   const navigate = useNavigate();
   const params = useParams();
   const [planState, setPlanState] = useRecoilState(myPlanState);
+  const [isValid, setIsValid] = useState();
 
   const goal = useMemo(() => {
     if (!planState) return;
@@ -93,6 +94,18 @@ export default function EditPlan() {
     });
     navigate(-1);
   };
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      if(titleRef.current === null) return;
+
+      setIsValid(titleRef.current.value && startDate && endDate && goal);
+    }, 200)
+
+    return () => {
+      clearInterval(id);
+    }
+  }, [titleRef, startDate, endDate, goal])
 
   useEffect(() => {
     if (!goal) return;
@@ -174,7 +187,7 @@ export default function EditPlan() {
       </div>
 
       <div className={styles.buttonWrap}>
-        <Button onClick={clickSubmitHandler}>수정하기</Button>
+        <Button onClick={clickSubmitHandler} disabled={!isValid}>수정하기</Button>
       </div>
     </section>
   );

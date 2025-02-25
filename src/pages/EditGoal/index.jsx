@@ -18,6 +18,7 @@ export default function EditGoal() {
   const navigate = useNavigate();
   const prams = useParams();
   const [planState, setPlanState] = useRecoilState(myPlanState);
+  const [isValid, setIsValid] = useState();
  
   const goal = useMemo(() => {
     return planState.goals.find((el) => el.id === prams.goalId)
@@ -90,6 +91,18 @@ export default function EditGoal() {
     setEndDate(goal?.endDate);
   }, [goal])
 
+  useEffect(() => {
+    const id = setInterval(() => {
+      if(titleRef.current === null) return;
+
+      setIsValid(titleRef.current.value && color && startDate && endDate);
+    }, 200)
+
+    return () => {
+      clearInterval(id);
+    }
+  }, [titleRef, color, startDate, endDate])
+
   return (
     <section>
       {goal && (
@@ -109,6 +122,7 @@ export default function EditGoal() {
                   inputRef={titleRef}
                   label='제목'
                   placeholder={goal?.title}
+                  
                 />
               </li>
 
@@ -147,7 +161,7 @@ export default function EditGoal() {
             <PlansList plans={goal?.plans} />
           </section>
           <div className={styles.buttonWrap}>
-            <Button onClick={clickSubmitHandler}>수정하기</Button>
+            <Button onClick={clickSubmitHandler} disabled={!isValid}>수정하기</Button>
           </div>
         </>
       )}

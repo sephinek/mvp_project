@@ -5,7 +5,7 @@ import Textfield_default from '../../components/atoms/Textfield_defalt';
 import { useRecoilState } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
 import Button from '../../components/atoms/Button';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Datefield_default from '../../components/molecules/Datefield_default';
 import { v4 as uuid } from 'uuid';
 import AI_button from '../../components/molecules/Ai_button';
@@ -20,6 +20,9 @@ export default function AddPlan() {
   const navigate = useNavigate();
   const { state, routePage } = useNavigationPage();
   const [planState, setPlanState] = useRecoilState(myPlanState);
+  const [isValid, setIsValid] = useState();
+
+
   let goalData;
   if (state !== null) {
     goalData =
@@ -82,6 +85,18 @@ export default function AddPlan() {
     });
     routePage('/main');
   };
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      if(titleRef.current === null) return;
+
+      setIsValid(titleRef.current.value && startDate && endDate && goal);
+    }, 200)
+
+    return () => {
+      clearInterval(id);
+    }
+  }, [titleRef, startDate, endDate, goal])
 
   return (
     <section className={styles.layoutWrap}>
@@ -172,7 +187,7 @@ export default function AddPlan() {
         </section>
 
         <div className={styles.buttonWrap}>
-          <Button onClick={clickSubmitHandler}>추가하기</Button>
+          <Button onClick={clickSubmitHandler} disabled={!isValid}>추가하기</Button>
         </div>
       </section>
     </section>

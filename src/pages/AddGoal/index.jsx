@@ -9,11 +9,10 @@ import SectionTitle from '../../components/atoms/SectionTitle';
 import { useRecoilState } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
 import Button from '../../components/atoms/Button';
-import { useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Datefield_default from '../../components/molecules/Datefield_default';
 import { v4 as uuid } from 'uuid';
 import useCallModal from '../../hooks/useCallModal';
-import { confirmModalState } from '../../shared/recoil/confirmModalState';
 import useNavigationPage from '../../hooks/useNavigationPage';
 import styles from './index.module.css';
 
@@ -24,8 +23,9 @@ export default function AddGoal() {
   const [planState, setPlanState] = useRecoilState(myPlanState);
 
   const titleRef = useRef(null);
+  const [isValid, setIsValid] = useState();
 
-  const [color, setColor] = useState();
+  const [color, setColor] = useState('green-apple');
   const today = new Date();
   const [startDate, setStartDate] = useState(today);
   const [endDate, setEndDate] = useState(
@@ -34,14 +34,10 @@ export default function AddGoal() {
 
   const { callModal, closeModal } = useCallModal();
 
-  const [modalState, setModalState] = useRecoilState(confirmModalState);
-
   const id = uuid();
   const goToBackHandler = () => {
     routePage(-1);
   };
-
-  const handleColorChange = (selectedColor) => setColor(selectedColor);
 
   const clickDeleteHandler = () => {
     setPlanState({
@@ -86,18 +82,19 @@ export default function AddGoal() {
         navigate('/main');
       }
     );
-
-    // setModalState({
-    //   isOpen: true,
-    //   title: '목표를 추가했습니다!',
-    //   subTitle: '',
-    //   cancleButtonName: '홈으로 가기',
-    //   confirmButtonName: '계획 추가하기',
-    //   callback: () => {
-    //     routePage('/plan/add', { goalId: id });
-    //   },
-    // });
   };
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      if(titleRef.current === null) return;
+
+      setIsValid(titleRef.current.value && color && startDate && endDate);
+    }, 200)
+
+    return () => {
+      clearInterval(id);
+    }
+  }, [titleRef, color, startDate, endDate])
 
   return (
     <section>
@@ -129,7 +126,7 @@ export default function AddGoal() {
             />
           </li>
           <li>
-            <PublihsedRadio onClick={setColor} label='목표 색상' />
+            <PublihsedRadio onClick={setColor} label='목표 색상' selectedColor={color}/>
           </li>
         </ul>
       </section>
@@ -139,7 +136,7 @@ export default function AddGoal() {
         <PlansList plans={[]} />
       </section>
       <div className={styles.buttonWrap}>
-        <Button onClick={clickSubmitHandler}>추가하기</Button>
+        <Button onClick={clickSubmitHandler} disabled={!isValid}>추가하기</Button>
       </div>
     </section>
   );
