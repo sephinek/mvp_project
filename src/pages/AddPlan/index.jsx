@@ -82,6 +82,7 @@ export default function AddPlan() {
   };
 
   return (
+    <section className={styles.layoutWrap}>
     <section className={styles.container}>
       <TopBar
         LeftIcon={ChevronLeftButton}
@@ -169,6 +170,7 @@ export default function AddPlan() {
       <div className={styles.buttonWrap}>
         <Button onClick={clickSubmitHandler}>추가하기</Button>
       </div>
+    </section>
     </section>
   );
 }
