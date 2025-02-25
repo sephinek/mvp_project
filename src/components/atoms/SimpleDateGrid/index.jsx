@@ -1,8 +1,7 @@
 import { dayOptions } from '../../../utils/date';
 import styles from './index.module.css';
 
-const SimpleDateGrid = ({ label, repetition, selected, setSelected }) => {
-  console.log(label, repetition, selected, setSelected);
+const SimpleDateGrid = ({ label, selected, setSelected }) => {
   return (
     <div className={styles.inputContainer}>
       {/* 📌 레이블 */}
@@ -11,11 +10,7 @@ const SimpleDateGrid = ({ label, repetition, selected, setSelected }) => {
       <div className={styles.wrap}>
         <ul className={styles.simpleDateGrid}>
           {dayOptions.map(({ label, value }) => {
-            const isSelected =
-              selected?.includes(value) ||
-              (Array.isArray(repetition) && repetition.includes(value)) ||
-              repetition?.dayOption?.includes(value);
-
+            const isSelected = selected?.includes(value)
             return (
               <li
                 className={isSelected ? styles.selected : ''}

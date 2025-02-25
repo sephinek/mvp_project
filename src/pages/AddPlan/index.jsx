@@ -14,6 +14,7 @@ import GoalOverview from '../../components/atoms/GoalOverview';
 import Togglebox from '../../components/atoms/Togglebox';
 import useNavigationPage from '../../hooks/useNavigationPage';
 import styles from './index.module.css';
+import { isAfter } from 'date-fns';
 
 export default function AddPlan() {
   const navigate = useNavigate();
@@ -43,6 +44,14 @@ export default function AddPlan() {
         : [...prev, value]
     );
   };
+
+    const handleEndDateChange = (date /* date */) => {
+      if (!isAfter(date, startDate)) {
+        alert('종료일은 시작일 후이어야 합니다.');
+        return;
+      }
+      setEndDate(date);
+    };
 
   const clickSubmitHandler = () => {
     setPlanState((prev) => {
@@ -140,7 +149,7 @@ export default function AddPlan() {
               startDate={startDate}
               endDate={endDate}
               onStartDateChange={setStartDate}
-              onEndDateChange={setEndDate}
+              onEndDateChange={handleEndDateChange}
               isDateRange
             />
           </li>

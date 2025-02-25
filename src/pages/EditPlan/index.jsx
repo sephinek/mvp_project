@@ -11,7 +11,7 @@ import SectionTitle from '../../components/atoms/SectionTitle';
 import { useRecoilState } from 'recoil';
 import { myPlanState } from '../../shared/recoil/myPlanState';
 import Button from '../../components/atoms/Button';
-import { useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import DateController from '../../components/molecules/Date_Picker';
 import AI_button from '../../components/molecules/Ai_button';
 import SimpleDateGrid from '../../components/atoms/SimpleDateGrid';
@@ -23,11 +23,23 @@ export default function EditPlan() {
   const params = useParams();
   const [planState, setPlanState] = useRecoilState(myPlanState);
 
-  const plan = planState.goals
-    .flatMap((goal) => goal.plans)
-    .find((plan) => plan.id === params.planId);
+  const goal = useMemo(() => {
+    if(!planState) return;
+    return planState.goals.find((goal) => goal.plans.some(({id}) => id === params.planId))},
+    [
+      params,
+      planState,
+    ]
+  );
 
-  const goal = planState.goals.find((goal) => goal.plans.includes(plan));
+  const plan = useMemo(() => {
+    if(!goal) return;
+    return goal
+      .plans
+      .find((plan) => plan.id === params.planId)},
+    [goal, params.planId]
+  );
+
   const [selectedWeek, setSelectedWeek] = useState([]);
   const [isPaused, setIsPaused] = useState(false);
   const [color, setColor] = useState(goal ? goal.color : '');
@@ -87,6 +99,20 @@ export default function EditPlan() {
     navigate(-1);
   };
 
+  useEffect(() => {
+    if(!goal) return;
+
+    setColor(goal.color)
+  }, [goal]);
+
+  useEffect(() => {
+    if(!plan) return;
+
+    setStartDate(new Date(plan.startDate));
+    setEndDate(new Date(plan.endDate));
+    setSelectedWeek(Array.from(plan.repetition))
+  }, [plan])
+
   if (!plan) return <div>Please add a plan first!</div>;
 
   return (
@@ -138,7 +164,6 @@ export default function EditPlan() {
             <SimpleDateGrid
               selected={selectedWeek}
               setSelected={selectHandler}
-              repetition={plan.repetition}
               label='반복 (미선택 시 To-do로 지정됩니다)'
             />
           </li>
