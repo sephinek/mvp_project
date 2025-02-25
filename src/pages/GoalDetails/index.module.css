@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 8px;
   background-color: var(--color-grey-50);
+  padding-top: 60px;
 }
 .goalInfo {
   padding: 24px 16px;

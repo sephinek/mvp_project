@@ -124,6 +124,8 @@ export default function EditPlan() {
         onClickLeft={goToBackHandler}
         onClickRight={clickDeleteHandler}
       ></TopBar>
+      
+      <div  className={styles.layoutWrap}>
       <section className={styles.sectionContainer}>
         <ul>
           <li>
@@ -172,6 +174,7 @@ export default function EditPlan() {
           </li>
         </ul>
       </section>
+      </div>
 
       <div className={styles.buttonWrap}>
         <Button onClick={clickSubmitHandler}>수정하기</Button>
