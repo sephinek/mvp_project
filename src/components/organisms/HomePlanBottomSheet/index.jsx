@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Sheet } from 'react-modal-sheet';
 import chevronRightIcon from '../../../assets/icons/humble/chevron-right.svg';
 import bulbIcon from '../../../assets/icons/humble/bulb.svg';
@@ -19,7 +19,7 @@ const HomePlanBottomSheet = ({ isOpen, onClose, selectedPlan }) => {
     callModal(
       '휴식 가지기',
       <>
-      지금까지의 데이터는 보관되며,<br></br> 이후 반복은 중지됩니다.
+        지금까지의 데이터는 보관되며,<br></br> 이후 반복은 중지됩니다.
       </>,
       '괜찮아요',
       '휴식 가질래요',

@@ -13,8 +13,7 @@ export default function Main() {
   console.log('myPlan', myPlan);
 
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState('');
-
+  const [selectedPlan, setSelectedPlan] = useState({});
   const planClickHandler = (plan) => {
     setSelectedPlan(plan);
     setIsBottomSheetOpen(true);
