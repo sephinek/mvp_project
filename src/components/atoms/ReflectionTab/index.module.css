@@ -29,7 +29,9 @@
   line-height: 20px;
   color: var(--color-grey-500);
 }
-.tab > li:hover > div > a { color: var(--color-grey-900);}
+.tab > li:hover > div > a {
+  color: var(--color-grey-900);
+}
 
 /* active 상태 */
 .tab > li > .activeTab > a {
