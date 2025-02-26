@@ -185,6 +185,13 @@ video {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
+
+html {
+  max-height: 812px;
+  max-width: 375px;
+  margin: 0 auto;
+  /* background-color: var(--color-grey-10); */
+}
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
