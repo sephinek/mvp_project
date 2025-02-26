@@ -17,6 +17,7 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   padding: 10px 16px;
+  position: relative;
 }
 
 .goBackBox {
