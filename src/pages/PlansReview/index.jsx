@@ -2,8 +2,10 @@ import ReflectionPlanCheckState from '../../components/atoms/ReflectionPlanCheck
 import ReflectionPlansList from '../../components/atoms/ReflectionPlansList';
 
 export default function PlansReview() {
-  return <section>
-    <ReflectionPlanCheckState></ReflectionPlanCheckState>
-    <ReflectionPlansList></ReflectionPlansList>
-  </section>;
+  return (
+    <section>
+      <ReflectionPlanCheckState></ReflectionPlanCheckState>
+      <ReflectionPlansList></ReflectionPlansList>
+    </section>
+  );
 }
