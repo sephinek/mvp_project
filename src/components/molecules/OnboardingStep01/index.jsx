@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Button from '../../atoms/Button';
 import GoBackHeader from '../../common/GoBackHeader';
 import OnboardingCheckList from '../OnboardingCheckList';
@@ -6,21 +6,9 @@ import OnboardingYesIcon from '../../../assets/icons/toss/yes.svg';
 import OnboardingNoIcon from '../../../assets/icons/toss/no.svg';
 import OnBoardingTitle from '../../atoms/OnboardingTitle';
 import styles from './index.module.css';
-import { useNavigate } from 'react-router-dom';
 
-const OnboardingStep01 = ({ nextStep, beforeStep, type }) => {
+const OnboardingStep01 = ({ nextStep, beforeStep }) => {
   const [target, setTarget] = useState();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (type !== 'yes') {
-      navigate('/main');
-    }
-  }, [type, navigate]);
-
-  if (type !== 'no') {
-    return null;
-  }
 
   return (
     <div className={styles.wrap}>
