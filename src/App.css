@@ -204,7 +204,10 @@ body {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-m);
   font-weight: var(--font-weight-regular);
-  height: 100vh;
+  max-height: 812px;
+  max-width: 375px;
+  margin: 0 auto;
+  background-color: var(--color-grey-10);
 }
 ol,
 ul {
