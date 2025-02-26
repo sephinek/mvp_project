@@ -1,9 +1,11 @@
 .wrap {
   text-align: center;
-  height: 100vh;
+  height: 812px;
   display: grid;
   grid-template-rows: auto 164px 1fr auto;
   padding: 0 16px 16px;
+  position: relative;
+  background-color: antiquewhite;
 }
 
 .space {

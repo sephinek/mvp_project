@@ -4,6 +4,7 @@
   display: grid;
   grid-template-rows: auto 164px 1fr auto;
   padding: 0 16px 16px;
+  position: relative;
 }
 
 .space {
